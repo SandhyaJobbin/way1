@@ -3,14 +3,14 @@
 ## Phase 1: Engine & Proving (De-risking)
 
 **Goal:** Prove the riskiest technical bets and set up the foundation.
-**Plans:** 2 plans
+**Plans:** 2/2 plans executed
 **Wave 1**
 
 - [x] 01-01-PLAN.md — Initialize the vertical empty shell including Vite, TS, Tailwind v4, HashRouter, and Framer Motion for cinematic route transitions. *(Complete — 2026-08-07, 3/3 tasks)*
 
-**Wave 2** *(blocked on Wave 1 completion)*
+**Wave 2**
 
-- [ ] 01-02-PLAN.md — Setup the SCORM 1.2 connection wrapper with local fallback, initialize the Zustand global app store, and define upfront Zod validation schemas for the ecosystem/zone content.
+- [x] 01-02-PLAN.md — Setup the SCORM 1.2 connection wrapper with local fallback, initialize the Zustand global app store, and define upfront Zod validation schemas for the ecosystem/zone content. *(Complete — 2026-08-07, 3/3 tasks, 27 tests passing)*
 
 ## Phase 2: Core Components (The Tactile Feel)
 
