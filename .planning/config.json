@@ -1,0 +1,6 @@
+{
+  "mode": "standard",
+  "granularity": "epics",
+  "git": "automatic",
+  "agents": "orchestration"
+}
