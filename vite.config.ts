@@ -11,4 +11,10 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+  test: {
+    // Vitest configuration — run schema/logic unit tests without a browser
+    globals: true,
+    environment: 'node',
+    include: ['src/**/*.test.ts', 'src/**/*.test.tsx'],
+  },
 })
