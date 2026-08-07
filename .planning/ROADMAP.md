@@ -6,7 +6,7 @@
 **Plans:** 2 plans
 **Wave 1**
 
-- [ ] 01-01-PLAN.md — Initialize the vertical empty shell including Vite, TS, Tailwind v4, HashRouter, and Framer Motion for cinematic route transitions.
+- [x] 01-01-PLAN.md — Initialize the vertical empty shell including Vite, TS, Tailwind v4, HashRouter, and Framer Motion for cinematic route transitions. *(Complete — 2026-08-07, 3/3 tasks)*
 
 **Wave 2** *(blocked on Wave 1 completion)*
 
