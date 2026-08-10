@@ -1,17 +1,36 @@
 import { create } from 'zustand';
 import type { SceneId, WayoState } from '../types';
-import { SCENE_ORDER } from '../types';
+import { SCENE_ORDER, SCENE_REGISTRY } from '../types';
+
+type CameraTarget = 'hub' | 'zone1' | 'zone2' | 'zone3';
+type TransitionPhase = 'idle' | 'transitioning' | 'complete';
+
+function computeInitialCameraTarget(): CameraTarget {
+  const sceneId = SCENE_ORDER[0];
+  const meta = SCENE_REGISTRY.find((s) => s.id === sceneId);
+  if (!meta) return 'hub';
+  switch (meta.zone) {
+    case 'zone1': return 'zone1';
+    case 'zone2': return 'zone2';
+    case 'zone3': return 'zone3';
+    default: return 'hub';
+  }
+}
 
 interface StoreState {
   currentSceneIndex: number;
   wayoState: WayoState;
   accessedScenes: Set<SceneId>;
   jogPos: number;
+  cameraTarget: CameraTarget;
+  transitionPhase: TransitionPhase;
   navigateTo: (sceneId: SceneId) => void;
   nextScene: () => void;
   setWayoState: (state: WayoState) => void;
   setJogPos: (v: number) => void;
   markAccessed: (sceneId: SceneId) => void;
+  setCameraTarget: (target: CameraTarget) => void;
+  setTransitionPhase: (phase: TransitionPhase) => void;
 }
 
 export const useStore = create<StoreState>((set, get) => ({
@@ -19,6 +38,8 @@ export const useStore = create<StoreState>((set, get) => ({
   wayoState: 'idle',
   accessedScenes: new Set<SceneId>(['01']),
   jogPos: 0,
+  cameraTarget: computeInitialCameraTarget(),
+  transitionPhase: 'idle' as const,
 
   navigateTo: (sceneId) => {
     const index = SCENE_ORDER.indexOf(sceneId);
@@ -45,4 +66,8 @@ export const useStore = create<StoreState>((set, get) => ({
     accessed.add(sceneId);
     set({ accessedScenes: accessed });
   },
+
+  setCameraTarget: (target) => set({ cameraTarget: target, transitionPhase: 'transitioning' }),
+
+  setTransitionPhase: (phase) => set({ transitionPhase: phase }),
 }));
