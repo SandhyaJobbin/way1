@@ -27,11 +27,33 @@
 ## Phase 3: Hub & Polish (Cinematics)
 
 **Goal:** Connect the pieces with high-end broadcast aesthetic.
+**Plans:** 6 plans (0/6 complete)
+**Requirements:** P3-GLOBAL, P3-ORBIT, P3-POST, P3-CAMERA, P3-SPEECH, P3-INTEGRATE
+**Packages:** @react-three/postprocessing@^3.0.5, postprocessing@^6.39.4, @react-spring/three@^10.1.2
 
-- Global R3F Canvas and ecosystem orbital map (Hub).
-- Post-processing stack (ACES tone mapping, subtle bloom, vignette, noise).
-- Camera Dolly transitions between Hub and Zones.
-- Wayo speech-bubble system + directional facing.
+**Wave 1** (infrastructure — no deps)
+
+- [ ] 03-01-PLAN.md — Install Phase 3 packages, extend Zustand store with cameraTarget/transitionPhase, reconfigure Vitest for jsdom, scaffold 5 test files *(3 tasks)*
+
+**Wave 2** (depends on 03-01)
+
+- [ ] 03-02-PLAN.md — [TRACER] Global Canvas wrapper in App.tsx, GlobalScene composition, CameraRig with CameraControls dolly to hub preset *(2 tasks)*
+
+**Wave 3** (depends on 03-02)
+
+- [ ] 03-03-PLAN.md — Orbital map: OrbitRing (TorusGeometry + react-spring pulse), HubOrbitMap (3 rings), IncidentToken (orbiting sphere + pointLight) *(3 tasks)*
+
+**Wave 4** (depends on 03-02)
+
+- [ ] 03-04-PLAN.md — Post-processing stack: ACES Filmic tone mapping, Bloom, Vignette, Noise via EffectComposer + GPU fallback for low-tier devices *(2 tasks)*
+
+**Wave 5** (depends on 03-02)
+
+- [ ] 03-05-PLAN.md — Extract CloudScene from LidarCloud.tsx, remove internal Canvas, move hasWebGL gate to App.tsx, wire CloudScene into GlobalScene *(3 tasks)*
+
+**Wave 6** (depends on 03-02, 03-03)
+
+- [ ] 03-06-PLAN.md — Speech system (useTypewriter hook + speech-data.ts), enhance SpeechBubble with typewriter + aria-live, wire camera transitions to scene navigation, end-to-end integration checkpoint *(4 tasks)*
 
 ## Phase 4: Educational Lessons (3 Didactic Zones) — NEW
 
