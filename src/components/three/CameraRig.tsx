@@ -16,7 +16,9 @@ export function CameraRig() {
   useEffect(() => {
     if (!controlsRef.current) return;
     const preset = CAMERA_PRESETS[cameraTarget];
-    controlsRef.current.setLookAt(...preset.pos, ...preset.target, true);
+    const [px, py, pz] = preset.pos;
+    const [tx, ty, tz] = preset.target;
+    controlsRef.current.setLookAt(px, py, pz, tx, ty, tz, true);
   }, [cameraTarget]);
 
   return <CameraControls ref={controlsRef} makeDefault smoothTime={1.8} />;
