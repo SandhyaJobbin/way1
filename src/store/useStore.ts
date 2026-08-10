@@ -43,11 +43,23 @@ export const useStore = create<StoreState>((set, get) => ({
 
   navigateTo: (sceneId) => {
     const index = SCENE_ORDER.indexOf(sceneId);
-    if (index !== -1) {
-      const accessed = new Set(get().accessedScenes);
-      accessed.add(sceneId);
-      set({ currentSceneIndex: index, accessedScenes: accessed });
+    if (index === -1) return;
+    const accessed = new Set(get().accessedScenes);
+    accessed.add(sceneId);
+
+    const meta = SCENE_REGISTRY.find((s) => s.id === sceneId);
+    let cameraTarget: CameraTarget = 'hub';
+    if (meta) {
+      if (meta.zone === 'zone1') cameraTarget = 'zone1';
+      else if (meta.zone === 'zone2') cameraTarget = 'zone2';
     }
+
+    set({
+      currentSceneIndex: index,
+      accessedScenes: accessed,
+      cameraTarget,
+      transitionPhase: 'transitioning',
+    });
   },
 
   nextScene: () => {

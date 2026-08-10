@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useCallback } from 'react';
 import { CameraControls } from '@react-three/drei';
 import { useStore } from '../../store/useStore';
 
@@ -12,6 +12,19 @@ const CAMERA_PRESETS = {
 export function CameraRig() {
   const controlsRef = useRef<CameraControls>(null);
   const cameraTarget = useStore((s) => s.cameraTarget);
+
+  const handleRest = useCallback(() => {
+    useStore.getState().setTransitionPhase('complete');
+  }, []);
+
+  useEffect(() => {
+    const controls = controlsRef.current;
+    if (!controls) return;
+    controls.addEventListener('rest', handleRest);
+    return () => {
+      controls.removeEventListener('rest', handleRest);
+    };
+  }, [handleRest]);
 
   useEffect(() => {
     if (!controlsRef.current) return;
