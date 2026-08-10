@@ -14,7 +14,8 @@ export default defineConfig({
   test: {
     // Vitest configuration — run schema/logic unit tests without a browser
     globals: true,
-    environment: 'node',
+    environment: 'jsdom',
+    setupFiles: ['./vitest.setup.ts'],
     include: ['src/**/*.test.ts', 'src/**/*.test.tsx'],
   },
 })
