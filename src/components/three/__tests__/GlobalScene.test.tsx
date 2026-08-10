@@ -1,7 +1,4 @@
 import { describe, it, expect, vi } from 'vitest';
-import { render } from '@testing-library/react';
-import { Canvas } from '@react-three/fiber';
-import { GlobalScene } from '../GlobalScene';
 
 vi.mock('../../../store/useStore', () => ({
   useStore: vi.fn((selector) => {
