@@ -27,13 +27,13 @@
 ## Phase 3: Hub & Polish (Cinematics)
 
 **Goal:** Connect the pieces with high-end broadcast aesthetic.
-**Plans:** 6 plans (0/6 complete)
+**Plans:** 1/6 plans executed (0/6 complete)
 **Requirements:** P3-GLOBAL, P3-ORBIT, P3-POST, P3-CAMERA, P3-SPEECH, P3-INTEGRATE
 **Packages:** @react-three/postprocessing@^3.0.5, postprocessing@^6.39.4, @react-spring/three@^10.1.2
 
 **Wave 1** (infrastructure — no deps)
 
-- [ ] 03-01-PLAN.md — Install Phase 3 packages, extend Zustand store with cameraTarget/transitionPhase, reconfigure Vitest for jsdom, scaffold 5 test files *(3 tasks)*
+- [x] 03-01-PLAN.md — Install Phase 3 packages, extend Zustand store with cameraTarget/transitionPhase, reconfigure Vitest for jsdom, scaffold 5 test files *(3 tasks)*
 
 **Wave 2** (depends on 03-01)
 
