@@ -1,47 +1,36 @@
-import { createHashRouter, RouterProvider, Navigate } from 'react-router'
-import ShellLayout from './layouts/ShellLayout'
-import StartGate from './components/StartGate'
-import Hub from './components/Hub'
-import ZonePlaceholder from './components/ZonePlaceholder'
+import { lazy, Suspense } from 'react';
+import { SCENE_ORDER } from './types';
+import type { SceneId } from './types';
 
-// HashRouter is required for SCORM delivery:
-// - LMS iframes often serve from file:// or varied URL bases
-// - Hash-based routing (/# prefix) means the server/LMS never receives path changes
-// - This eliminates "route not found" 404 errors on page reload inside LMS iframes
-//
-// Route structure:
-//   #/start        → StartGate (splash — captures first user gesture for autoplay)
-//   #/             → Hub (ecosystem overview with zone navigation)
-//   #/zone/:id     → ZonePlaceholder (per-role simulation chapter)
-//
-// All routes are children of ShellLayout which provides AnimatePresence wrapping.
+const Scene01 = lazy(() => import('./views/Scene01'));
+const Scene02 = lazy(() => import('./views/Scene02'));
+const Scene03 = lazy(() => import('./views/Scene03'));
+const Scene16 = lazy(() => import('./views/Scene16'));
+const Scene17 = lazy(() => import('./views/Scene17'));
+const Scene19 = lazy(() => import('./views/Scene19'));
+const Scene20 = lazy(() => import('./views/Scene20'));
+const Scene22 = lazy(() => import('./views/Scene22'));
+const SceneSeam = lazy(() => import('./views/SceneSeam'));
 
-const router = createHashRouter([
-  {
-    path: '/',
-    element: <ShellLayout />,
-    children: [
-      {
-        index: true,
-        element: <Hub />,
-      },
-      {
-        path: 'start',
-        element: <StartGate />,
-      },
-      {
-        path: 'zone/:id',
-        element: <ZonePlaceholder />,
-      },
-      {
-        // Catch-all: redirect unknown hashes back to start
-        path: '*',
-        element: <Navigate to="/start" replace />,
-      },
-    ],
-  },
-])
+const sceneComponents: Record<SceneId, React.ComponentType> = {
+  '01': Scene01,
+  '02': Scene02,
+  '03': Scene03,
+  '16': Scene16,
+  '17': Scene17,
+  '19': Scene19,
+  '20': Scene20,
+  '22': Scene22,
+  'seam': SceneSeam,
+};
 
-export function AppRouter() {
-  return <RouterProvider router={router} />
+export function SceneRenderer({ sceneId }: { sceneId: SceneId }) {
+  const Component = sceneComponents[sceneId];
+  return (
+    <Suspense fallback={null}>
+      <Component />
+    </Suspense>
+  );
 }
+
+export { SCENE_ORDER };

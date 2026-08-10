@@ -72,6 +72,14 @@ progress:
   - 5 test scaffold files with it.skip for Plans 03-02..03-06
   - ⚠️ npm install not runnable (no shell tool) — must run manually
 
+## Active Phase 5 Plans (The Demo)
+
+| Plan | Status | Size | Description |
+|------|--------|------|-------------|
+| 05-01 | READY | S | Scenario content, routing options, triageSlice, speech-data |
+| 05-02 | READY | M | Act 1 narrative scenes, triage console rebuild, JogDial ↔ scrubber |
+| 05-03 | READY | S | Seam scene (decision propagation), GitHub Pages deploy |
+
 ## Performance Metrics
 
 | Phase | Plan | Duration | Tasks | Files |

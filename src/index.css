@@ -1,25 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Nunito+Sans:wght@300;400;600;700&display=swap');
+
 @import "tailwindcss";
 
-/* Global base styles for the Waymo Lifecycle Training Module */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+@theme {
+  --font-display: 'Baloo 2', cursive;
+  --font-body: 'Nunito Sans', sans-serif;
+  --font-data: 'JetBrains Mono', monospace;
 }
 
-html,
-body,
-#root {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+@layer base {
+  :root {
+    /* Warm Night palette */
+    --c-sky-top: #1a1a2e;
+    --c-sky-horizon: #16213e;
+    --c-city-glow: #0f3460;
+    --c-road: #2d2d44;
+    --c-warm-light: #e8d5b7;
+
+    /* Wayo */
+    --c-wayo-body: #ffffff;
+    --c-wayo-dome: #f0f0f0;
+    --c-wayo-stripe: #cc0000;
+    --c-headlight-idle: #e8f4fd;
+    --c-headlight-curious: #ffe0b2;
+    --c-headlight-concerned: #ffcc80;
+    --c-headlight-alert: #ff8a65;
+    --c-headlight-happy: #a5d6a7;
+
+    /* Lesson A — Garage */
+    --c-garage-floor: #3a3a5c;
+    --c-garage-walls: #2a2a4a;
+    --c-garage-accent: #ffd54f;
+    --c-garage-tech: #1e3a5f;
+
+    /* Lesson B — Lab */
+    --c-lab-walls: #263238;
+    --c-lab-screens: #37474f;
+    --c-lab-glow: #4fc3f7;
+    --c-lab-pipeline: #ffb74d;
+
+    /* Lesson C — Overlook */
+    --c-overlook-sky: #0d1b2a;
+    --c-overlook-mid: #1b2838;
+    --c-overlook-far: #415a77;
+
+    /* Zone 1 — Construction */
+    --c-zone1-sky: #1a1a2e;
+    --c-zone1-work: #ffb74d;
+    --c-zone1-vest: #ffeb3b;
+    --c-zone1-alert: #ff5252;
+
+    /* Zone 2 — Triage */
+    --c-triage-room: #1c2833;
+    --c-triage-console: #2c3e50;
+    --c-triage-glow: #4fc3f7;
+    --c-triage-timeline: #ffb74d;
+    --c-triage-cards: #34495e;
+    --c-triage-text: #ecf0f1;
+
+    /* Zone 3 — Annotation */
+    --c-studio-room: #e8eaf0;
+    --c-studio-surface: #ffffff;
+    --c-studio-border: #90a4ae;
+    --c-studio-submit: #66bb6a;
+
+    /* Act 4 — Day */
+    --c-day-sky: #64b5f6;
+    --c-day-horizon: #e3f2fd;
+    --c-day-road: #546e7a;
+    --c-day-confidence: #66bb6a;
+  }
+
+  body {
+    background-color: var(--c-sky-top);
+    color: #e6edf3;
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow: hidden;
+    margin: 0;
+  }
+
+  #root {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    margin: 0;
+  }
+
+  p { margin: 0; }
 }
 
-body {
-  background-color: #0a0a0f;
-  color: #e2e8f0;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@layer utilities {
+  .font-display { font-family: var(--font-display); }
+  .font-body { font-family: var(--font-body); }
+  .font-data { font-family: var(--font-data); }
+
+  .glass-panel {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+
+  .warm-glow {
+    text-shadow: 0 0 20px rgba(232, 213, 183, 0.5);
+  }
 }

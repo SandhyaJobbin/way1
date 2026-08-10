@@ -68,11 +68,19 @@ All three reuse the Wayo rig, the shared `<Console>` theme wrapper, and the Zod-
 ## Phase 5: Triage Ops Vertical Slice (The Demo)
 
 **Goal:** Ship a playable, end-to-end slice of one zone for stakeholder approval.
+**Plans:** 0/3 plans executed
 
-- Act 1: Wayo Intro sequence content (autonomy loop + low-confidence trigger).
-- Zone 2: Triage Ops audit console UI and interaction (jog dial, lidar viewport, routing menu).
-- The Seam: Decision state propagation — routing choice visibly generates Zone 3's input queue.
-- Deploy to GitHub Pages.
+**Wave 1** (data layer — no UI deps)
+
+- [ ] 05-01-PLAN.md — Scenario content & Zustand triage slice (incident data, routing options, speech content, triageSlice)
+
+**Wave 2** (depends on 05-01)
+
+- [ ] 05-02-PLAN.md — Act 1 narrative intro scenes + Zone 2 triage console rebuild (JogDial ↔ scrubber, routing cards, lidar viewport, metadata panel)
+
+**Wave 3** (depends on 05-02)
+
+- [ ] 05-03-PLAN.md — The Seam scene (decision propagation to Zone 3 queue) + GitHub Pages deploy
 
 ## Phase 6: Full Audit-Interface Scenarios (Zones 1 & 3) — NEW
 

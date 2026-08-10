@@ -1,0 +1,17 @@
+{
+  "timestamp": "2026-08-10T13:03:29.744Z",
+  "distillationEnabled": true,
+  "patternsConsolidated": 0,
+  "memoryCleaned": 0,
+  "duplicatesRemoved": 0,
+  "episodes": 0,
+  "episodeEmbeddings": 0,
+  "patternEmbeddings": 0,
+  "causalEdges": 0,
+  "promoted": 0,
+  "byProvenance": {},
+  "namespaces": [],
+  "dryRun": false,
+  "corrupt": false,
+  "skipped": "error: Could not locate the bindings file. Tried:\n → D:\\devcache\\npm-cache\\_npx\\2ed56890c96f58f7\\node_modules\\better-sqlite3\\build\\better_sqlite3.node\n → D:\\devcache\\npm-cache\\_npx\\2ed56890c96f58f7\\node_modules\\better-sqlite3\\build\\Debug\\better_sqlite3.node\n → D:\\devcache\\npm-cache\\_npx\\2ed56890c96f58f7\\node_modules\\better-sqlite3\\build\\Release\\better_sqlite3.node\n → D:\\devcache\\npm-cache\\_npx\\2ed56890c96f58f7\\node_modules\\better-sqlite3\\out\\Debug\\better_sqlite3.node\n → D:\\devcache\\npm-cache\\_npx\\2ed56890c96f58f7\\node_modules\\better-sqlite3\\Debug\\better_sqlite3.node\n → D:\\devcache\\npm-cache\\_npx\\2ed56890c96f58f7\\node_modules\\better-sqlite3\\out\\Release\\better_sqlite3.node\n → D:\\devcache\\npm-cache\\_npx\\2ed56890c96f58f7\\node_modules\\better-sqlite3\\Release\\better_sqlite3.node\n → D:\\devcache\\npm-cache\\_npx\\2ed56890c96f58f7\\node_modules\\better-sqlite3\\build\\default\\better_sqlite3.node\n → D:\\devcache\\npm-cache\\_npx\\2ed56890c96f58f7\\node_modules\\better-sqlite3\\compiled\\26.1.0\\win32\\x64\\better_sqlite3.node\n → D:\\devcache\\npm-cache\\_npx\\2ed56890c96f58f7\\node_modules\\better-sqlite3\\addon-build\\release\\install-root\\better_sqlite3.node\n → D:\\devcache\\npm-cache\\_npx\\2ed56890c96f58f7\\node_modules\\better-sqlite3\\addon-build\\debug\\install-root\\better_sqlite3.node\n → D:\\devcache\\npm-cache\\_npx\\2ed56890c96f58f7\\node_modules\\better-sqlite3\\addon-build\\default\\install-root\\better_sqlite3.node\n → D:\\devcache\\npm-cache\\_npx\\2ed56890c96f58f7\\node_modules\\better-sqlite3\\lib\\binding\\node-v147-win32-x64\\better_sqlite3.node"
+}

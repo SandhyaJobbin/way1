@@ -1,0 +1,11 @@
+{
+  "timestamp": "2026-08-10T12:57:19.825Z",
+  "projectRoot": "C:\\My-workspace\\Projects\\Work\\Waymo",
+  "structure": {
+    "hasPackageJson": true,
+    "hasTsConfig": true,
+    "hasClaudeConfig": true,
+    "hasClaudeFlow": true
+  },
+  "scannedAt": 1786366639826
+}

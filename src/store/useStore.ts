@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import type { SceneId, WayoState } from '../types';
 import { SCENE_ORDER, SCENE_REGISTRY } from '../types';
+import type { RoutingOption } from '../content/scenario-data';
 
 type CameraTarget = 'hub' | 'zone1' | 'zone2' | 'zone3';
 type TransitionPhase = 'idle' | 'transitioning' | 'complete';
@@ -24,6 +25,9 @@ interface StoreState {
   jogPos: number;
   cameraTarget: CameraTarget;
   transitionPhase: TransitionPhase;
+  selectedRouting: RoutingOption | null;
+  triageComplete: boolean;
+  seamPayload: { incidentId: string; reasonCode: string; selectedLabel: string } | null;
   navigateTo: (sceneId: SceneId) => void;
   nextScene: () => void;
   setWayoState: (state: WayoState) => void;
@@ -31,6 +35,9 @@ interface StoreState {
   markAccessed: (sceneId: SceneId) => void;
   setCameraTarget: (target: CameraTarget) => void;
   setTransitionPhase: (phase: TransitionPhase) => void;
+  selectRouting: (option: RoutingOption) => void;
+  confirmRouting: () => void;
+  resetTriage: () => void;
 }
 
 export const useStore = create<StoreState>((set, get) => ({
@@ -40,6 +47,9 @@ export const useStore = create<StoreState>((set, get) => ({
   jogPos: 0,
   cameraTarget: computeInitialCameraTarget(),
   transitionPhase: 'idle' as const,
+  selectedRouting: null,
+  triageComplete: false,
+  seamPayload: null,
 
   navigateTo: (sceneId) => {
     const index = SCENE_ORDER.indexOf(sceneId);
@@ -82,4 +92,26 @@ export const useStore = create<StoreState>((set, get) => ({
   setCameraTarget: (target) => set({ cameraTarget: target, transitionPhase: 'transitioning' }),
 
   setTransitionPhase: (phase) => set({ transitionPhase: phase }),
+
+  selectRouting: (option) => set({ selectedRouting: option }),
+
+  confirmRouting: () => {
+    const { selectedRouting } = get();
+    if (!selectedRouting) return;
+    set({
+      triageComplete: true,
+      seamPayload: {
+        incidentId: 'TRI-2291-RA',
+        reasonCode: selectedRouting.reasonCode,
+        selectedLabel: selectedRouting.label,
+      },
+    });
+  },
+
+  resetTriage: () =>
+    set({
+      selectedRouting: null,
+      triageComplete: false,
+      seamPayload: null,
+    }),
 }));

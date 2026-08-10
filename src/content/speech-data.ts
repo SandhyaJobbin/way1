@@ -1,12 +1,10 @@
 import type { Zone } from '../types';
+import { ACT1_NARRATIVE, ZONE2_NARRATIVE } from './scenario-data';
+
+export { ACT1_NARRATIVE, ZONE2_NARRATIVE } from './scenario-data';
 
 export const SPEECH_DATA: Record<Zone, string[]> = {
-  act1: [
-    'Welcome! This is your interactive training hub.',
-    'Explore the three zones to learn about incident response.',
-    'Each zone reveals a different aspect of decision-making under pressure.',
-    'Use the dial to scrub through the timeline.',
-  ],
+  act1: ACT1_NARRATIVE.map((line) => line.text),
   lessonA: [],
   lessonB: [],
   lessonC: [],
@@ -15,11 +13,7 @@ export const SPEECH_DATA: Record<Zone, string[]> = {
     'One event. Three possible paths.',
     'Your decisions here shape the outcome.',
   ],
-  zone2: [
-    'Zone Two: Look deeper into the data.',
-    'What patterns can you spot from this vantage point?',
-    'Every insight brings you closer to understanding.',
-  ],
+  zone2: ZONE2_NARRATIVE.map((line) => line.text),
   zone3: [],
   act4: [],
 };
