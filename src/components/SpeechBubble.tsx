@@ -7,7 +7,7 @@ interface SpeechBubbleProps {
   show: boolean;
   children?: ReactNode;
   text?: string;
-  position?: 'top-left' | 'top-right' | 'bottom-left';
+  position?: 'top-left' | 'top-right' | 'bottom-left' | 'above-wayo';
   direction?: 'left' | 'center' | 'right';
   charsPerSecond?: number;
   onComplete?: () => void;
@@ -18,7 +18,7 @@ export function SpeechBubble({
   children,
   text,
   position = 'top-left',
-  direction = 'left',
+  direction = 'center',
   charsPerSecond = 30,
   onComplete,
 }: SpeechBubbleProps) {
@@ -34,6 +34,7 @@ export function SpeechBubble({
     'top-left': 'top-[12%] left-[5%]',
     'top-right': 'top-[12%] right-[5%]',
     'bottom-left': 'bottom-[35%] left-[5%]',
+    'above-wayo': 'bottom-[28%] left-1/2 -translate-x-1/2',
   };
 
   const arrowClasses = {

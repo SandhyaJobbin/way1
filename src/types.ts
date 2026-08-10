@@ -1,43 +1,33 @@
-export type WayoState = 'idle' | 'curious' | 'thinking' | 'concerned' | 'alert' | 'happy';
+export type GuideState = 'idle' | 'curious' | 'thinking' | 'concerned' | 'alert' | 'happy';
 
-export type Zone =
-  | 'act1'
-  | 'lessonA'
-  | 'lessonB'
-  | 'lessonC'
-  | 'zone1'
-  | 'zone2'
-  | 'zone3'
-  | 'act4';
+export type Zone = 'lesson' | 'zone';
 
-export type SceneId = '01' | '02' | '03' | '16' | '17' | '19' | '20' | '22' | 'seam';
+export type SceneId = 'L1' | 'L2' | 'L3' | 'Z1' | 'Z2' | 'Z3' | 'Z4';
 
 export interface SceneMeta {
   id: SceneId;
   zone: Zone;
-  wayoState: WayoState | WayoState[];
+  guideState: GuideState | GuideState[];
   title?: string;
 }
 
 export interface SceneDefinition {
   id: SceneId;
   zone: Zone;
-  wayoStates: WayoState[];
+  guideStates: GuideState[];
   component: React.ComponentType;
 }
 
 export const SCENE_REGISTRY: SceneMeta[] = [
-  { id: '01', zone: 'act1', wayoState: 'idle', title: 'One intersection. Three decisions.' },
-  { id: '02', zone: 'act1', wayoState: ['idle', 'curious'] },
-  { id: '03', zone: 'act1', wayoState: ['curious', 'concerned'] },
-  { id: '16', zone: 'zone1', wayoState: 'alert' },
-  { id: '17', zone: 'zone1', wayoState: 'idle' },
-  { id: '19', zone: 'zone2', wayoState: 'curious' },
-  { id: '20', zone: 'zone2', wayoState: 'idle' },
-  { id: '22', zone: 'zone2', wayoState: 'happy' },
-  { id: 'seam', zone: 'zone2', wayoState: 'curious', title: 'The Seam' },
+  { id: 'L1', zone: 'lesson', guideState: 'idle', title: 'Intro' },
+  { id: 'L2', zone: 'lesson', guideState: 'curious', title: 'Concept Map' },
+  { id: 'L3', zone: 'lesson', guideState: 'thinking', title: 'Quick Check' },
+  { id: 'Z1', zone: 'zone', guideState: 'alert', title: 'Scenario Setup' },
+  { id: 'Z2', zone: 'zone', guideState: 'curious', title: 'AV Overlay View' },
+  { id: 'Z3', zone: 'zone', guideState: 'thinking', title: 'Decision Point' },
+  { id: 'Z4', zone: 'zone', guideState: 'happy', title: 'Scorecard' },
 ];
 
-export const ZONE_ORDER: Zone[] = ['act1', 'lessonA', 'lessonB', 'lessonC', 'zone1', 'zone2', 'zone3', 'act4'];
+export const ZONE_ORDER: Zone[] = ['lesson', 'zone'];
 
-export const SCENE_ORDER: SceneId[] = ['01', '02', '03', '16', '17', '19', '20', '22', 'seam'];
+export const SCENE_ORDER: SceneId[] = ['L1', 'L2', 'L3', 'Z1', 'Z2', 'Z3', 'Z4'];

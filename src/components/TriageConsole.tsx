@@ -152,7 +152,7 @@ export function TriageConsole({
 
       {/* Timeline scrubber — bottom */}
       {showScrubber && (
-        <div className="absolute bottom-[6%] left-[5%] w-[62%] z-25">
+        <div className="absolute bottom-[18%] left-[5%] w-[62%] z-25">
           <div className="glass-panel px-4 py-2.5">
             <div className="flex items-center gap-3">
               <span className="font-data text-[10px] text-white/40">14:21:30</span>

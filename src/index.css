@@ -111,4 +111,22 @@
   .warm-glow {
     text-shadow: 0 0 20px rgba(232, 213, 183, 0.5);
   }
+
+  @keyframes glow-pulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+  }
+
+  @keyframes glow-rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .animate-glow-pulse {
+    animation: glow-pulse 3s ease-in-out infinite;
+  }
+
+  .animate-glow-rotate {
+    animation: glow-rotate 8s linear infinite;
+  }
 }

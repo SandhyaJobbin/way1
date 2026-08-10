@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 import type { TargetAndTransition } from 'framer-motion';
-import type { WayoState } from '../types';
+import type { GuideState } from '../types';
+import { GlowRing } from './GlowRing';
 import wayoIdle from '../assets/wayo-idle.png';
 import wayoCurious from '../assets/wayo-curious.png';
 import wayoThinking from '../assets/wayo-thinking.png';
@@ -13,7 +14,7 @@ import warmVid from '../assets/Warming-up.mp4';
 import alertVid from '../assets/Alert.mp4';
 import happyVid from '../assets/Happy.mp4';
 
-const mediaSources: Record<WayoState, { video: string; poster: string }> = {
+const mediaSources: Record<GuideState, { video: string; poster: string }> = {
   idle: { video: introVid, poster: wayoIdle },
   curious: { video: warmVid, poster: wayoCurious },
   thinking: { video: warmVid, poster: wayoThinking },
@@ -24,7 +25,7 @@ const mediaSources: Record<WayoState, { video: string; poster: string }> = {
 
 const springConfig = { stiffness: 80, damping: 12 };
 
-const bodyVariants: Record<WayoState, TargetAndTransition> = {
+const bodyVariants: Record<GuideState, TargetAndTransition> = {
   idle: {
     y: [0, -8, 0],
     rotate: [0, 0.5, 0],
@@ -62,14 +63,14 @@ const bodyVariants: Record<WayoState, TargetAndTransition> = {
   },
 };
 
-interface WayoProps {
-  state: WayoState;
+interface GuideProps {
+  state: GuideState;
   size?: number;
   position?: 'left' | 'center' | 'right';
   animate?: boolean;
 }
 
-export function Wayo({ state, size = 260, position = 'left', animate = true }: WayoProps) {
+export function AIGuide({ state, size = 260, position = 'center', animate = true }: GuideProps) {
   const media = mediaSources[state];
 
   const mouseX = useMotionValue(0);
@@ -95,10 +96,10 @@ export function Wayo({ state, size = 260, position = 'left', animate = true }: W
 
   return (
     <motion.div
-      className={`absolute bottom-[8%] ${positionClasses[position]} z-20`}
-      initial={animate ? { x: -100, opacity: 0 } : false}
-      animate={{ x: 0, opacity: 1 }}
-      exit={{ x: 100, opacity: 0 }}
+      className={`absolute bottom-[4%] ${positionClasses[position]} z-20`}
+      initial={animate ? { y: 60, opacity: 0 } : false}
+      animate={{ y: 0, opacity: 1 }}
+      exit={{ y: 60, opacity: 0 }}
       transition={animate ? springConfig : { duration: 0 }}
       key={state}
     >
@@ -106,17 +107,19 @@ export function Wayo({ state, size = 260, position = 'left', animate = true }: W
         animate={bodyVariants[state] ?? bodyVariants.idle}
         style={{ x: parallaxX, y: parallaxY, rotate: parallaxRotate }}
       >
-        <video
-          src={media.video}
-          poster={media.poster}
-          autoPlay
-          loop
-          muted
-          playsInline
-          draggable={false}
-          style={{ width: size, height: 'auto', maxHeight: '420px' }}
-          className="drop-shadow-[0_15px_40px_rgba(0,0,0,0.7)] object-contain bg-transparent mix-blend-screen"
-        />
+        <GlowRing state={state} size={size}>
+          <video
+            src={media.video}
+            poster={media.poster}
+            autoPlay
+            loop
+            muted
+            playsInline
+            draggable={false}
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            className="bg-transparent mix-blend-screen"
+          />
+        </GlowRing>
       </motion.div>
     </motion.div>
   );

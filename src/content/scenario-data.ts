@@ -1,3 +1,9 @@
+import rtorIcon from '../assets/icon-rtor.gif';
+import fourWayIcon from '../assets/icon-4way.png';
+import schoolBusIcon from '../assets/icon-schoolbus.gif';
+import jaywalkIcon from '../assets/icon-jaywalk.gif';
+import laneChangeIcon from '../assets/icon-lanechange.png';
+
 export interface IncidentData {
   id: string;
   source: string;
@@ -20,101 +26,109 @@ export interface RoutingOption {
 
 export interface NarrativeLine {
   text: string;
-  wayoState: 'idle' | 'curious' | 'thinking' | 'concerned' | 'alert' | 'happy';
+  guideState: 'idle' | 'curious' | 'thinking' | 'concerned' | 'alert' | 'happy';
   delay?: number;
 }
 
-export const TRIAGE_INCIDENT: IncidentData = {
-  id: 'TRI-2291-RA',
-  source: 'Zone 1 — MCPI Sensor Array',
+export const ZONE_INCIDENT: IncidentData = {
+  id: 'PHX-4471-RTOR',
+  source: 'Phoenix Sensor Array',
   timestamp: '14:23:07 UTC',
-  type: 'Construction Zone Anomaly',
+  type: 'Right-Turn-on-Red Anomaly',
   severity: 'high',
-  confidence: 0.17,
+  confidence: 0.31,
   sensorFusion: ['LiDAR', 'Camera', 'Radar', 'V2X'],
   description:
-    'Low-confidence construction zone detection. Sensor fusion disagreement on barrier boundaries. Manual triage required before fleet-wide alert.',
+    'Low-confidence pedestrian intent detection. Vehicle approaching intersection on red, pedestrian on curb.',
 };
 
-export const TRIAGE_ROUTING_OPTIONS: RoutingOption[] = [
+export const LESSON_BEHAVIORS = [
   {
-    id: 'fleet-ops',
-    label: 'Forward to Fleet Ops',
-    icon: '🚛',
-    reasonCode: 'FLEET_WIDE',
-    description: 'Broadcast alert to all active vehicles in sector. Fleet Ops coordinates rerouting.',
-    recommended: false,
+    id: 'rtor',
+    title: 'Right-Turn-on-Red',
+    icon: '🔴→✅',
+    iconUrl: rtorIcon,
+    desc: 'Yielding to traffic and pedestrians before turning right on red.',
+    confidenceLevel: 85
   },
   {
-    id: 'annotation',
-    label: 'Send to Annotation Studio',
-    icon: '🏷️',
-    reasonCode: 'ANNOTATE',
-    description: 'Route to human annotators for bounding-box correction and label verification.',
-    recommended: true,
+    id: 'four-way',
+    title: 'Four-Way-Stop Etiquette',
+    icon: '🛑',
+    iconUrl: fourWayIcon,
+    desc: 'Determining right of way based on arrival time and position.',
+    confidenceLevel: 92
   },
   {
-    id: 'safety-lead',
-    label: 'Escalate to Safety Lead',
-    icon: '🛡️',
-    reasonCode: 'ESCALATE',
-    description: 'Flag for senior safety review. Pauses autonomous decisions in affected sector.',
-    recommended: false,
+    id: 'school-bus',
+    title: 'School-Bus Mandates',
+    icon: '🚌',
+    iconUrl: schoolBusIcon,
+    desc: 'Strict stopping protocols when red lights are flashing.',
+    confidenceLevel: 98
   },
+  {
+    id: 'jaywalking',
+    title: 'Jaywalking Norms',
+    icon: '🚶',
+    iconUrl: jaywalkIcon,
+    desc: 'Predicting intent when pedestrians cross outside designated areas.',
+    confidenceLevel: 65
+  },
+  {
+    id: 'lane-change',
+    title: 'Aggressive Lane Change',
+    icon: '🚗💨',
+    iconUrl: laneChangeIcon,
+    desc: 'Anticipating sudden cut-ins and aggressive merges.',
+    confidenceLevel: 72
+  }
 ];
 
-export const ACT1_NARRATIVE: NarrativeLine[] = [
+export const LESSON_QUIZ = [
   {
-    text: 'Welcome to the Waymo Triage Ops module. You are the critical link between sensor data and fleet safety.',
-    wayoState: 'idle',
+    question: 'At a four-way stop, two cars arrive simultaneously. The AV is on the right. Who has right of way?',
+    options: ['The AV', 'The other car', 'Neither'],
+    answerIndex: 0
+  },
+  {
+    question: 'When a school bus has its red lights flashing and stop arm extended, the AV must:',
+    options: ['Pass cautiously', 'Stop completely', 'Honk and proceed'],
+    answerIndex: 1
+  },
+  {
+    question: 'A pedestrian steps off the curb 50 feet from a crosswalk. The AV should prioritize:',
+    options: ['Maintaining speed', 'Yielding and reassessing intent', 'Switching lanes immediately'],
+    answerIndex: 1
+  }
+];
+
+export const SCORECARD_DIMENSIONS = [
+  { name: '3D Spatial Rotation', max: 5 },
+  { name: 'Telemetry Interpretation', max: 5 },
+  { name: 'Occlusion Reasoning', max: 5 },
+  { name: 'Complex Decision-Making', max: 5 },
+];
+
+export const ZONE_NARRATIVE: NarrativeLine[] = [
+  {
+    text: 'The AV detected an unusual pattern. Confidence flagged at 0.31. Let us look at what the sensors captured.',
+    guideState: 'alert',
     delay: 0,
   },
   {
-    text: 'Every day, autonomous vehicles process millions of sensor readings. Most are routine. Some are not.',
-    wayoState: 'curious',
+    text: 'The pedestrian stepped off the curb. The AV flagged intent uncertainty. What does the sensor data tell you?',
+    guideState: 'thinking',
     delay: 400,
   },
   {
-    text: 'When confidence drops below threshold, the system flags it for human review. That is where you come in.',
-    wayoState: 'thinking',
-    delay: 400,
-  },
-  {
-    text: 'A low-confidence incident has just arrived from Zone 1. Confidence: 0.17 — well below the 0.85 threshold.',
-    wayoState: 'concerned',
-    delay: 300,
-  },
-  {
-    text: 'Let us head to the triage console and examine what the sensors are telling us.',
-    wayoState: 'alert',
-    delay: 300,
-  },
-];
-
-export const ZONE2_NARRATIVE: NarrativeLine[] = [
-  {
-    text: 'This is the triage console. The incident — TRI-2291-RA — is waiting for your decision.',
-    wayoState: 'idle',
+    text: 'Exactly. Low confidence on legal-status forces the AV to yield and flag.',
+    guideState: 'happy',
     delay: 0,
   },
   {
-    text: 'Left: LiDAR point cloud. The sweep is live — 8 detected objects, 2 flagged as unknown.',
-    wayoState: 'curious',
-    delay: 400,
-  },
-  {
-    text: 'Center: Camera feeds. Notice the construction barrier — sensor fusion disagrees on its exact boundaries.',
-    wayoState: 'thinking',
-    delay: 400,
-  },
-  {
-    text: 'Use the jog dial to scrub through the timeline and observe how the detection evolves.',
-    wayoState: 'curious',
-    delay: 300,
-  },
-  {
-    text: 'When ready, select a routing option on the right. Your choice determines what happens next in the ecosystem.',
-    wayoState: 'alert',
-    delay: 300,
-  },
+    text: 'Not quite. The uncertainty of intent requires the AV to yield until the pedestrian action is clear.',
+    guideState: 'concerned',
+    delay: 0,
+  }
 ];

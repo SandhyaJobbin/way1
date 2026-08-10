@@ -1,34 +1,27 @@
 import { motion } from 'framer-motion';
 import type { ReactNode } from 'react';
-import type { Zone, WayoState } from '../types';
-import { Wayo } from './Wayo';
+import type { Zone, GuideState } from '../types';
+import { AIGuide } from './AIGuide';
 
 // Assuming user will provide these backgrounds in src/assets
 import bgAct1 from '../assets/bg-act1.png';
 import bgZone1 from '../assets/bg-zone1.png';
-import bgZone2 from '../assets/bg-zone2.png';
 
 const zoneBackgrounds: Record<Zone, string> = {
-  act1: bgAct1,
-  lessonA: bgAct1,
-  lessonB: bgAct1,
-  lessonC: bgAct1,
-  zone1: bgZone1,
-  zone2: bgZone2,
-  zone3: bgZone2,
-  act4: bgAct1,
+  lesson: bgAct1,
+  zone: bgZone1,
 };
 
 interface SceneShellProps {
   zone: Zone;
   children: ReactNode;
-  showWayo?: boolean;
-  wayoState?: WayoState;
-  wayoPosition?: 'left' | 'center' | 'right';
+  showGuide?: boolean;
+  guideState?: GuideState;
+  guidePosition?: 'left' | 'center' | 'right';
   bgImage?: string;
 }
 
-export function SceneShell({ zone, children, showWayo = true, wayoState = 'idle', wayoPosition = 'left', bgImage }: SceneShellProps) {
+export function SceneShell({ zone, children, showGuide = true, guideState = 'idle', guidePosition = 'center', bgImage }: SceneShellProps) {
   const bg = bgImage || zoneBackgrounds[zone];
 
   return (
@@ -43,7 +36,7 @@ export function SceneShell({ zone, children, showWayo = true, wayoState = 'idle'
       <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
       <div className="relative w-full h-full">
         {children}
-        {showWayo && <Wayo state={wayoState} position={wayoPosition} />}
+        {showGuide && <AIGuide state={guideState} position={guidePosition} />}
       </div>
     </motion.div>
   );
