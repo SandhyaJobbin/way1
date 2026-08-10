@@ -1,6 +1,7 @@
 import { useStore } from '../../store/useStore';
 import { CameraRig } from './CameraRig';
 import { HubOrbitMap } from './HubOrbitMap';
+import { PostProcessing } from './PostProcessing';
 
 export function GlobalScene() {
   const cameraTarget = useStore((s) => s.cameraTarget);
@@ -10,6 +11,7 @@ export function GlobalScene() {
       <ambientLight intensity={0.15} />
       <CameraRig />
       {cameraTarget === 'hub' && <HubOrbitMap />}
+      <PostProcessing />
     </>
   );
 }
