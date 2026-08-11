@@ -1,26 +1,69 @@
-# Waymo Lifecycle Interactive Training Module
+# Waymo US Driving Context & AV Rules Training Module
 
-## Vision
-Build a breakthrough 25-minute introductory interactive training module that teaches agents the map of the Waymo autonomous-vehicle ecosystem and how three human roles — MCPI Agent, Triage Ops, and Annotators — depend on each other to handle edge cases and improve the system.
+## What This Is
+A gamified, Waymo-branded interactive training module that teaches offshore AV operators native US driving context and AV rules — how real US road behavior (right-turn-on-red, four-way stops, school buses, jaywalking, aggressive lane changes) is read and handled by the Waymo Driver. Structured as exactly **1 Lesson + 1 Zone**, delivered as a standalone HTML experience with an optional SCORM 1.2 package for LMS (Reach 360).
 
-Instead of a traditional e-learning course, this will be a "diegetic UI" — the learner role-plays the job inside an investigation console. The module uses a single incident (a construction zone flagger) passing through all three roles to demonstrate the seams and handoffs between them.
+## Core Value
+Close the US driving-context gap for offshore operators through recognition-based training (not annotation/labeling) that looks and feels like waymo.com — a professional audit-grade tool, not a generic e-learning course. Learners finish able to recognize US road nuances from an AV perspective and pass a scored mixed-scenario challenge.
 
-## Key Elements
-1. **Interactive Jog Dial**: A tactile, physically modelled control (react-spring) for scrubbing incident replays.
-2. **Synthetic Lidar Hero**: A 3D procedural point cloud shader replicating sensor data authentically.
-3. **Wayo (The Car)**: An animated, responsive SVG character that acts as the narrator and subject.
-4. **Cinematic Polish**: ACES tone mapping, grain, and bloom post-processing for a broadcast/F1 aesthetic.
-5. **Propagating Decisions**: Choices made in one role (e.g., Triage Ops routing) visibly affect the queue and context in the next role (Annotators).
+## Business Context
+- Client recruits US-Returned talent (expats/US-educated) as Team Leads, QA, and Senior MPCI cultural translators; this module is their onboarding instrument.
+- Two-section product vision: a one-time **Onboarding** module (v1 = this build) and a recurring **edge-case resurfacing** section fed by root-cause analysis (v2).
+- Must explicitly state it is training for the Autonomous Vehicle industry.
 
-## Technical Foundation
-- React 19, Vite, TypeScript, Tailwind v4
-- Framer Motion, Zustand, @use-gesture/react, react-spring
-- React Three Fiber (`@react-three/fiber`, `drei`, `@react-three/postprocessing`)
-- SCORM 1.2 delivery via `simple-scorm-packager` and `pipwerks`, designed for direct upload to Reach 360 (new window launch).
-- Content architecture via typed JSON (Zod).
-- Static deployment target (GitHub Pages for demo, LMS for prod).
+## Requirements
 
-## Success Criteria
-- **Learner outcomes**: Can name who owns an event at each stage and what the next role needs.
-- **Engagement**: Differentiated, tactile experience that feels like using pro gear.
-- **Demo Target**: Act 1 (intro), Zone 2 (Triage Ops), and one handoff seam deployed to GitHub pages.
+### Validated
+- Content pivot to US traffic/vehicle policy + AV rules per client doc ("New requirements.docx").
+- Exactly 1 Lesson + 1 Zone in v1 (client asked for less generic, higher-impact scope).
+- Lesson is video-driven (Waymo YouTube embeds + blog-style media); Zone includes video and rich media.
+- Worlds: Phoenix + San Francisco only now (recreate "See how Waymo navigates real world scenarios" video style); other metros later.
+- Three difficulty tiers — Foundation, Proficient, Advanced — open to all, inside the single Zone.
+- Assessment maps to technical scorecard categories: 3D spatial rotation, telemetry interpretation, occlusion reasoning, complex decision-making; scorecard SNAPSHOT shown toward the end.
+- Gamification mechanics + pass threshold delegated to us with justification (~80% accuracy gate suggested).
+- Scenarios include simulated AV-perspective overlays: bounding boxes, lidar-style point representations, sensor confidence indicators.
+- Mixed scenario challenges (nuances woven together), not 5 separate modules.
+- Look/feel of waymo.com with Waymo branding.
+- Standalone HTML/interactive + SCORM package option for LMS.
+
+### Active
+- Add more US driving nuances beyond the named five, woven into mixed challenges.
+- Justified gamification + pass-threshold spec (deliver rationale doc alongside implementation).
+- Content pipeline must let new scenarios ship without code changes (typed JSON + Zod).
+
+### Out of Scope (v1)
+- Annotation/labeling workflow training (recognition only).
+- Recurring edge-case resurfacing section (v2).
+- Worlds beyond Phoenix + San Francisco.
+- Multi-lesson / multi-zone structure (retired by pivot).
+- Wayo SVG narrator character, jog dial, 3-role diegetic console (MCPI/Triage/Annotation) — retired.
+
+## Context
+- Brownfield pivot: existing React 19 + Vite + TS + Tailwind v4 app with 3D hub, lesson zones, and scenario zones exists; pivot replaces content model and UI language, keeps delivery plumbing.
+- Design references: waymo.com, waymo.com/blog/2026/06/reference-driver/, waymo.com/blog/2025/06/safe-to-deploy/, plus 8 client screenshots. Design language captured: off-white #F5F7FA shell, navy #1E2340 rounded geometric display type, Waymo blue #0080FF + teal #00E59B accents, isometric 3D city + thick rounded gradient route paths, circular outline buttons, dot-timeline scrubbers; dark audit console = deep-navy canvas, BEV top-down with magenta bounding boxes, camera strips, lidar point cloud, route paths with labeled checkpoint nodes + circular check badges.
+
+## Constraints
+- Tech stack unchanged: React 19, Vite, TypeScript, Tailwind v4, Framer Motion, Zustand; R3F where needed.
+- SCORM 1.2 via simple-scorm-packager + pipwerks (Reach 360, new-window launch); Vite base './' for static hosting.
+- Video = YouTube embeds (Waymo channel) + blog-style media; no self-hosted video pipeline.
+- Waymo branding must be consistent with waymo.com tokens; must say "training for the Autonomous Vehicle industry".
+
+## Key Decisions
+
+| Decision | Choice | Rationale |
+|---|---|---|
+| Structure | 1 Lesson + 1 Zone | Client pivot: focused, high-impact, less generic |
+| Lesson format | Video-driven + interactive media | Zone "must have videos and everything"; audit-grade feel |
+| Difficulty | 3 tiers inside one Zone | Foundation/Proficient/Advanced open to all |
+| Assessment | Scorecard snapshot + ~80% pass gate | Maps to client's technical categories; threshold justified in spec |
+| Gamification | Route-path progress + badges | Waymo route metaphor; not arcade |
+| Retired elements | Wayo, jog dial, 3-role console | Replaced by waymo.com patterns (dot scrubber, clean brand voice) |
+| Edge-case section | v2 | Typed-JSON pipeline keeps it a content change, not code |
+| Delivery | Standalone HTML + SCORM 1.2 | Client requirement; Reach 360 |
+
+## Evolution
+- v0 (prior): 25-min diegetic 3-role ecosystem module (MCPI/Triage/Annotators, Wayo narrator, jog dial, lidar hero).
+- v1 (current): pivot to US driving context + AV rules, 1 Lesson + 1 Zone, waymo.com design language, audit-grade UI.
+- v2 (planned): recurring edge-case resurfacing section from root-cause analysis; additional metro worlds.
+
+*Last updated: 2026-08-11 after client pivot ("New requirements.docx")*
