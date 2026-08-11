@@ -38,6 +38,7 @@ All video surfaces ship as styled placeholder slots (poster + play affordance) w
 | World scenario clips (Phoenix/SF) | World sections | Pexels/Coverr free driving footage (keywords §9.7), unbranded | ▶ 🛒 |
 | AV-rules / safety methodology clip | Lesson AV-rules section | Licensed or post-award client video | ▶ 🛒 |
 | Scenario challenge clips (3–6) | Zone scenario intros/replays | Simulated renders (code-gen) or licensed footage | ⚙/🛒 |
+| **Dashcam POV hazard-sim clips (3–6, 1–3 min each)** | **Zone hazard perception simulator gameplay footage** — Phoenix + SF worlds | Pexels/Coverr dashcam-style driving clips (keywords §9.7: horizontal, no brands, intersections/crosswalks/school zones) OR simulated renders; hazards must be visible in clip for hit-region authoring | ▶ 🛒 |
 | Poster frames for all slots | Placeholder poster + play affordance | Gemini Pro stills (prompt §9.8) | 🛒 |
 | Post-award reference embeds | waymo.com channel videos (e.g., "Sense, Solve, and Go", reference-driver, safe-to-deploy) | ONLY after award + client approval — keep URLs in this manifest, not in code | 🛒 post-RFP |
 
@@ -57,6 +58,8 @@ All video surfaces ship as styled placeholder slots (poster + play affordance) w
 | Difficulty tier icons (Foundation/Proficient/Advanced) | Zone tier selector | Lucide (e.g., layers/gauge/rocket) | 🛒 pick set |
 | Scorecard category icons (4 categories) | Scorecard snapshot | Lucide (e.g., rotate-3d/activity/eye-off/git-branch) | 🛒 pick set |
 | Circular outline play/prev/next buttons | Media controls | Lucide play/chevron inside CSS circular outline | ⚙ |
+| State picker cards (51) | Lesson state handbook grid | **Code-generated**: typographic 2-letter code monogram in circular badge + state name (no 51 custom emblems needed); optional state silhouette SVGs later (public-domain US state outline maps, e.g. Wikimedia Commons) | ⚙ |
+| Hazard category icons (Vehicles/Pedestrians/Signs/Road marks) | Zone category selector + results | Lucide (car/walking/traffic-cone/paintbrush or similar) | 🛒 pick set |
 
 ## 7. Fonts
 | Asset | Spec | Source | License note | Status |
@@ -125,7 +128,7 @@ Clean minimal product-visualization style. 16:9.
 ```
 
 ### 9.7 Video search keywords (Pexels Video / Coverr)
-"dashcam driving city", "POV driving intersection", "pedestrian crossing street", "car turning intersection aerial", "school bus street", "highway merging traffic". Filter: horizontal, no visible brands.
+"dashcam driving city", "POV driving intersection", "pedestrian crossing street", "car turning intersection aerial", "school bus street", "highway merging traffic", "dashcam pedestrian jaywalking", "dashcam four way stop", "dashcam right turn intersection", "dashcam school zone". Filter: horizontal, no visible brands. **Hazard-sim note**: pick clips where potential hazards (crossing pedestrians, stopping bus, merging vehicle, signage) are clearly visible long enough to author hit-region timelines.
 
 ### 9.8 Gemini Pro prompt — video poster frames (placeholder slots)
 ```
@@ -154,9 +157,9 @@ Use it to draft content JSON text; do not use it for images here (Gemini Pro is 
 1. Choose neutral working brand name + approve placeholder wordmark (Canva, §9.2).
 2. Generate unbranded generic AV renders (Gemini Pro, §9.3/§9.4).
 3. License Phoenix/SF street imagery (Unsplash/Pexels/Canva, §9.5).
-4. Source demo footage for video slots OR approve simulated-render placeholders (§9.7).
+4. Source demo footage for video slots OR approve simulated-render placeholders (§9.7) — **priority: 3–6 dashcam POV clips for the hazard simulator**.
 5. Approve fonts: Outfit + Manrope recommended (§7).
 6. Optional: UI sound pack decision (Freesound CC0).
 7. Post-award only: client branding kit + approved official video embeds.
 
-*Last updated: 2026-08-11 — procurement toolkit added (Canva Pro / Gemini Pro / ChatGPT Go / free-OSS mapping + generation prompts)*
+*Last updated: 2026-08-11 — hazard-sim dashcam POV slots + state picker assets added (manager pivot: DMV-handbook lesson + hazard perception zone)*

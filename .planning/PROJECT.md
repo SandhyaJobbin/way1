@@ -16,7 +16,8 @@ Close the US driving-context gap for offshore operators through recognition-base
 ### Validated
 - Content pivot to US traffic/vehicle policy + AV rules per client doc ("New requirements.docx").
 - Exactly 1 Lesson + 1 Zone in v1 (client asked for less generic, higher-impact scope).
-- Lesson is video-driven (Waymo YouTube embeds + blog-style media); Zone includes video and rich media.
+- Lesson = DMV-handbook style: US driving essentials first, then state picker grid (all 50 states + DC with symbol/code/name); Arizona + California deep content, other states data-driven stubs.
+- Zone = hazard perception simulator (driving-tests.org style): POV dashcam clips, click developing hazards across Vehicles/Pedestrians/Signs/Road marks, outcomes = hazards spotted + reaction speed + false clicks; AV-overlay tiers give it the AV twist.
 - Worlds: Phoenix + San Francisco only now (recreate "See how Waymo navigates real world scenarios" video style); other metros later.
 - Three difficulty tiers — Foundation, Proficient, Advanced — open to all, inside the single Zone.
 - Assessment maps to technical scorecard categories: 3D spatial rotation, telemetry interpretation, occlusion reasoning, complex decision-making; scorecard SNAPSHOT shown toward the end.
@@ -53,8 +54,9 @@ Close the US driving-context gap for offshore operators through recognition-base
 | Decision | Choice | Rationale |
 |---|---|---|
 | Structure | 1 Lesson + 1 Zone | Client pivot: focused, high-impact, less generic |
-| Lesson format | Video-driven + interactive media | Zone "must have videos and everything"; audit-grade feel |
-| Difficulty | 3 tiers inside one Zone | Foundation/Proficient/Advanced open to all |
+| Lesson format | DMV-handbook style: US essentials + 51-state picker (AZ/CA deep, rest stubs) | Manager pivot: teach major things first, then state driving policy, then simulator |
+| Zone format | Hazard perception simulator — POV clips, click hazards (Vehicles/Pedestrians/Signs/Road marks), 3 AV-overlay tiers, tutorial mode | Manager pivot: driving-tests.org-style sim; outcomes = hazards spotted, reaction speed, false clicks |
+| Difficulty | 3 tiers inside one Zone (Foundation clean POV / Proficient POV+overlay / Advanced BEV+telemetry) | Foundation/Proficient/Advanced open to all; tiers map to scorecard categories |
 | Assessment | Scorecard snapshot + ~80% pass gate | Maps to client's technical categories; threshold justified in spec |
 | Gamification | Route-path progress + badges | Waymo route metaphor; not arcade |
 | Retired elements | Wayo, jog dial, 3-role console | Replaced by waymo.com patterns (dot scrubber, clean brand voice) |
@@ -67,4 +69,4 @@ Close the US driving-context gap for offshore operators through recognition-base
 - v1 (current): pivot to US driving context + AV rules, 1 Lesson + 1 Zone, waymo.com design language, audit-grade UI.
 - v2 (planned): recurring edge-case resurfacing section from root-cause analysis; additional metro worlds.
 
-*Last updated: 2026-08-11 after client pivot ("New requirements.docx")*
+*Last updated: 2026-08-11 after manager pivot — Lesson = DMV-handbook style, Zone = hazard perception simulator*
