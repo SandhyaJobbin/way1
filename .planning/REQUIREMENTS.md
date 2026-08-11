@@ -65,7 +65,39 @@
 
 | Requirement | Phase |
 |---|---|
-| (filled during roadmap) | |
+| SHELL-01 | Phase 1 |
+| SHELL-02 | Phase 1 |
+| SHELL-03 | Phase 1 |
+| SHELL-04 | Phase 1 |
+| SHELL-05 | Phase 4 |
+| SHELL-06 | Phase 1 |
+| LESN-01 | Phase 2 |
+| LESN-02 | Phase 2 |
+| LESN-03 | Phase 2 |
+| LESN-04 | Phase 2 |
+| LESN-05 | Phase 2 |
+| LESN-06 | Phase 2 |
+| ZONE-01 | Phase 3 |
+| ZONE-02 | Phase 3 |
+| ZONE-03 | Phase 3 |
+| ZONE-04 | Phase 3 |
+| ZONE-05 | Phase 3 |
+| ZONE-06 | Phase 3 |
+| ASSESS-01 | Phase 3 |
+| ASSESS-02 | Phase 3 |
+| ASSESS-03 | Phase 3 |
+| ASSESS-04 | Phase 3 |
+| ASSESS-05 | Phase 3 |
+| CONT-01 | Phase 1 |
+| CONT-02 | Phase 1 |
+| CONT-03 | Phase 1 |
+| CONT-04 | Phase 1 |
+| DLVR-01 | Phase 4 |
+| DLVR-02 | Phase 4 |
+| DLVR-03 | Phase 4 |
+| ASST-01 | Phase 1 |
+
+Coverage check: Phase 1 = 10 · Phase 2 = 6 · Phase 3 = 11 · Phase 4 = 4 — **31/31 mapped, each exactly once, zero gaps**.
 
 ## Coverage
 - SHELL: 6 · LESSON: 6 · ZONE: 6 · ASSESS: 5 · CONT: 4 · DLVR: 3 · ASST: 1 — total 31 requirements.

@@ -1,101 +1,101 @@
-# Execution Roadmap
+# Roadmap: v1 — US Driving Context & AV Rules Training (RFP Demo)
 
-> **Module flow** (per brief): Act 1 (Wayo intro) → Lesson A (sensors) → Lesson B (model) → Lesson C (interdependence) → Zone 1 (MCPI Live) → Zone 2 (Triage Ops) → Zone 3 (Annotation) → Act 4 (corrected drive) → Act 5 (trace-back).
-> Demo priority = Act 1 + Zone 2 + one seam (Phase 4). Lessons and Zones 1/3 are full-module scope.
+## Overview
 
-## Phase 1: Engine & Proving (De-risking)
+Brownfield pivot. v0 (diegetic 3-role ecosystem module) is retired; the existing React 19 + Vite + TS + Tailwind v4 + Framer Motion + Zustand + R3F shell and delivery plumbing (HashRouter, `base: './'`, SCORM 1.2 wrapper) carry over. v1 delivers exactly **1 Lesson + 1 Zone** teaching offshore AV operators US driving context and AV rules, in the design language of a top-tier AV company's public site, shipped as standalone HTML with an optional SCORM 1.2 package. Every phase keeps the demo client-shippable and **RFP-neutral**: no target-client names, trademarks, logos, or footage anywhere in UI, content, or code — neutral working brand with a swap-ready branding config; video surfaces are placeholder slots only.
 
-**Goal:** Prove the riskiest technical bets and set up the foundation.
-**Plans:** 2/2 plans complete
-**Wave 1**
+## Context
 
-- [x] 01-01-PLAN.md — Initialize the vertical empty shell including Vite, TS, Tailwind v4, HashRouter, and Framer Motion for cinematic route transitions. *(Complete — 2026-08-07, 3/3 tasks)*
+- **Milestone**: v1 pivot — "1 Lesson + 1 Zone" RFP demo.
+- **Phase numbering**: RESTARTED at 1 for v1. Prior directories in `.planning/phases/` (`01-engine-proving-de-risking`, `02-core-components-the-tactile-feel`, `03-hub-polish-cinematics`, `05`) belong to the **retired v0 milestone** and are superseded. ⚠️ Those legacy directories collide with new `01-*`…`04-*` plan naming — archive or rename them (e.g., `_v0/`) before executing v1 Phase 1.
+- **Carry-over from v0** (reuse, don't rebuild): HashRouter + AnimatePresence route transitions, StartGate splash, SCORM 1.2 bridge (`src/lib/scorm.ts`), Zod parse-at-boundary pattern, static JSON import architecture, Vitest setup.
+- **Hard constraint — RFP neutrality**: no phase, deliverable, plan, or copy may reference the target client by name. Design tokens may be *inspired by* reference sites; no protected assets. Video footage = placeholder slots wired to config.
+- **Procurement**: 🛒 items in `.planning/ASSETS.md` (fonts, generic AV renders, Phoenix/SF stock imagery, footage decision) gate final visual fidelity; placeholder-grade assets keep every phase shippable.
 
-**Wave 2**
+## Phases
 
-- [x] 01-02-PLAN.md — Setup the SCORM 1.2 connection wrapper with local fallback, initialize the Zustand global app store, and define upfront Zod validation schemas for the ecosystem/zone content. *(Complete — 2026-08-07, 3/3 tasks, 27 tests passing)*
+**Phase Numbering:**
+- Integer phases (1, 2, 3, 4): Planned milestone work
+- Decimal phases (2.1, 2.2): Urgent insertions (marked with INSERTED)
 
-## Phase 2: Core Components (The Tactile Feel)
+Decimal phases appear between their surrounding integers in numeric order.
 
-**Goal:** Build the signature interactions that define the module's quality level.
+- [ ] **Phase 1: Foundation — Design System, Shell & Content Pipeline** - waymo-style token system, landing/start gate, HashRouter nav, route-path progress, neutral swap-ready branding, new Zod content model, v0 retirement + vendor scrub
+- [ ] **Phase 2: The Lesson — US Driving Context + AV Rules** - Video-driven lesson, 8+ US nuances, Phoenix + SF worlds, interactive media, completion tracking
+- [ ] **Phase 3: The Zone — Mixed Scenario Challenges & Assessment** - Dark audit console, BEV/lidar/camera overlays, 3 difficulty tiers, scorecard snapshot, ~80% pass gate, gamification, SCORM score hooks
+- [ ] **Phase 4: Delivery & Audit-Grade Polish** - Standalone HTML + SCORM 1.2 packaging for Reach 360, final polish pass, final vendor-neutrality verification
 
-- Implement the Jog Dial (`use-gesture` + `react-spring`).
-- Build the Canvas Image Sequence replay synchronised to the Jog Dial.
-- Implement the procedural Lidar point-cloud shader in R3F.
-- Rig the Wayo SVG character with basic Framer Motion states — idle, talking, parallax, emotion states.
+## Phase Details
 
-## Phase 3: Hub & Polish (Cinematics)
+### Phase 1: Foundation — Design System, Shell & Content Pipeline
+**Goal**: The neutral brand shell, navigation, and typed content pipeline exist — the empty stage on which Lesson and Zone are built, with all v0 content retired and every vendor reference scrubbed.
+**Depends on**: Nothing (first v1 phase)
+**Requirements**: SHELL-01, SHELL-02, SHELL-03, SHELL-04, SHELL-06, CONT-01, CONT-02, CONT-03, CONT-04, ASST-01
+**Success Criteria** (what must be TRUE):
+  1. User lands on a start screen that explicitly states this is training for the Autonomous Vehicle industry; the start gate captures a user gesture so media autoplay is safe.
+  2. User navigates between Lesson and Zone (placeholder surfaces) via HashRouter with dot-timeline scrubber pattern and cinematic transitions — no hard page loads.
+  3. A global route-path progress visualization (dot-timeline metaphor) with checkpoint badge slots renders and reflects app state.
+  4. All UI renders from the design-token system (off-white #F5F7FA shell, navy #1E2340 display type, #0080FF blue + #00E59B teal accents, circular motifs, thin outline buttons); a branding config layer swaps wordmark/colors/accents without code edits.
+  5. New Zod schemas validate the v1 content model (lessons, worlds, scenarios, tiers, scorecard mappings); old v0 content (ecosystem/zones/incidents/lessons JSONs) is retired; a repo-wide scrub finds zero vendor/client references in code identifiers, content, and copy.
+**Plans**: TBD
+**UI hint**: yes
 
-**Goal:** Connect the pieces with high-end broadcast aesthetic.
-**Plans:** 1/6 plans executed (0/6 complete)
-**Requirements:** P3-GLOBAL, P3-ORBIT, P3-POST, P3-CAMERA, P3-SPEECH, P3-INTEGRATE
-**Packages:** @react-three/postprocessing@^3.0.5, postprocessing@^6.39.4, @react-spring/three@^10.1.2
+### Phase 2: The Lesson — US Driving Context + AV Rules
+**Goal**: The learner completes one video-driven lesson that teaches US driving norms paired with how an AV platform perceives and handles them, across Phoenix and San Francisco worlds.
+**Depends on**: Phase 1
+**Requirements**: LESN-01, LESN-02, LESN-03, LESN-04, LESN-05, LESN-06
+**Success Criteria** (what must be TRUE):
+  1. User progresses through one lesson covering the five named US nuances (right-turn-on-red, four-way stops, school buses, jaywalking, aggressive lane changes) plus at least 3 additional nuances.
+  2. Every nuance pairs human driving behavior with the AV platform's perception/handling rules, in vendor-neutral phrasing.
+  3. Phoenix and San Francisco world sections each present their relevant nuances in the reference-site scenario-video style, using neutral placeholder video slots (poster + play affordance) wired to video config.
+  4. User interacts with the material — tap-to-reveals, step-through diagrams, dot-scrubber media timelines; no passive video walls.
+  5. Lesson completion is tracked and Zone access is gated or guided by lesson progress (gate behavior fixed in plan phase).
+**Plans**: TBD
+**UI hint**: yes
 
-**Wave 1** (infrastructure — no deps)
+### Phase 3: The Zone — Mixed Scenario Challenges & Assessment
+**Goal**: The learner faces scored mixed-scenario challenges in a dark audit console, earns a scorecard snapshot against the four technical categories, and meets a justified pass gate — with progress gamified and scores reported to SCORM.
+**Depends on**: Phase 2
+**Requirements**: ZONE-01, ZONE-02, ZONE-03, ZONE-04, ZONE-05, ZONE-06, ASSESS-01, ASSESS-02, ASSESS-03, ASSESS-04, ASSESS-05
+**Success Criteria** (what must be TRUE):
+  1. User enters one Zone of mixed scenarios, each weaving multiple US nuances together (not one module per nuance).
+  2. The console renders the dark audit aesthetic: deep-navy canvas, BEV top-down with magenta bounding boxes, camera strips, lidar-style point representations, sensor confidence indicators; scenario video clips/overlays play for data realism.
+  3. User chooses among Foundation, Proficient, and Advanced tiers — all open to the learner.
+  4. Challenges are recognition-only (identify / predict / decide what happens and what the AV does) and are fully data-driven from the typed JSON pipeline — adding a scenario requires no code change.
+  5. Every challenge scores into the four scorecard categories (3D spatial rotation, telemetry interpretation, occlusion reasoning, complex decision-making); a scorecard SNAPSHOT screen shows per-category breakdown + overall result; the ~80% pass gate ships with its written justification; route-path checkpoint badges and retry-with-feedback loops work; SCORM completion/status/score hooks report.
+**Plans**: TBD
+**UI hint**: yes
 
-- [x] 03-01-PLAN.md — Install Phase 3 packages, extend Zustand store with cameraTarget/transitionPhase, reconfigure Vitest for jsdom, scaffold 5 test files *(3 tasks)*
+### Phase 4: Delivery & Audit-Grade Polish
+**Goal**: The demo ships — standalone HTML and SCORM 1.2 package both work, the experience reads as an audit-grade product rather than an e-learning template, and final neutrality verification passes.
+**Depends on**: Phase 3
+**Requirements**: SHELL-05, DLVR-01, DLVR-02, DLVR-03
+**Success Criteria** (what must be TRUE):
+  1. The standalone build runs from static hosting (and file://) with relative asset paths (`base: './'`), no console errors, all routes reachable.
+  2. The SCORM 1.2 zip (simple-scorm-packager + pipwerks) launches in Reach 360 via new-window flow and reports completion/status/score.
+  3. One-command build scripts exist for both standalone and SCORM targets.
+  4. A full-session walkthrough reads as audit-grade: desktop-first responsive, consistent tokens, motion, and typography — not a generic e-learning template.
+  5. Final vendor-neutrality verification passes: zero client/vendor references in built output, content, and copy; branding config swap demonstrated.
+**Plans**: TBD
+**UI hint**: yes
 
-**Wave 2** (depends on 03-01)
+## Risks & Ambiguities
 
-- [ ] 03-02-PLAN.md — [TRACER] Global Canvas wrapper in App.tsx, GlobalScene composition, CameraRig with CameraControls dolly to hub preset *(2 tasks)*
+- **LESN-06 gate behavior** (hard gate vs guided): explicitly deferred to Phase 2 plan phase — decide there, not here.
+- **ASSESS-03 justification**: ~80% threshold needs a written rationale doc delivered alongside implementation — plan as an artifact in Phase 3.
+- **Video footage (LESN-03 / ZONE-04)**: licensing unresolved; placeholder slots are the RFP-safe default (ASSETS.md action 4). No vendor-branded footage ever in the demo.
+- **Procurement (ASST-01)**: fonts, generic AV renders, Phoenix/SF stock imagery are 🛒 to-procure — placeholder-grade assets keep phases shippable; procurement delays must not block execution.
+- **CONT-03 status**: old content JSONs are already absent from `src/` (only `scenario-data.ts` remains) — phase work is verification + residual-reference scrub, not bulk deletion.
+- **v0 directory collision**: legacy `.planning/phases/01-*,02-*,03-*,05` dirs must be archived before v1 Phase 1 executes.
 
-**Wave 3** (depends on 03-02)
+## Progress
 
-- [ ] 03-03-PLAN.md — Orbital map: OrbitRing (TorusGeometry + react-spring pulse), HubOrbitMap (3 rings), IncidentToken (orbiting sphere + pointLight) *(3 tasks)*
+**Execution Order:**
+Phases execute in numeric order: 1 → 2 → 3 → 4 (decimal insertions slot between integers)
 
-**Wave 4** (depends on 03-02)
-
-- [ ] 03-04-PLAN.md — Post-processing stack: ACES Filmic tone mapping, Bloom, Vignette, Noise via EffectComposer + GPU fallback for low-tier devices *(2 tasks)*
-
-**Wave 5** (depends on 03-02)
-
-- [ ] 03-05-PLAN.md — Extract CloudScene from LidarCloud.tsx, remove internal Canvas, move hasWebGL gate to App.tsx, wire CloudScene into GlobalScene *(3 tasks)*
-
-**Wave 6** (depends on 03-02, 03-03)
-
-- [ ] 03-06-PLAN.md — Speech system (useTypewriter hook + speech-data.ts), enhance SpeechBubble with typewriter + aria-live, wire camera transitions to scene navigation, end-to-end integration checkpoint *(4 tasks)*
-
-## Phase 4: Educational Lessons (3 Didactic Zones) — NEW
-
-**Goal:** Build the three Wayo-led lessons that teach the ecosystem fundamentals before scenario zones.
-
-- **Lesson A — "What the Car Has"**: Interactive 3D top-down car with sensor rings (lidar, cameras, radar, GPS/IMU). Tap-to-reveal sensor coverage. ~4 min.
-- **Lesson B — "How the Model Works"**: Animated perception→prediction→planning pipeline sourced from the Waymo CEO video. Step-through with the construction-flagger incident tracked through each stage. ~6 min.
-- **Lesson C — "Why All Three Rings Matter"**: "Remove a role" interactive toggle that animates consequences across the ecosystem chain. ~4 min.
-
-All three reuse the Wayo rig, the shared `<Console>` theme wrapper, and the Zod-typed content architecture under `/content/lessons/`.
-
-## Phase 5: Triage Ops Vertical Slice (The Demo)
-
-**Goal:** Ship a playable, end-to-end slice of one zone for stakeholder approval.
-**Plans:** 0/3 plans executed
-
-**Wave 1** (data layer — no UI deps)
-
-- [ ] 05-01-PLAN.md — Scenario content & Zustand triage slice (incident data, routing options, speech content, triageSlice)
-
-**Wave 2** (depends on 05-01)
-
-- [ ] 05-02-PLAN.md — Act 1 narrative intro scenes + Zone 2 triage console rebuild (JogDial ↔ scrubber, routing cards, lidar viewport, metadata panel)
-
-**Wave 3** (depends on 05-02)
-
-- [ ] 05-03-PLAN.md — The Seam scene (decision propagation to Zone 3 queue) + GitHub Pages deploy
-
-## Phase 6: Full Audit-Interface Scenarios (Zones 1 & 3) — NEW
-
-**Goal:** Complete the scenario-based operator console for the remaining two rings.
-
-- **Zone 1 — MCPI Live Intervention**: Live-feed + alert-queue + radio-log + intervention-timer console. Decision: hold / remote assist / escalate. Propagates reason code to Zone 2 header.
-- **Zone 3 — Annotation Workbench**: Frame-timeline scrubber, bounding-box draw overlay, label taxonomy panel. Decision: correct bounding boxes + labels. Propagates to Act 4 corrected drive.
-- **Act 4 — Corrected Drive**: Wayo navigates the same construction zone cleanly, acknowledging labels received.
-- **Act 5 — Trace-back**: Single screen showing the whole chain with the learner's own decisions on it.
-
-## Phase 7: Harden & SCORM Packaging
-
-**Goal:** Production-ready SCORM 1.2 package deployable to Reach 360.
-
-- simple-scorm-packager build pipeline.
-- Device-tier fallbacks (low-GPU point-cloud reduction).
-- SCORM Cloud validation gate.
-- Completion + score reporting to Reach 360.
+| Phase | Plans Complete | Status | Completed |
+|-------|----------------|--------|-----------|
+| 1. Foundation — Design System, Shell & Content Pipeline | 0/TBD | Not started | - |
+| 2. The Lesson — US Driving Context + AV Rules | 0/TBD | Not started | - |
+| 3. The Zone — Mixed Scenario Challenges & Assessment | 0/TBD | Not started | - |
+| 4. Delivery & Audit-Grade Polish | 0/TBD | Not started | - |
