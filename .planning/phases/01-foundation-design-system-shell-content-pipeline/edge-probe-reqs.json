@@ -1,0 +1,12 @@
+[
+  {"id":"SHELL-01","text":"App shell matches waymo.com design language — off-white #F5F7FA background, navy #1E2340 rounded geometric sans display type, Waymo blue #0080FF + teal #00E59B accents, circular motifs, dotted radial patterns, thin circular outline buttons."},
+  {"id":"SHELL-02","text":"Landing/start screen explicitly states this is training for the Autonomous Vehicle industry; includes start gate for browser autoplay policy."},
+  {"id":"SHELL-03","text":"HashRouter SPA navigation between Lesson and Zone with dot-timeline scrubber pattern and cinematic transitions (no hard page loads), SCORM-compatible."},
+  {"id":"SHELL-04","text":"Global route-path progress visualization (waymo.com green/blue dot-timeline metaphor) with checkpoint badge slots."},
+  {"id":"SHELL-06","text":"RFP-neutral branding: module UI, content, and code must not reference Waymo or use any Waymo trademarks/logos/footage. Neutral working brand with swap-ready branding layer (client branding applied only post-award). Design language may be inspired by reference sites without copying protected assets."},
+  {"id":"CONT-01","text":"Typed JSON content architecture with Zod schemas: lesson content, US nuances, state handbook entries (51 states, deep AZ/CA + stubs), simulator clips, hazard timelines, difficulty tiers, scorecard mappings."},
+  {"id":"CONT-02","text":"New scenarios/worlds/nuances shippable as content-only changes (no code changes)."},
+  {"id":"CONT-03","text":"Retire or migrate the old content model (ecosystem.json, zones.json, incidents/TRI-2291.json, lessons/lesson-a|b|c.json)."},
+  {"id":"CONT-04","text":"Scrub all vendor references (Waymo names, logos, branded footage) from code identifiers, content files, and UI copy; keep a branding config so client identity can be applied post-award."},
+  {"id":"ASST-01","text":"Asset procurement manifest maintained at .planning/ASSETS.md — lists every icon, image, video, 3D asset, and audio needed, with source, license note, and status (in-repo / to-procure / code-generated / YouTube embed)."}
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "id": "right-turn-on-red",
+    "title": "Right Turn on Red",
+    "humanBehavior": "Human drivers typically inch forward slowly, glancing for cross-traffic and pedestrians, and may roll through if it looks clear.",
+    "avHandling": "The platform comes to a complete stop behind the limit line, uses sensors to verify no crossing pedestrians or approaching cross-traffic exist, and proceeds only when its computed trajectory is clear.",
+    "videoSlot": "right_turn_red"
+  },
+  {
+    "id": "four-way-stop",
+    "title": "Four-Way Stops",
+    "humanBehavior": "Human drivers rely on eye contact and social cues to determine who arrived first and who goes next.",
+    "avHandling": "The platform tracks the arrival time of every vehicle at the intersection and strictly adheres to first-to-arrive right-of-way rules, proceeding when its turn safely opens.",
+    "videoSlot": "four_way_stop"
+  },
+  {
+    "id": "school-buses",
+    "title": "School Buses",
+    "humanBehavior": "Human drivers often slow down near buses but might occasionally miss flashing red lights or stop signs until the last moment.",
+    "avHandling": "The platform is programmed to immediately recognize a stopped school bus with activated flashing lights or extended stop sign and will come to a complete halt, maintaining a safe distance until the signals are deactivated.",
+    "videoSlot": "school_bus"
+  },
+  {
+    "id": "jaywalking",
+    "title": "Jaywalking Pedestrians",
+    "humanBehavior": "Human drivers might not notice pedestrians crossing mid-block, especially at night or in busy areas, leading to sudden braking.",
+    "avHandling": "The platform continuously scans a 360-degree perimeter and detects pedestrians stepping into the roadway mid-block, proactively adjusting its speed or stopping entirely to yield right-of-way and prevent an incident.",
+    "videoSlot": "jaywalking"
+  },
+  {
+    "id": "aggressive-lane-changes",
+    "title": "Aggressive Lane Changes",
+    "humanBehavior": "Human drivers often swerve abruptly or fail to signal, relying on others to brake to avoid collisions.",
+    "avHandling": "The platform anticipates sudden cut-ins by monitoring neighboring vehicle trajectories and maintains a dynamic safety buffer, smoothly decelerating if another vehicle aggressively enters its lane.",
+    "videoSlot": "aggressive_cutin"
+  },
+  {
+    "id": "zipper-merge",
+    "title": "Zipper Merging",
+    "humanBehavior": "Human drivers may hesitate or assert dominance when lanes merge, leading to unpredictable traffic flow and bottlenecks.",
+    "avHandling": "The platform computes the optimal interleaving sequence and adjusts its speed smoothly to create space or merge seamlessly into the flow, maximizing efficiency and safety.",
+    "videoSlot": "zipper_merge"
+  },
+  {
+    "id": "unprotected-left",
+    "title": "Unprotected Left Turns",
+    "humanBehavior": "Human drivers must estimate the speed and distance of oncoming traffic, occasionally misjudging and causing near-misses.",
+    "avHandling": "The platform utilizes precise depth and velocity tracking of all oncoming traffic to calculate exact time-to-collision windows, executing the turn only when the margin is mathematically secure.",
+    "videoSlot": "unprotected_left"
+  },
+  {
+    "id": "railroad-crossings",
+    "title": "Railroad Crossings",
+    "humanBehavior": "Human drivers often glance quickly or ignore passive signals if they assume a train isn't coming.",
+    "avHandling": "The platform recognizes both active and passive crossing signals, coming to a required stop if signals are active, and ensuring clear sensor visibility before crossing any tracks.",
+    "videoSlot": "railroad_crossing"
+  }
+]

@@ -1,0 +1,182 @@
+[
+  {
+    "event_id": 1,
+    "first_appears": "00:00:52",
+    "begins_developing": "00:00:55",
+    "immediate_hazard": "00:00:57",
+    "hazard_ends": "00:01:05",
+    "what_is_visible": "A white SUV double-parked in the active travel lane with its hazard lights on.",
+    "object_type": "Parked Vehicle",
+    "hazard_classification": "Lane Obstruction / Forced Lane Deviation",
+    "why_hazard": "The double-parked vehicle completely blocks the travel lane, requiring the driver to slow down, check blind spots, signal, and steer into the adjacent/oncoming lane space to pass safely.",
+    "recommended_response": "Activate left turn signal, reduce speed, check center/left side mirrors and driver-side blind spot, verify no oncoming traffic is approaching, and safely steer around the obstruction.",
+    "frame_location": "Center-Right to Mid-Ground Center",
+    "video_presence": "VISIBLE_IN_VIDEO",
+    "perception_comparison": {
+      "human_driver_observation": "Scans ahead down the travel lane to notice hazard flashers; checks rear/side mirrors early to evaluate passing room.",
+      "av_platform_handling": "LiDAR/Camera perception detects stationary obstacle in travel path, recalculates free-space vector, generates lane-change trajectory, and verifies clear clearance zone via 360-degree radar."
+    }
+  },
+  {
+    "event_id": 2,
+    "first_appears": "00:01:25",
+    "begins_developing": "00:01:27",
+    "immediate_hazard": "00:01:28",
+    "hazard_ends": "00:01:34",
+    "what_is_visible": "A pedestrian walking across the marked crosswalk / intersection area.",
+    "object_type": "Pedestrian / Jaywalker",
+    "hazard_classification": "Vulnerable Road User / Crosswalk Right-of-Way",
+    "why_hazard": "The pedestrian is actively occupying the roadway in front of the vehicle path; failure to yield presents a high-severity collision risk.",
+    "recommended_response": "Bring vehicle to a complete stop before the crosswalk limit line, keep foot on the brake, yield right-of-way, and wait until the pedestrian fully reaches the sidewalk before proceeding.",
+    "frame_location": "Bottom-Left moving across to Center-Right",
+    "video_presence": "VISIBLE_IN_VIDEO",
+    "perception_comparison": {
+      "human_driver_observation": "Monitors curb lines and movement intent; looks for head orientation and gait indicating crossing behavior.",
+      "av_platform_handling": "Pedestrian classification pipeline assigns bounding box, tracks velocity vector, and predicts cross-path probability; triggers smooth automatic deceleration until path clears."
+    }
+  },
+  {
+    "event_id": 3,
+    "first_appears": "00:02:40",
+    "begins_developing": "00:02:42",
+    "immediate_hazard": "00:02:46",
+    "hazard_ends": "00:02:50",
+    "what_is_visible": "At an all-way stop intersection, a white sedan fails to come to a complete stop and proceeds out of right-of-way sequence.",
+    "object_type": "Vehicle entering from side road / intersection",
+    "hazard_classification": "Right-of-Way Violation / Non-Compliant Driver",
+    "why_hazard": "The driver of the white sedan disregards right-of-way rules by rolling through the stop sign, creating a potential side-impact collision risk if ego-vehicle proceeds prematurely.",
+    "recommended_response": "Maintain full stop behind the stop line, scan cross-traffic, defer right-of-way defensively to the non-compliant driver, and proceed only when the intersection is fully clear.",
+    "frame_location": "Center-Left to Center-Right crossing",
+    "video_presence": "VISIBLE_IN_VIDEO",
+    "perception_comparison": {
+      "human_driver_observation": "Scans incoming vehicles at all-way stop; identifies non-slowing wheel rotation on cross-street driver indicating intent to run the stop sign.",
+      "av_platform_handling": "Multi-agent behavioral forecasting tracks cross-street vehicle deceleration rates; detects stop-line roll-through and suppresses ego-vehicle movement command until intersection conflicts clear."
+    }
+  },
+  {
+    "event_id": 4,
+    "first_appears": "00:03:13",
+    "begins_developing": "00:03:15",
+    "immediate_hazard": "00:03:18",
+    "hazard_ends": "00:03:27",
+    "what_is_visible": "Yellow warning sign indicating 'SPEED BUMP 20 MPH' with road surface pavement markings labeled 'BUMP'.",
+    "object_type": "Road Feature / Obstacle",
+    "hazard_classification": "Vertical Road Defect / Vehicle Control Risk",
+    "why_hazard": "Crossing a raised speed table at higher speeds causes harsh impact, suspension strain, and potential momentary loss of vehicle control.",
+    "recommended_response": "Check rear-view mirror, gently brake prior to reaching the hump to drop speed to 15-20 mph, ease off the brake as front tires touch the bump, and smoothly re-accelerate once clear.",
+    "frame_location": "Bottom-Center to Mid-Ground Right",
+    "video_presence": "VISIBLE_IN_VIDEO",
+    "perception_comparison": {
+      "human_driver_observation": "Reads roadside warning signs and identifies pavement surface elevation changes well ahead.",
+      "av_platform_handling": "HD Map overlays provide micro-geometry data for speed bumps; cameras/LiDAR detect vertical profile changes and adjust suspension/target velocity automatically."
+    }
+  },
+  {
+    "event_id": 5,
+    "first_appears": "00:03:38",
+    "begins_developing": "00:04:11",
+    "immediate_hazard": "00:04:11",
+    "hazard_ends": "00:04:25",
+    "what_is_visible": "A two-stage stop sign (where cross traffic does not stop) with parked cars obscuring lateral sightlines into the intersecting street.",
+    "object_type": "Blind Intersection / Priority Cross Traffic",
+    "hazard_classification": "Limited Sightlines / High-Speed Cross Traffic",
+    "why_hazard": "Cross-street vehicles do not have a stop sign and approach at speed, while parked vehicles block clear sightlines from behind the initial stop line.",
+    "recommended_response": "Perform initial complete stop behind the stop line/crosswalk. Inch forward slowly ('creep and peep') until sightlines down both directions of the cross street are clear, yield to oncoming traffic, and proceed only when a safe gap exists.",
+    "frame_location": "Center-Forward Intersection",
+    "video_presence": "VISIBLE_IN_VIDEO",
+    "perception_comparison": {
+      "human_driver_observation": "Leans forward in seat to peek past A-pillars and parked vehicles to evaluate oncoming cross-street traffic gaps.",
+      "av_platform_handling": "Executes virtual 'creep motion'; uses forward fender/side-mounted wide-angle cameras and long-range radar to see past occlusion zones before issuing go-command."
+    }
+  },
+  {
+    "event_id": 6,
+    "first_appears": "00:08:15",
+    "begins_developing": "00:08:16",
+    "immediate_hazard": "00:08:17",
+    "hazard_ends": "00:08:34",
+    "what_is_visible": "A pedestrian walking across the street directly in front of the vehicle near a car wash entrance during a turn.",
+    "object_type": "Pedestrian / Jaywalker",
+    "hazard_classification": "Vulnerable Road User / Turning Right-of-Way Conflict",
+    "why_hazard": "Pedestrians crossing at or near an intersection have legal right-of-way during vehicle turning maneuvers; moving into their path risks severe injury.",
+    "recommended_response": "Complete initial stop, keep steering wheel straight while yielding in the intersection, observe pedestrian path, wait until they reach the curb safely, scan blind spots, then proceed.",
+    "frame_location": "Bottom-Left moving to Bottom-Right",
+    "video_presence": "VISIBLE_IN_VIDEO",
+    "perception_comparison": {
+      "human_driver_observation": "Maintains continuous visual lock on pedestrian; waits for step off travel lane onto sidewalk before accelerating.",
+      "av_platform_handling": "Perception system maintains active tracking anchor on dynamic pedestrian bounding box; vehicle motion planner holds stop point until safe buffer distance is restored."
+    }
+  },
+  {
+    "event_id": 7,
+    "first_appears": "00:09:48",
+    "begins_developing": "00:10:15",
+    "immediate_hazard": "00:10:24",
+    "hazard_ends": "00:10:48",
+    "what_is_visible": "Vehicle maneuvering into a tight parallel parking space behind a lead parked car, followed by executing a three-point turn in a narrow two-way residential street.",
+    "object_type": "Parked Vehicles / Low-Speed Spatial Constraints",
+    "hazard_classification": "Low-Speed Collision / Blind Spot Hazard",
+    "why_hazard": "Executing parallel parking and three-point turns temporarily blocks the roadway and creates significant blind spots relative to incoming traffic or pedestrians.",
+    "recommended_response": "Engage hazard or directional signals, perform a full 360-degree visual scan, check all mirrors and physical blind spots, reverse at idle speed while continuously checking for approaching vehicles or pedestrians, and maintain maximum clearance from surrounding vehicles and curbs.",
+    "frame_location": "Center to Full Width Frame",
+    "video_presence": "VISIBLE_IN_VIDEO",
+    "perception_comparison": {
+      "human_driver_observation": "Performs head checks across shoulders and checks side/rear mirrors repeatedly to avoid curb or bumper contact.",
+      "av_platform_handling": "Surround-view cameras and ultrasonic proximity sensors map curb boundary and nearby bumpers; automated parking planner executes exact steering and gear shifts."
+    }
+  },
+  {
+    "event_id": 8,
+    "first_appears": "N/A",
+    "begins_developing": "N/A",
+    "immediate_hazard": "N/A",
+    "hazard_ends": "N/A",
+    "what_is_visible": "Theoretical Scenario: Vehicle stopped at a red traffic signal preparing to execute a right-hand turn while cross traffic/pedestrians have active green signals.",
+    "object_type": "Traffic Signal / Cross Traffic / Pedestrian Conflict",
+    "hazard_classification": "Right-on-Red Conflict",
+    "why_hazard": "Right-turn-on-red maneuvers create multi-directional conflicts with oncoming left-turners, cross-street traffic, and pedestrians crossing on the signal phase.",
+    "recommended_response": "Verify local jurisdiction laws (e.g., No turn on red in NYC unless sign posted). If permitted, come to a complete stop, yield to all pedestrians and oncoming traffic, scan left-front-right, and proceed only when clear.",
+    "frame_location": "N/A (Curriculum Reference Scenario)",
+    "video_presence": "NOT_IN_VIDEO",
+    "perception_comparison": {
+      "human_driver_observation": "Scans left for oncoming vehicles while simultaneously scanning right for pedestrians stepping into crosswalk.",
+      "av_platform_handling": "HD Maps check local municipal regulatory rules (e.g., NYC general prohibition). Multi-camera tracking verifies pedestrian walk signals and monitors left-approaching radar targets."
+    }
+  },
+  {
+    "event_id": 9,
+    "first_appears": "N/A",
+    "begins_developing": "N/A",
+    "immediate_hazard": "N/A",
+    "hazard_ends": "N/A",
+    "what_is_visible": "Theoretical Scenario: Yellow school bus stopped with alternating flashing red lights and extended side stop-arm.",
+    "object_type": "School Bus",
+    "hazard_classification": "School Bus Stop / Flashing Lights",
+    "why_hazard": "Children entering or exiting school buses may cross streets unpredictably; failing to stop violates mandatory legal safety requirements.",
+    "recommended_response": "Stop completely at least 20 feet away from the school bus regardless of travel direction (unless separated by a divided physical median). Remain stopped until red lights deactivate and stop-arm retracts.",
+    "frame_location": "N/A (Curriculum Reference Scenario)",
+    "video_presence": "NOT_IN_VIDEO",
+    "perception_comparison": {
+      "human_driver_observation": "Identifies yellow bus profile, flashing red roof lamps, and extended stop sign; comes to immediate full stop.",
+      "av_platform_handling": "Deep learning models detect bus visual signatures, red strobe light frequencies, and mechanical stop-arm deployment; enforces mandatory stop rule until signals clear."
+    }
+  },
+  {
+    "event_id": 10,
+    "first_appears": "N/A",
+    "begins_developing": "N/A",
+    "immediate_hazard": "N/A",
+    "hazard_ends": "N/A",
+    "what_is_visible": "Theoretical Scenario: Two lanes merging into one due to roadwork or lane drop with heavy traffic.",
+    "object_type": "Merging Traffic / Lane Drop",
+    "hazard_classification": "Zipper Merge",
+    "why_hazard": "Speed differentials and aggressive gap-closing during lane reductions increase rear-end and side-swipe risks.",
+    "recommended_response": "Use both lanes fully up to the merge point, signal early, match flow speed, and merge cooperatively in an alternating 1-to-1 pattern.",
+    "frame_location": "N/A (Curriculum Reference Scenario)",
+    "video_presence": "NOT_IN_VIDEO",
+    "perception_comparison": {
+      "human_driver_observation": "Observes merge signs ahead; matches speed with adjacent lane vehicles and identifies target insertion gap.",
+      "av_platform_handling": "Calculates relative speed and distance vectors of adjacent vehicles; dynamically adjusts acceleration/deceleration to create smooth 1-to-1 insertion pockets."
+    }
+  }
+]

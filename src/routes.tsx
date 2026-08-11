@@ -1,32 +1,26 @@
-import { lazy, Suspense } from 'react';
-import { SCENE_ORDER } from './types';
-import type { SceneId } from './types';
+import { Routes, Route, Navigate, useLocation } from 'react-router';
+import { AnimatePresence, motion } from 'framer-motion';
+import { LessonSurface } from './shell/surfaces/LessonSurface';
+import { Zone } from './components/zone/Zone';
 
-const SceneL1 = lazy(() => import('./views/SceneL1'));
-const SceneL2 = lazy(() => import('./views/SceneL2'));
-const SceneL3 = lazy(() => import('./views/SceneL3'));
-const SceneZ1 = lazy(() => import('./views/SceneZ1'));
-const SceneZ2 = lazy(() => import('./views/SceneZ2'));
-const SceneZ3 = lazy(() => import('./views/SceneZ3'));
-const SceneZ4 = lazy(() => import('./views/SceneZ4'));
-
-const sceneComponents: Record<SceneId, React.ComponentType> = {
-  'L1': SceneL1,
-  'L2': SceneL2,
-  'L3': SceneL3,
-  'Z1': SceneZ1,
-  'Z2': SceneZ2,
-  'Z3': SceneZ3,
-  'Z4': SceneZ4,
-};
-
-export function SceneRenderer({ sceneId }: { sceneId: SceneId }) {
-  const Component = sceneComponents[sceneId];
+export function AnimatedRoutes() {
+  const location = useLocation();
+  
   return (
-    <Suspense fallback={null}>
-      <Component />
-    </Suspense>
+    <AnimatePresence mode="wait" initial={false}>
+      <motion.div
+        key={location.pathname}
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } }}
+        exit={{ opacity: 0, y: -16, transition: { duration: 0.2, ease: [0.4, 0, 0.2, 1] } }}
+        className="min-h-screen"
+      >
+        <Routes location={location}>
+          <Route path="/lesson" element={<LessonSurface />} />
+          <Route path="/zone" element={<Zone />} />
+          <Route path="*" element={<Navigate to="/lesson" replace />} />
+        </Routes>
+      </motion.div>
+    </AnimatePresence>
   );
 }
-
-export { SCENE_ORDER };

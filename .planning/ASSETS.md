@@ -37,8 +37,8 @@ All video surfaces ship as styled placeholder slots (poster + play affordance) w
 | Core AV explainer (≈3 min) | Lesson core video | Licensed AV-industry footage or client-approved post-award | ▶ 🛒 |
 | World scenario clips (Phoenix/SF) | World sections | Pexels/Coverr free driving footage (keywords §9.7), unbranded | ▶ 🛒 |
 | AV-rules / safety methodology clip | Lesson AV-rules section | Licensed or post-award client video | ▶ 🛒 |
-| Scenario challenge clips (3–6) | Zone scenario intros/replays | Simulated renders (code-gen) or licensed footage | ⚙/🛒 |
-| **Dashcam POV hazard-sim clips (3–6, 1–3 min each)** | **Zone hazard perception simulator gameplay footage** — Phoenix + SF worlds | Pexels/Coverr dashcam-style driving clips (keywords §9.7: horizontal, no brands, intersections/crosswalks/school zones) OR simulated renders; hazards must be visible in clip for hit-region authoring | ▶ 🛒 |
+| Scenario challenge video (1 single video) | Zone scenario intros/replays | Provided single video | ✅ |
+| **Dashcam POV hazard-sim video (1 single video)** | **Zone hazard perception simulator gameplay footage** | User provided single video | ✅ |
 | Poster frames for all slots | Placeholder poster + play affordance | Gemini Pro stills (prompt §9.8) | 🛒 |
 | Post-award reference embeds | waymo.com channel videos (e.g., "Sense, Solve, and Go", reference-driver, safe-to-deploy) | ONLY after award + client approval — keep URLs in this manifest, not in code | 🛒 post-RFP |
 
@@ -157,7 +157,7 @@ Use it to draft content JSON text; do not use it for images here (Gemini Pro is 
 1. Choose neutral working brand name + approve placeholder wordmark (Canva, §9.2).
 2. Generate unbranded generic AV renders (Gemini Pro, §9.3/§9.4).
 3. License Phoenix/SF street imagery (Unsplash/Pexels/Canva, §9.5).
-4. Source demo footage for video slots OR approve simulated-render placeholders (§9.7) — **priority: 3–6 dashcam POV clips for the hazard simulator**.
+4. Ensure demo footage for video slots OR approve simulated-render placeholders (§9.7) — **priority: 1 single dashcam POV video for the hazard simulator (provided)**.
 5. Approve fonts: Outfit + Manrope recommended (§7).
 6. Optional: UI sound pack decision (Freesound CC0).
 7. Post-award only: client branding kit + approved official video embeds.

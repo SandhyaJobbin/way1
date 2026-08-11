@@ -58,10 +58,10 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Depends on**: Phase 2
 **Requirements**: ZONE-01, ZONE-02, ZONE-03, ZONE-04, ZONE-05, ZONE-06, ASSESS-01, ASSESS-02, ASSESS-03, ASSESS-04, ASSESS-05
 **Success Criteria** (what must be TRUE):
-  1. User watches dashcam-style POV clips set in Phoenix and San Francisco worlds and clicks DEVELOPING hazards (situations requiring speed/direction change) categorized as Vehicles, Pedestrians, Signs, or Road marks — mixed scenarios weaving multiple US nuances per clip.
+  1. User watches a single dashcam-style POV video and clicks DEVELOPING hazards (situations requiring speed/direction change) categorized as Vehicles, Pedestrians, Signs, or Road marks — mixed scenarios weaving multiple US nuances in the video.
   2. User chooses among Foundation (clean POV), Proficient (POV + perception overlay: bounding boxes, confidence indicators), and Advanced (BEV + telemetry view with confidence drops) tiers — all open; tutorial mode highlights opening hazards with hints before unassisted play.
   3. Each run produces results: hazards spotted X/N, reaction speed (median ms), false clicks, composite hazard score % (detection accuracy + reaction time + false clicks); review-mistakes reveal cards explain what a human should see + how an AV platform handles it, with retry-with-feedback.
-  4. Challenges are recognition-only and fully data-driven from the typed JSON pipeline (clips + hazard timelines `{t, category, hitRegion, window, points, explanation, avHandling}`) — adding a scenario requires no code change; footage = RFP-neutral placeholder slots (stock or simulated renders).
+  4. Challenges are recognition-only and fully data-driven from the typed JSON pipeline (1 single video clip + hazard timelines `{t, category, hitRegion, window, points, explanation, avHandling}`) — adding a scenario requires no code change; footage = RFP-neutral placeholder slots (stock or simulated renders).
   5. Hazard-sim performance scores into the four scorecard categories (3D spatial rotation, telemetry interpretation, occlusion reasoning, complex decision-making); a scorecard SNAPSHOT screen shows per-category breakdown + overall result; the ~80% composite pass gate ships with its written justification; route-path checkpoint badges work; SCORM completion/status/score hooks report.
 **Plans**: TBD
 **UI hint**: yes
@@ -83,7 +83,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - **LESN-06 gate behavior** (hard gate vs guided): explicitly deferred to Phase 2 plan phase — decide there, not here.
 - **ASSESS-03 justification**: ~80% threshold needs a written rationale doc delivered alongside implementation — plan as an artifact in Phase 3.
-- **Video footage (LESN-05 / ZONE-06)**: licensing unresolved; placeholder slots are the RFP-safe default (ASSETS.md action 4). Simulator needs dashcam-style POV clips (stock or simulated renders). No vendor-branded footage ever in the demo.
+- **Video footage (LESN-05 / ZONE-06)**: licensing unresolved; placeholder slots are the RFP-safe default (ASSETS.md action 4). Simulator uses a single dashcam-style POV video (provided by user). No vendor-branded footage ever in the demo.
 - **Procurement (ASST-01)**: fonts, generic AV renders, Phoenix/SF stock imagery are 🛒 to-procure — placeholder-grade assets keep phases shippable; procurement delays must not block execution.
 - **CONT-03 status**: old content JSONs are already absent from `src/` (only `scenario-data.ts` remains) — phase work is verification + residual-reference scrub, not bulk deletion.
 - **v0 directory collision**: legacy `.planning/phases/01-*,02-*,03-*,05` dirs must be archived before v1 Phase 1 executes.

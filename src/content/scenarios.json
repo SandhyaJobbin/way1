@@ -1,0 +1,132 @@
+[
+  {
+    "id": "scenario-1",
+    "worldId": "phoenix",
+    "clip": {
+      "slot": "pov-dashcam-1",
+      "src": "/zone/render.mp4",
+      "poster": ""
+    },
+    "hazards": [
+      {
+        "t": 57,
+        "category": "Parked Vehicle",
+        "hitRegion": {
+          "x": 60,
+          "y": 30,
+          "w": 40,
+          "h": 40
+        },
+        "window": [
+          52,
+          65
+        ],
+        "points": 100,
+        "explanation": "Scans ahead down the travel lane to notice hazard flashers; checks rear/side mirrors early to evaluate passing room.",
+        "avHandling": "LiDAR/Camera perception detects stationary obstacle in travel path, recalculates free-space vector, generates lane-change trajectory, and verifies clear clearance zone via 360-degree radar."
+      },
+      {
+        "t": 88,
+        "category": "Pedestrian / Jaywalker",
+        "hitRegion": {
+          "x": 0,
+          "y": 60,
+          "w": 40,
+          "h": 40
+        },
+        "window": [
+          85,
+          94
+        ],
+        "points": 100,
+        "explanation": "Monitors curb lines and movement intent; looks for head orientation and gait indicating crossing behavior.",
+        "avHandling": "Pedestrian classification pipeline assigns bounding box, tracks velocity vector, and predicts cross-path probability; triggers smooth automatic deceleration until path clears."
+      },
+      {
+        "t": 166,
+        "category": "Vehicle entering from side road / intersection",
+        "hitRegion": {
+          "x": 10,
+          "y": 30,
+          "w": 40,
+          "h": 40
+        },
+        "window": [
+          160,
+          170
+        ],
+        "points": 100,
+        "explanation": "Scans incoming vehicles at all-way stop; identifies non-slowing wheel rotation on cross-street driver indicating intent to run the stop sign.",
+        "avHandling": "Multi-agent behavioral forecasting tracks cross-street vehicle deceleration rates; detects stop-line roll-through and suppresses ego-vehicle movement command until intersection conflicts clear."
+      },
+      {
+        "t": 198,
+        "category": "Road Feature / Obstacle",
+        "hitRegion": {
+          "x": 30,
+          "y": 60,
+          "w": 40,
+          "h": 40
+        },
+        "window": [
+          193,
+          207
+        ],
+        "points": 100,
+        "explanation": "Reads roadside warning signs and identifies pavement surface elevation changes well ahead.",
+        "avHandling": "HD Map overlays provide micro-geometry data for speed bumps; cameras/LiDAR detect vertical profile changes and adjust suspension/target velocity automatically."
+      },
+      {
+        "t": 251,
+        "category": "Blind Intersection / Priority Cross Traffic",
+        "hitRegion": {
+          "x": 30,
+          "y": 30,
+          "w": 40,
+          "h": 40
+        },
+        "window": [
+          218,
+          265
+        ],
+        "points": 100,
+        "explanation": "Leans forward in seat to peek past A-pillars and parked vehicles to evaluate oncoming cross-street traffic gaps.",
+        "avHandling": "Executes virtual 'creep motion'; uses forward fender/side-mounted wide-angle cameras and long-range radar to see past occlusion zones before issuing go-command."
+      },
+      {
+        "t": 497,
+        "category": "Pedestrian / Jaywalker",
+        "hitRegion": {
+          "x": 0,
+          "y": 60,
+          "w": 40,
+          "h": 40
+        },
+        "window": [
+          495,
+          514
+        ],
+        "points": 100,
+        "explanation": "Maintains continuous visual lock on pedestrian; waits for step off travel lane onto sidewalk before accelerating.",
+        "avHandling": "Perception system maintains active tracking anchor on dynamic pedestrian bounding box; vehicle motion planner holds stop point until safe buffer distance is restored."
+      },
+      {
+        "t": 624,
+        "category": "Parked Vehicles / Low-Speed Spatial Constraints",
+        "hitRegion": {
+          "x": 30,
+          "y": 30,
+          "w": 40,
+          "h": 40
+        },
+        "window": [
+          588,
+          648
+        ],
+        "points": 100,
+        "explanation": "Performs head checks across shoulders and checks side/rear mirrors repeatedly to avoid curb or bumper contact.",
+        "avHandling": "Surround-view cameras and ultrasonic proximity sensors map curb boundary and nearby bumpers; automated parking planner executes exact steering and gear shifts."
+      }
+    ]
+  }
+]

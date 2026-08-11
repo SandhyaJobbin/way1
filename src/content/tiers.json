@@ -1,0 +1,17 @@
+[
+  {
+    "id": "foundation",
+    "label": "Foundation",
+    "overlay": "none"
+  },
+  {
+    "id": "proficient",
+    "label": "Proficient",
+    "overlay": "perception"
+  },
+  {
+    "id": "advanced",
+    "label": "Advanced",
+    "overlay": "bev-telemetry"
+  }
+]

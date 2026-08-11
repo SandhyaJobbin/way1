@@ -1,132 +1,107 @@
-@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Nunito+Sans:wght@300;400;600;700&display=swap');
-
 @import "tailwindcss";
 
-@theme {
-  --font-display: 'Baloo 2', cursive;
-  --font-body: 'Nunito Sans', sans-serif;
-  --font-data: 'JetBrains Mono', monospace;
+:root {
+  /* Layer 1 — primitives (raw values, never consumed directly) */
+  --primitive-off-white: #F8FAFC;
+  --primitive-navy-900: #0B0F19; /* Deeper space navy */
+  --primitive-navy-800: #131A2B;
+  --primitive-blue-500: #00D1FF; /* More vibrant neon cyan/blue for AV tech feel */
+  --primitive-blue-600: #0080FF;
+  --primitive-teal-400: #00FFA3; /* Vibrant neon teal */
+  --primitive-red-500: #FF3366; /* Punchy alert red */
+
+  /* Layer 2 — semantic (theme-switchable) */
+  --sem-surface: var(--primitive-off-white);
+  --sem-surface-glass: rgba(255, 255, 255, 0.7);
+  --sem-card: #FFFFFF;
+  --sem-card-glass: rgba(255, 255, 255, 0.85);
+  --sem-ink: var(--primitive-navy-900);
+  --sem-ink-muted: #64748B;
+  --sem-accent: var(--primitive-blue-600);
+  --sem-accent-2: var(--primitive-teal-400);
+  --sem-error: var(--primitive-red-500);
+  --sem-focus: var(--primitive-blue-500);
+  --sem-border: rgba(11, 15, 25, 0.08);
+  --sem-border-glass: rgba(255, 255, 255, 0.5);
 }
 
-@layer base {
-  :root {
-    /* Warm Night palette */
-    --c-sky-top: #1a1a2e;
-    --c-sky-horizon: #16213e;
-    --c-city-glow: #0f3460;
-    --c-road: #2d2d44;
-    --c-warm-light: #e8d5b7;
-
-    /* Wayo */
-    --c-wayo-body: #ffffff;
-    --c-wayo-dome: #f0f0f0;
-    --c-wayo-stripe: #cc0000;
-    --c-headlight-idle: #e8f4fd;
-    --c-headlight-curious: #ffe0b2;
-    --c-headlight-concerned: #ffcc80;
-    --c-headlight-alert: #ff8a65;
-    --c-headlight-happy: #a5d6a7;
-
-    /* Lesson A — Garage */
-    --c-garage-floor: #3a3a5c;
-    --c-garage-walls: #2a2a4a;
-    --c-garage-accent: #ffd54f;
-    --c-garage-tech: #1e3a5f;
-
-    /* Lesson B — Lab */
-    --c-lab-walls: #263238;
-    --c-lab-screens: #37474f;
-    --c-lab-glow: #4fc3f7;
-    --c-lab-pipeline: #ffb74d;
-
-    /* Lesson C — Overlook */
-    --c-overlook-sky: #0d1b2a;
-    --c-overlook-mid: #1b2838;
-    --c-overlook-far: #415a77;
-
-    /* Zone 1 — Construction */
-    --c-zone1-sky: #1a1a2e;
-    --c-zone1-work: #ffb74d;
-    --c-zone1-vest: #ffeb3b;
-    --c-zone1-alert: #ff5252;
-
-    /* Zone 2 — Triage */
-    --c-triage-room: #1c2833;
-    --c-triage-console: #2c3e50;
-    --c-triage-glow: #4fc3f7;
-    --c-triage-timeline: #ffb74d;
-    --c-triage-cards: #34495e;
-    --c-triage-text: #ecf0f1;
-
-    /* Zone 3 — Annotation */
-    --c-studio-room: #e8eaf0;
-    --c-studio-surface: #ffffff;
-    --c-studio-border: #90a4ae;
-    --c-studio-submit: #66bb6a;
-
-    /* Act 4 — Day */
-    --c-day-sky: #64b5f6;
-    --c-day-horizon: #e3f2fd;
-    --c-day-road: #546e7a;
-    --c-day-confidence: #66bb6a;
-  }
-
-  body {
-    background-color: var(--c-sky-top);
-    color: #e6edf3;
-    font-family: var(--font-body);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    overflow: hidden;
-    margin: 0;
-  }
-
-  #root {
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-display);
-    margin: 0;
-  }
-
-  p { margin: 0; }
+/* Dark audit theme — premium AV tech look */
+[data-theme="audit"] {
+  --sem-surface: var(--primitive-navy-900);
+  --sem-surface-glass: rgba(11, 15, 25, 0.7);
+  --sem-card: var(--primitive-navy-800);
+  --sem-card-glass: rgba(19, 26, 43, 0.75);
+  --sem-ink: #F1F5F9;
+  --sem-ink-muted: #94A3B8;
+  --sem-accent: var(--primitive-blue-500);
+  --sem-accent-2: var(--primitive-teal-400);
+  --sem-border: rgba(241, 245, 249, 0.1);
+  --sem-border-glass: rgba(255, 255, 255, 0.08);
 }
 
+/* Layer 3 — Tailwind utilities */
+@theme inline {
+  --color-surface: var(--sem-surface);
+  --color-surface-glass: var(--sem-surface-glass);
+  --color-card: var(--sem-card);
+  --color-card-glass: var(--sem-card-glass);
+  --color-ink: var(--sem-ink);
+  --color-ink-muted: var(--sem-ink-muted);
+  --color-accent: var(--sem-accent);
+  --color-accent-2: var(--sem-accent-2);
+  --color-error: var(--sem-error);
+  --color-line: var(--sem-border);
+  --color-line-glass: var(--sem-border-glass);
+  
+  --font-display: "Outfit", sans-serif;
+  --font-body: "Manrope", sans-serif;
+  
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-pill: 9999px;
+  
+  --shadow-lift: 0 4px 14px rgba(0, 0, 0, 0.08);
+  --shadow-float: 0 20px 40px rgba(0, 0, 0, 0.15);
+  --shadow-glow: 0 0 20px rgba(0, 209, 255, 0.3);
+
+  /* Spacing overrides for 96px and 128px */
+  --spacing-4xl: 96px;
+  --spacing-5xl: 128px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-surface);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+:focus-visible {
+  outline: 2px solid var(--sem-focus);
+  outline-offset: 2px;
+}
+
+/* Premium utility classes */
 @layer utilities {
-  .font-display { font-family: var(--font-display); }
-  .font-body { font-family: var(--font-body); }
-  .font-data { font-family: var(--font-data); }
-
   .glass-panel {
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    background: var(--sem-card-glass);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid var(--sem-border-glass);
+    box-shadow: var(--shadow-lift);
   }
-
-  .warm-glow {
-    text-shadow: 0 0 20px rgba(232, 213, 183, 0.5);
-  }
-
-  @keyframes glow-pulse {
-    0%, 100% { opacity: 0.6; }
-    50% { opacity: 1; }
-  }
-
-  @keyframes glow-rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
-
-  .animate-glow-pulse {
-    animation: glow-pulse 3s ease-in-out infinite;
-  }
-
-  .animate-glow-rotate {
-    animation: glow-rotate 8s linear infinite;
+  
+  .glass-panel-dark {
+    background: rgba(19, 26, 43, 0.75);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: var(--shadow-lift);
   }
 }

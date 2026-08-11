@@ -312,3 +312,397 @@
 [2026-08-10T13:03:29.744Z] [INFO] Worker consolidate completed in 1650ms
 [2026-08-10T13:05:19.737Z] [INFO] Starting worker: testgaps (1/2 concurrent)
 [2026-08-10T13:05:19.738Z] [INFO] Worker testgaps completed in 5ms
+[2026-08-10T13:09:22.539Z] [INFO] Starting worker: audit (1/2 concurrent)
+[2026-08-10T13:09:22.540Z] [INFO] Worker audit completed in 8ms
+[2026-08-10T13:12:19.839Z] [INFO] Worker map deferred: Memory too low: 9.8% free
+[2026-08-10T13:16:20.093Z] [INFO] Starting worker: optimize (1/2 concurrent)
+[2026-08-10T13:16:20.095Z] [INFO] Worker optimize completed in 5ms
+[2026-08-10T13:16:20.102Z] [INFO] Starting worker: map (1/2 concurrent)
+[2026-08-10T13:16:20.104Z] [INFO] Worker map completed in 5ms
+[2026-08-10T13:19:22.557Z] [INFO] Starting worker: audit (1/2 concurrent)
+[2026-08-10T13:19:22.558Z] [INFO] Worker audit completed in 6ms
+[2026-08-10T13:25:19.742Z] [INFO] Starting worker: testgaps (1/2 concurrent)
+[2026-08-10T13:25:19.743Z] [INFO] Worker testgaps completed in 5ms
+[2026-08-10T13:27:19.841Z] [INFO] Starting worker: map (1/2 concurrent)
+[2026-08-10T13:27:19.842Z] [INFO] Worker map completed in 4ms
+[2026-08-10T13:29:22.575Z] [INFO] Starting worker: audit (1/2 concurrent)
+[2026-08-10T13:29:22.577Z] [INFO] Worker audit completed in 5ms
+[2026-08-10T13:31:20.111Z] [INFO] Starting worker: optimize (1/2 concurrent)
+[2026-08-10T13:31:20.113Z] [INFO] Worker optimize completed in 7ms
+[2026-08-10T13:33:29.748Z] [INFO] Worker consolidate deferred: Memory too low: 9.6% free
+[2026-08-10T13:39:22.593Z] [INFO] Starting worker: audit (1/2 concurrent)
+[2026-08-10T13:39:22.595Z] [INFO] Worker audit completed in 5ms
+[2026-08-10T13:39:22.603Z] [INFO] Starting worker: consolidate (1/2 concurrent)
+[2026-08-10T13:39:24.256Z] [INFO] Consolidate worker: distillation skipped (error: Could not locate the bindings file. Tried:
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\build\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\build\Debug\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\build\Release\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\out\Debug\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\Debug\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\out\Release\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\Release\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\build\default\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\compiled\26.1.0\win32\x64\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\addon-build\release\install-root\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\addon-build\debug\install-root\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\addon-build\default\install-root\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\lib\binding\node-v147-win32-x64\better_sqlite3.node)
+[2026-08-10T13:39:24.258Z] [INFO] Worker consolidate completed in 1658ms
+[2026-08-10T13:42:19.859Z] [INFO] Starting worker: map (1/2 concurrent)
+[2026-08-10T13:42:19.861Z] [INFO] Worker map completed in 5ms
+[2026-08-10T13:45:19.752Z] [INFO] Starting worker: testgaps (1/2 concurrent)
+[2026-08-10T13:45:19.754Z] [INFO] Worker testgaps completed in 5ms
+[2026-08-10T13:46:20.135Z] [INFO] Starting worker: optimize (1/2 concurrent)
+[2026-08-10T13:46:20.136Z] [INFO] Worker optimize completed in 5ms
+[2026-08-10T13:49:22.607Z] [INFO] Starting worker: audit (1/2 concurrent)
+[2026-08-10T13:49:22.609Z] [INFO] Worker audit completed in 5ms
+[2026-08-10T13:57:19.871Z] [INFO] Starting worker: map (1/2 concurrent)
+[2026-08-10T13:57:19.873Z] [INFO] Worker map completed in 7ms
+[2026-08-10T13:59:22.626Z] [INFO] Starting worker: audit (1/2 concurrent)
+[2026-08-10T13:59:22.628Z] [INFO] Worker audit completed in 6ms
+[2026-08-10T14:01:20.151Z] [INFO] Starting worker: optimize (1/2 concurrent)
+[2026-08-10T14:01:20.152Z] [INFO] Worker optimize completed in 4ms
+[2026-08-10T14:03:29.761Z] [INFO] Starting worker: consolidate (1/2 concurrent)
+[2026-08-10T14:03:29.765Z] [INFO] Consolidate worker: distillation skipped (error: Could not locate the bindings file. Tried:
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\build\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\build\Debug\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\build\Release\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\out\Debug\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\Debug\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\out\Release\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\Release\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\build\default\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\compiled\26.1.0\win32\x64\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\addon-build\release\install-root\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\addon-build\debug\install-root\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\addon-build\default\install-root\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\lib\binding\node-v147-win32-x64\better_sqlite3.node)
+[2026-08-10T14:03:29.767Z] [INFO] Worker consolidate completed in 9ms
+[2026-08-10T14:05:19.761Z] [INFO] Worker testgaps deferred: Memory too low: 7.9% free
+[2026-08-10T14:09:22.638Z] [INFO] Worker audit deferred: Memory too low: 9.7% free
+[2026-08-10T14:12:19.879Z] [INFO] Starting worker: map (1/2 concurrent)
+[2026-08-10T14:12:19.881Z] [INFO] Worker map completed in 5ms
+[2026-08-10T14:12:19.888Z] [INFO] Starting worker: testgaps (1/2 concurrent)
+[2026-08-10T14:12:19.890Z] [INFO] Worker testgaps completed in 5ms
+[2026-08-10T14:12:19.898Z] [INFO] Starting worker: audit (1/2 concurrent)
+[2026-08-10T14:12:19.899Z] [INFO] Worker audit completed in 4ms
+[2026-08-10T14:16:20.172Z] [INFO] Starting worker: optimize (1/2 concurrent)
+[2026-08-10T14:16:20.174Z] [INFO] Worker optimize completed in 6ms
+[2026-08-10T14:19:22.644Z] [INFO] Starting worker: audit (1/2 concurrent)
+[2026-08-10T14:19:22.645Z] [INFO] Worker audit completed in 4ms
+[2026-08-10T14:25:19.775Z] [INFO] Starting worker: testgaps (1/2 concurrent)
+[2026-08-10T14:25:19.776Z] [INFO] Worker testgaps completed in 5ms
+[2026-08-10T14:27:19.901Z] [INFO] Starting worker: map (1/2 concurrent)
+[2026-08-10T14:27:19.903Z] [INFO] Worker map completed in 7ms
+[2026-08-10T14:29:22.659Z] [INFO] Starting worker: audit (1/2 concurrent)
+[2026-08-10T14:29:22.660Z] [INFO] Worker audit completed in 4ms
+[2026-08-10T14:31:20.172Z] [INFO] Starting worker: optimize (1/2 concurrent)
+[2026-08-10T14:31:20.175Z] [INFO] Worker optimize completed in 8ms
+[2026-08-10T14:33:29.744Z] [INFO] Starting worker: consolidate (1/2 concurrent)
+[2026-08-10T14:33:30.088Z] [INFO] Consolidate worker: distillation skipped (error: Could not locate the bindings file. Tried:
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\build\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\build\Debug\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\build\Release\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\out\Debug\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\Debug\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\out\Release\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\Release\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\build\default\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\compiled\26.1.0\win32\x64\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\addon-build\release\install-root\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\addon-build\debug\install-root\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\addon-build\default\install-root\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\lib\binding\node-v147-win32-x64\better_sqlite3.node)
+[2026-08-10T14:33:30.091Z] [INFO] Worker consolidate completed in 350ms
+[2026-08-10T14:39:22.607Z] [INFO] Starting worker: audit (1/2 concurrent)
+[2026-08-10T14:39:22.609Z] [INFO] Worker audit completed in 7ms
+[2026-08-10T14:42:19.815Z] [INFO] Starting worker: map (1/2 concurrent)
+[2026-08-10T14:42:19.816Z] [INFO] Worker map completed in 5ms
+[2026-08-10T14:45:19.659Z] [INFO] Starting worker: testgaps (1/2 concurrent)
+[2026-08-10T14:45:19.660Z] [INFO] Worker testgaps completed in 6ms
+[2026-08-10T14:46:20.079Z] [INFO] Starting worker: optimize (1/2 concurrent)
+[2026-08-10T14:46:20.080Z] [INFO] Worker optimize completed in 5ms
+[2026-08-10T14:49:22.557Z] [INFO] Starting worker: audit (1/2 concurrent)
+[2026-08-10T14:49:22.559Z] [INFO] Worker audit completed in 6ms
+[2026-08-10T14:57:19.744Z] [INFO] Starting worker: map (1/2 concurrent)
+[2026-08-10T14:57:19.746Z] [INFO] Worker map completed in 6ms
+[2026-08-10T14:59:22.512Z] [INFO] Starting worker: audit (1/2 concurrent)
+[2026-08-10T14:59:22.514Z] [INFO] Worker audit completed in 5ms
+[2026-08-10T15:01:20.010Z] [INFO] Starting worker: optimize (1/2 concurrent)
+[2026-08-10T15:01:20.011Z] [INFO] Worker optimize completed in 6ms
+[2026-08-10T15:03:29.909Z] [INFO] Starting worker: consolidate (1/2 concurrent)
+[2026-08-10T15:03:29.921Z] [INFO] Consolidate worker: distillation skipped (error: Could not locate the bindings file. Tried:
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\build\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\build\Debug\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\build\Release\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\out\Debug\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\Debug\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\out\Release\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\Release\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\build\default\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\compiled\26.1.0\win32\x64\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\addon-build\release\install-root\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\addon-build\debug\install-root\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\addon-build\default\install-root\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\lib\binding\node-v147-win32-x64\better_sqlite3.node)
+[2026-08-10T15:03:29.928Z] [INFO] Worker consolidate completed in 24ms
+[2026-08-10T15:05:19.580Z] [INFO] Starting worker: testgaps (1/2 concurrent)
+[2026-08-10T15:05:19.583Z] [INFO] Worker testgaps completed in 8ms
+[2026-08-10T15:09:19.327Z] [INFO] Starting worker: harness (1/2 concurrent)
+[2026-08-10T15:09:19.359Z] [INFO] Worker harness completed in 37ms
+[2026-08-10T15:09:22.482Z] [INFO] Starting worker: audit (1/2 concurrent)
+[2026-08-10T15:09:22.484Z] [INFO] Worker audit completed in 6ms
+[2026-08-10T15:12:19.701Z] [INFO] Starting worker: map (1/2 concurrent)
+[2026-08-10T15:12:19.704Z] [INFO] Worker map completed in 8ms
+[2026-08-10T15:16:19.963Z] [INFO] Starting worker: optimize (1/2 concurrent)
+[2026-08-10T15:16:19.964Z] [INFO] Worker optimize completed in 5ms
+[2026-08-10T15:19:22.465Z] [INFO] Starting worker: audit (1/2 concurrent)
+[2026-08-10T15:19:22.468Z] [INFO] Worker audit completed in 8ms
+[2026-08-10T15:25:19.528Z] [INFO] Starting worker: testgaps (1/2 concurrent)
+[2026-08-10T15:25:19.529Z] [INFO] Worker testgaps completed in 5ms
+[2026-08-10T15:27:19.669Z] [INFO] Starting worker: map (1/2 concurrent)
+[2026-08-10T15:27:19.671Z] [INFO] Worker map completed in 7ms
+[2026-08-10T15:29:22.454Z] [INFO] Starting worker: audit (1/2 concurrent)
+[2026-08-10T15:29:22.456Z] [INFO] Worker audit completed in 7ms
+[2026-08-10T15:31:19.934Z] [INFO] Starting worker: optimize (1/2 concurrent)
+[2026-08-10T15:31:19.935Z] [INFO] Worker optimize completed in 6ms
+[2026-08-10T15:33:29.826Z] [INFO] Worker consolidate deferred: Memory too low: 7.3% free
+[2026-08-10T15:39:22.450Z] [INFO] Starting worker: audit (1/2 concurrent)
+[2026-08-10T15:39:22.452Z] [INFO] Worker audit completed in 5ms
+[2026-08-10T15:39:22.461Z] [INFO] Starting worker: consolidate (1/2 concurrent)
+[2026-08-10T15:39:22.469Z] [INFO] Consolidate worker: distillation skipped (error: Could not locate the bindings file. Tried:
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\build\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\build\Debug\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\build\Release\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\out\Debug\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\Debug\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\out\Release\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\Release\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\build\default\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\compiled\26.1.0\win32\x64\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\addon-build\release\install-root\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\addon-build\debug\install-root\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\addon-build\default\install-root\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\lib\binding\node-v147-win32-x64\better_sqlite3.node)
+[2026-08-10T15:39:22.470Z] [INFO] Worker consolidate completed in 12ms
+[2026-08-10T15:42:19.651Z] [INFO] Starting worker: map (1/2 concurrent)
+[2026-08-10T15:42:19.652Z] [INFO] Worker map completed in 6ms
+[2026-08-10T15:45:19.498Z] [INFO] Starting worker: testgaps (1/2 concurrent)
+[2026-08-10T15:45:19.499Z] [INFO] Worker testgaps completed in 6ms
+[2026-08-10T15:46:19.917Z] [INFO] Starting worker: optimize (1/2 concurrent)
+[2026-08-10T15:46:19.919Z] [INFO] Worker optimize completed in 6ms
+[2026-08-10T15:49:22.439Z] [INFO] Starting worker: audit (1/2 concurrent)
+[2026-08-10T15:49:22.440Z] [INFO] Worker audit completed in 5ms
+[2026-08-10T15:57:19.637Z] [INFO] Starting worker: map (1/2 concurrent)
+[2026-08-10T15:57:19.639Z] [INFO] Worker map completed in 6ms
+[2026-08-10T15:59:22.429Z] [INFO] Worker audit deferred: Memory too low: 9.0% free
+[2026-08-10T16:01:19.894Z] [INFO] Worker optimize deferred: Memory too low: 8.9% free
+[2026-08-10T16:03:29.774Z] [INFO] Worker consolidate deferred: Memory too low: 5.1% free
+[2026-08-10T16:05:19.466Z] [INFO] Worker testgaps deferred: Memory too low: 6.9% free
+[2026-08-10T16:09:22.418Z] [INFO] Starting worker: audit (1/2 concurrent)
+[2026-08-10T16:09:22.420Z] [INFO] Worker audit completed in 5ms
+[2026-08-10T16:09:22.428Z] [INFO] Starting worker: audit (1/2 concurrent)
+[2026-08-10T16:09:22.429Z] [INFO] Worker audit completed in 4ms
+[2026-08-10T16:09:22.437Z] [INFO] Starting worker: optimize (1/2 concurrent)
+[2026-08-10T16:09:22.441Z] [INFO] Starting worker: consolidate (2/2 concurrent)
+[2026-08-10T16:09:22.442Z] [INFO] Worker optimize completed in 9ms
+[2026-08-10T16:09:22.448Z] [INFO] Consolidate worker: distillation skipped (error: Could not locate the bindings file. Tried:
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\build\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\build\Debug\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\build\Release\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\out\Debug\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\Debug\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\out\Release\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\Release\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\build\default\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\compiled\26.1.0\win32\x64\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\addon-build\release\install-root\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\addon-build\debug\install-root\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\addon-build\default\install-root\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\lib\binding\node-v147-win32-x64\better_sqlite3.node)
+[2026-08-10T16:09:22.453Z] [INFO] Starting worker: testgaps (2/2 concurrent)
+[2026-08-10T16:09:22.454Z] [INFO] Worker consolidate completed in 16ms
+[2026-08-10T16:09:22.459Z] [INFO] Worker testgaps completed in 9ms
+[2026-08-10T16:12:19.627Z] [INFO] Starting worker: map (1/2 concurrent)
+[2026-08-10T16:12:19.629Z] [INFO] Worker map completed in 6ms
+[2026-08-10T16:16:19.882Z] [INFO] Starting worker: optimize (1/2 concurrent)
+[2026-08-10T16:16:19.884Z] [INFO] Worker optimize completed in 5ms
+[2026-08-10T16:19:22.423Z] [INFO] Starting worker: audit (1/2 concurrent)
+[2026-08-10T16:19:22.425Z] [INFO] Worker audit completed in 6ms
+[2026-08-10T16:25:19.452Z] [INFO] Starting worker: testgaps (1/2 concurrent)
+[2026-08-10T16:25:19.454Z] [INFO] Worker testgaps completed in 7ms
+[2026-08-10T16:27:19.625Z] [INFO] Worker map deferred: Memory too low: 3.4% free
+[2026-08-10T16:29:22.420Z] [INFO] Starting worker: audit (1/2 concurrent)
+[2026-08-10T16:29:22.421Z] [INFO] Worker audit completed in 4ms
+[2026-08-10T16:29:22.429Z] [INFO] Starting worker: map (1/2 concurrent)
+[2026-08-10T16:29:22.430Z] [INFO] Worker map completed in 5ms
+[2026-08-10T16:31:19.881Z] [INFO] Starting worker: optimize (1/2 concurrent)
+[2026-08-10T16:31:19.883Z] [INFO] Worker optimize completed in 6ms
+[2026-08-10T16:33:29.747Z] [INFO] Starting worker: consolidate (1/2 concurrent)
+[2026-08-10T16:33:29.784Z] [INFO] Consolidate worker: distillation skipped (error: Could not locate the bindings file. Tried:
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\build\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\build\Debug\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\build\Release\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\out\Debug\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\Debug\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\out\Release\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\Release\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\build\default\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\compiled\26.1.0\win32\x64\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\addon-build\release\install-root\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\addon-build\debug\install-root\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\addon-build\default\install-root\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\lib\binding\node-v147-win32-x64\better_sqlite3.node)
+[2026-08-10T16:33:29.785Z] [INFO] Worker consolidate completed in 43ms
+[2026-08-10T16:39:22.428Z] [INFO] Starting worker: audit (1/2 concurrent)
+[2026-08-10T16:39:22.429Z] [INFO] Worker audit completed in 5ms
+[2026-08-10T16:42:19.625Z] [INFO] Worker map deferred: Memory too low: 7.7% free
+[2026-08-10T16:45:19.441Z] [INFO] Starting worker: testgaps (1/2 concurrent)
+[2026-08-10T16:45:19.443Z] [INFO] Worker testgaps completed in 7ms
+[2026-08-10T16:45:19.454Z] [INFO] Starting worker: map (1/2 concurrent)
+[2026-08-10T16:45:19.458Z] [INFO] Worker map completed in 7ms
+[2026-08-10T16:46:19.884Z] [INFO] Starting worker: optimize (1/2 concurrent)
+[2026-08-10T16:46:19.886Z] [INFO] Worker optimize completed in 7ms
+[2026-08-10T16:49:22.437Z] [INFO] Starting worker: audit (1/2 concurrent)
+[2026-08-10T16:49:22.440Z] [INFO] Worker audit completed in 8ms
+[2026-08-10T16:57:19.621Z] [INFO] Starting worker: map (1/2 concurrent)
+[2026-08-10T16:57:19.623Z] [INFO] Worker map completed in 7ms
+[2026-08-10T16:59:22.455Z] [INFO] Starting worker: audit (1/2 concurrent)
+[2026-08-10T16:59:22.457Z] [INFO] Worker audit completed in 5ms
+[2026-08-10T17:01:19.892Z] [INFO] Starting worker: optimize (1/2 concurrent)
+[2026-08-10T17:01:19.893Z] [INFO] Worker optimize completed in 5ms
+[2026-08-10T17:03:29.766Z] [INFO] Starting worker: consolidate (1/2 concurrent)
+[2026-08-10T17:03:29.772Z] [INFO] Consolidate worker: distillation skipped (error: Could not locate the bindings file. Tried:
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\build\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\build\Debug\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\build\Release\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\out\Debug\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\Debug\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\out\Release\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\Release\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\build\default\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\compiled\26.1.0\win32\x64\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\addon-build\release\install-root\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\addon-build\debug\install-root\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\addon-build\default\install-root\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\lib\binding\node-v147-win32-x64\better_sqlite3.node)
+[2026-08-10T17:03:29.774Z] [INFO] Worker consolidate completed in 12ms
+[2026-08-10T17:05:19.445Z] [INFO] Starting worker: testgaps (1/2 concurrent)
+[2026-08-10T17:05:19.446Z] [INFO] Worker testgaps completed in 5ms
+[2026-08-10T17:09:22.468Z] [INFO] Starting worker: audit (1/2 concurrent)
+[2026-08-10T17:09:22.471Z] [INFO] Worker audit completed in 7ms
+[2026-08-10T17:12:19.621Z] [INFO] Starting worker: map (1/2 concurrent)
+[2026-08-10T17:12:19.622Z] [INFO] Worker map completed in 5ms
+[2026-08-10T17:16:19.897Z] [INFO] Starting worker: optimize (1/2 concurrent)
+[2026-08-10T17:16:19.898Z] [INFO] Worker optimize completed in 5ms
+[2026-08-10T17:19:22.475Z] [INFO] Starting worker: audit (1/2 concurrent)
+[2026-08-10T17:19:22.480Z] [INFO] Worker audit completed in 11ms
+[2026-08-10T17:25:19.444Z] [INFO] Worker testgaps deferred: Memory too low: 9.9% free
+[2026-08-10T17:27:19.626Z] [INFO] Worker map deferred: Memory too low: 5.9% free
+[2026-08-10T17:29:22.515Z] [INFO] Starting worker: audit (1/2 concurrent)
+[2026-08-10T17:29:22.524Z] [INFO] Worker audit completed in 30ms
+[2026-08-10T17:29:22.553Z] [INFO] Starting worker: testgaps (1/2 concurrent)
+[2026-08-10T17:29:22.562Z] [INFO] Worker testgaps completed in 23ms
+[2026-08-10T17:29:22.583Z] [INFO] Starting worker: map (1/2 concurrent)
+[2026-08-10T17:29:22.592Z] [INFO] Worker map completed in 18ms
+[2026-08-10T17:31:19.898Z] [INFO] Worker optimize deferred: Memory too low: 7.1% free
+[2026-08-10T17:33:29.772Z] [INFO] Worker consolidate deferred: Memory too low: 6.9% free
+[2026-08-10T17:39:22.571Z] [INFO] Starting worker: audit (1/2 concurrent)
+[2026-08-10T17:39:22.575Z] [INFO] Worker audit completed in 22ms
+[2026-08-10T17:39:22.595Z] [INFO] Starting worker: optimize (1/2 concurrent)
+[2026-08-10T17:39:22.603Z] [INFO] Worker optimize completed in 14ms
+[2026-08-10T17:39:22.623Z] [INFO] Starting worker: consolidate (1/2 concurrent)
+[2026-08-10T17:39:24.292Z] [INFO] Consolidate worker: distillation skipped (error: Could not locate the bindings file. Tried:
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\build\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\build\Debug\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\build\Release\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\out\Debug\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\Debug\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\out\Release\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\Release\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\build\default\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\compiled\26.1.0\win32\x64\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\addon-build\release\install-root\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\addon-build\debug\install-root\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\addon-build\default\install-root\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\lib\binding\node-v147-win32-x64\better_sqlite3.node)
+[2026-08-10T17:39:24.297Z] [INFO] Worker consolidate completed in 1682ms
+[2026-08-10T17:42:19.636Z] [INFO] Starting worker: map (1/2 concurrent)
+[2026-08-10T17:42:19.638Z] [INFO] Worker map completed in 11ms
+[2026-08-10T17:45:19.452Z] [INFO] Starting worker: testgaps (1/2 concurrent)
+[2026-08-10T17:45:19.455Z] [INFO] Worker testgaps completed in 9ms
+[2026-08-10T17:46:19.901Z] [INFO] Starting worker: optimize (1/2 concurrent)
+[2026-08-10T17:46:19.905Z] [INFO] Worker optimize completed in 10ms
+[2026-08-10T17:49:22.594Z] [INFO] Starting worker: audit (1/2 concurrent)
+[2026-08-10T17:49:22.598Z] [INFO] Worker audit completed in 14ms
+[2026-08-10T17:57:19.650Z] [INFO] Starting worker: map (1/2 concurrent)
+[2026-08-10T17:57:19.654Z] [INFO] Worker map completed in 10ms
+[2026-08-10T17:59:22.615Z] [INFO] Starting worker: audit (1/2 concurrent)
+[2026-08-10T17:59:22.622Z] [INFO] Worker audit completed in 13ms
+[2026-08-10T18:01:19.928Z] [INFO] Starting worker: optimize (1/2 concurrent)
+[2026-08-10T18:01:19.930Z] [INFO] Worker optimize completed in 10ms
+[2026-08-10T18:03:29.777Z] [INFO] Starting worker: consolidate (1/2 concurrent)
+[2026-08-10T18:03:29.794Z] [INFO] Consolidate worker: distillation skipped (error: Could not locate the bindings file. Tried:
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\build\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\build\Debug\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\build\Release\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\out\Debug\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\Debug\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\out\Release\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\Release\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\build\default\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\compiled\26.1.0\win32\x64\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\addon-build\release\install-root\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\addon-build\debug\install-root\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\addon-build\default\install-root\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\lib\binding\node-v147-win32-x64\better_sqlite3.node)
+[2026-08-10T18:03:29.797Z] [INFO] Worker consolidate completed in 27ms
+[2026-08-10T18:05:19.462Z] [INFO] Starting worker: testgaps (1/2 concurrent)
+[2026-08-10T18:05:19.464Z] [INFO] Worker testgaps completed in 6ms
+[2026-08-10T18:09:22.640Z] [INFO] Starting worker: audit (1/2 concurrent)
+[2026-08-10T18:09:22.642Z] [INFO] Worker audit completed in 6ms
+[2026-08-10T18:12:19.669Z] [INFO] Starting worker: map (1/2 concurrent)
+[2026-08-10T18:12:19.671Z] [INFO] Worker map completed in 5ms
+[2026-08-10T18:16:19.942Z] [INFO] Worker optimize deferred: Memory too low: 5.3% free
+[2026-08-10T18:19:22.651Z] [INFO] Starting worker: audit (1/2 concurrent)
+[2026-08-10T18:19:22.652Z] [INFO] Worker audit completed in 6ms
+[2026-08-10T18:19:22.661Z] [INFO] Starting worker: optimize (1/2 concurrent)
+[2026-08-10T18:19:22.664Z] [INFO] Worker optimize completed in 6ms
+[2026-08-10T18:25:19.481Z] [INFO] Starting worker: testgaps (1/2 concurrent)
+[2026-08-10T18:25:19.483Z] [INFO] Worker testgaps completed in 7ms
+[2026-08-10T18:27:19.671Z] [INFO] Starting worker: map (1/2 concurrent)
+[2026-08-10T18:27:19.673Z] [INFO] Worker map completed in 5ms
+[2026-08-10T18:29:22.664Z] [INFO] Starting worker: audit (1/2 concurrent)
+[2026-08-10T18:29:22.666Z] [INFO] Worker audit completed in 7ms
+[2026-08-10T18:31:19.943Z] [INFO] Worker optimize deferred: Memory too low: 7.7% free
+[2026-08-10T18:33:29.809Z] [INFO] Worker consolidate deferred: Memory too low: 6.7% free
+[2026-08-10T18:39:22.690Z] [INFO] Starting worker: audit (1/2 concurrent)
+[2026-08-10T18:39:22.695Z] [INFO] Worker audit completed in 16ms
+[2026-08-10T18:39:22.710Z] [INFO] Starting worker: optimize (1/2 concurrent)
+[2026-08-10T18:39:22.717Z] [INFO] Worker optimize completed in 12ms
+[2026-08-10T18:39:22.733Z] [INFO] Starting worker: consolidate (1/2 concurrent)
+[2026-08-10T18:39:23.435Z] [INFO] Consolidate worker: distillation skipped (error: Could not locate the bindings file. Tried:
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\build\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\build\Debug\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\build\Release\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\out\Debug\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\Debug\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\out\Release\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\Release\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\build\default\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\compiled\26.1.0\win32\x64\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\addon-build\release\install-root\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\addon-build\debug\install-root\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\addon-build\default\install-root\better_sqlite3.node
+ → D:\devcache\npm-cache\_npx\2ed56890c96f58f7\node_modules\better-sqlite3\lib\binding\node-v147-win32-x64\better_sqlite3.node)
+[2026-08-10T18:39:23.440Z] [INFO] Worker consolidate completed in 715ms
+[2026-08-10T18:42:19.691Z] [INFO] Starting worker: map (1/2 concurrent)
+[2026-08-10T18:42:19.694Z] [INFO] Worker map completed in 19ms
+[2026-08-10T18:45:19.486Z] [INFO] Starting worker: testgaps (1/2 concurrent)
+[2026-08-10T18:45:19.487Z] [INFO] Worker testgaps completed in 6ms
+[2026-08-10T18:46:19.947Z] [INFO] Starting worker: optimize (1/2 concurrent)
+[2026-08-10T18:46:19.948Z] [INFO] Worker optimize completed in 6ms
+[2026-08-10T18:49:22.710Z] [INFO] Starting worker: audit (1/2 concurrent)
+[2026-08-10T18:49:22.711Z] [INFO] Worker audit completed in 5ms
+[2026-08-10T18:57:19.702Z] [INFO] Starting worker: map (1/2 concurrent)
+[2026-08-10T18:57:19.711Z] [INFO] Worker map completed in 15ms

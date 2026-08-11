@@ -1,0 +1,322 @@
+[
+  {
+    "id": "AZ",
+    "code": "AZ",
+    "name": "Arizona",
+    "type": "deep",
+    "rules": [
+      "Light-touch regulatory regime for autonomous vehicles.",
+      "Right turn on red allowed unless otherwise posted.",
+      "Must yield to pedestrians in marked or unmarked crosswalks."
+    ],
+    "avContext": "The AV platform utilizes extensive map priors and high-visibility sensor sweeps to handle wide suburban intersections commonly found in the Phoenix metropolitan area.",
+    "nextScenarioId": "phoenix-1"
+  },
+  {
+    "id": "CA",
+    "code": "CA",
+    "name": "California",
+    "type": "deep",
+    "rules": [
+      "Strict regulatory requirements for autonomous vehicle testing and deployment.",
+      "Lane splitting by motorcycles is legally permitted and requires heightened awareness.",
+      "U-turns permitted at intersections with green lights unless prohibited by a sign."
+    ],
+    "avContext": "The platform employs specialized prediction models to anticipate dense urban traffic patterns, unpredictable pedestrian movements, and steep inclines characteristic of San Francisco.",
+    "nextScenarioId": "sf-1"
+  },
+  {
+    "id": "TX",
+    "code": "TX",
+    "name": "Texas",
+    "type": "stub"
+  },
+  {
+    "id": "FL",
+    "code": "FL",
+    "name": "Florida",
+    "type": "stub"
+  },
+  {
+    "id": "NY",
+    "code": "NY",
+    "name": "New York",
+    "type": "stub"
+  },
+  {
+    "id": "WA",
+    "code": "WA",
+    "name": "Washington",
+    "type": "stub"
+  },
+  {
+    "id": "NV",
+    "code": "NV",
+    "name": "Nevada",
+    "type": "stub"
+  },
+  {
+    "id": "MI",
+    "code": "MI",
+    "name": "Michigan",
+    "type": "stub"
+  },
+  {
+    "id": "PA",
+    "code": "PA",
+    "name": "Pennsylvania",
+    "type": "stub"
+  },
+  {
+    "id": "IL",
+    "code": "IL",
+    "name": "Illinois",
+    "type": "stub"
+  },
+  {
+    "id": "OH",
+    "code": "OH",
+    "name": "Ohio",
+    "type": "stub"
+  },
+  {
+    "id": "GA",
+    "code": "GA",
+    "name": "Georgia",
+    "type": "stub"
+  },
+  {
+    "id": "NC",
+    "code": "NC",
+    "name": "North Carolina",
+    "type": "stub"
+  },
+  {
+    "id": "VA",
+    "code": "VA",
+    "name": "Virginia",
+    "type": "stub"
+  },
+  {
+    "id": "NJ",
+    "code": "NJ",
+    "name": "New Jersey",
+    "type": "stub"
+  },
+  {
+    "id": "MA",
+    "code": "MA",
+    "name": "Massachusetts",
+    "type": "stub"
+  },
+  {
+    "id": "IN",
+    "code": "IN",
+    "name": "Indiana",
+    "type": "stub"
+  },
+  {
+    "id": "TN",
+    "code": "TN",
+    "name": "Tennessee",
+    "type": "stub"
+  },
+  {
+    "id": "MO",
+    "code": "MO",
+    "name": "Missouri",
+    "type": "stub"
+  },
+  {
+    "id": "MD",
+    "code": "MD",
+    "name": "Maryland",
+    "type": "stub"
+  },
+  {
+    "id": "WI",
+    "code": "WI",
+    "name": "Wisconsin",
+    "type": "stub"
+  },
+  {
+    "id": "CO",
+    "code": "CO",
+    "name": "Colorado",
+    "type": "stub"
+  },
+  {
+    "id": "MN",
+    "code": "MN",
+    "name": "Minnesota",
+    "type": "stub"
+  },
+  {
+    "id": "SC",
+    "code": "SC",
+    "name": "South Carolina",
+    "type": "stub"
+  },
+  {
+    "id": "AL",
+    "code": "AL",
+    "name": "Alabama",
+    "type": "stub"
+  },
+  {
+    "id": "LA",
+    "code": "LA",
+    "name": "Louisiana",
+    "type": "stub"
+  },
+  {
+    "id": "KY",
+    "code": "KY",
+    "name": "Kentucky",
+    "type": "stub"
+  },
+  {
+    "id": "OR",
+    "code": "OR",
+    "name": "Oregon",
+    "type": "stub"
+  },
+  {
+    "id": "OK",
+    "code": "OK",
+    "name": "Oklahoma",
+    "type": "stub"
+  },
+  {
+    "id": "CT",
+    "code": "CT",
+    "name": "Connecticut",
+    "type": "stub"
+  },
+  {
+    "id": "UT",
+    "code": "UT",
+    "name": "Utah",
+    "type": "stub"
+  },
+  {
+    "id": "IA",
+    "code": "IA",
+    "name": "Iowa",
+    "type": "stub"
+  },
+  {
+    "id": "AR",
+    "code": "AR",
+    "name": "Arkansas",
+    "type": "stub"
+  },
+  {
+    "id": "MS",
+    "code": "MS",
+    "name": "Mississippi",
+    "type": "stub"
+  },
+  {
+    "id": "KS",
+    "code": "KS",
+    "name": "Kansas",
+    "type": "stub"
+  },
+  {
+    "id": "NM",
+    "code": "NM",
+    "name": "New Mexico",
+    "type": "stub"
+  },
+  {
+    "id": "NE",
+    "code": "NE",
+    "name": "Nebraska",
+    "type": "stub"
+  },
+  {
+    "id": "ID",
+    "code": "ID",
+    "name": "Idaho",
+    "type": "stub"
+  },
+  {
+    "id": "WV",
+    "code": "WV",
+    "name": "West Virginia",
+    "type": "stub"
+  },
+  {
+    "id": "HI",
+    "code": "HI",
+    "name": "Hawaii",
+    "type": "stub"
+  },
+  {
+    "id": "NH",
+    "code": "NH",
+    "name": "New Hampshire",
+    "type": "stub"
+  },
+  {
+    "id": "ME",
+    "code": "ME",
+    "name": "Maine",
+    "type": "stub"
+  },
+  {
+    "id": "MT",
+    "code": "MT",
+    "name": "Montana",
+    "type": "stub"
+  },
+  {
+    "id": "RI",
+    "code": "RI",
+    "name": "Rhode Island",
+    "type": "stub"
+  },
+  {
+    "id": "DE",
+    "code": "DE",
+    "name": "Delaware",
+    "type": "stub"
+  },
+  {
+    "id": "SD",
+    "code": "SD",
+    "name": "South Dakota",
+    "type": "stub"
+  },
+  {
+    "id": "ND",
+    "code": "ND",
+    "name": "North Dakota",
+    "type": "stub"
+  },
+  {
+    "id": "AK",
+    "code": "AK",
+    "name": "Alaska",
+    "type": "stub"
+  },
+  {
+    "id": "DC",
+    "code": "DC",
+    "name": "District of Columbia",
+    "type": "stub"
+  },
+  {
+    "id": "VT",
+    "code": "VT",
+    "name": "Vermont",
+    "type": "stub"
+  },
+  {
+    "id": "WY",
+    "code": "WY",
+    "name": "Wyoming",
+    "type": "stub"
+  }
+]

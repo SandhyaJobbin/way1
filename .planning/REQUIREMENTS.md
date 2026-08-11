@@ -19,12 +19,12 @@
 - [ ] **LESN-06**: Lesson completion tracked; Zone access gated or guided by lesson progress (final gate behavior decided in plan phase).
 
 ### ZONE — The Zone: Hazard Perception Simulator
-- [ ] **ZONE-01**: One Zone = hazard perception simulator: dashcam-style POV video clips play and the learner clicks DEVELOPING hazards (situations requiring speed/direction change) across four clickable categories — Vehicles, Pedestrians, Signs, Road marks — with mixed scenarios weaving multiple US nuances per clip (not one module per nuance).
+- [ ] **ZONE-01**: One Zone = hazard perception simulator: a single dashcam-style POV video plays and the learner clicks DEVELOPING hazards (situations requiring speed/direction change) across four clickable categories — Vehicles, Pedestrians, Signs, Road marks — with mixed scenarios weaving multiple US nuances in the video.
 - [ ] **ZONE-02**: Three AV-overlay difficulty tiers inside the Zone — Foundation (clean POV, spot like a driver), Proficient (POV + perception overlay: bounding boxes, confidence indicators), Advanced (BEV + telemetry view with confidence drops) — all open to the learner; tiers map to the client's technical scorecard categories.
 - [ ] **ZONE-03**: Results screen per run: hazards spotted X/N, reaction speed (median ms), false clicks, and a composite hazard score % (detection accuracy + reaction time + false clicks); review-mistakes reveal cards (what a human should see + how an AV platform handles it) and retry-with-feedback.
-- [ ] **ZONE-04**: Tutorial mode on first run: opening hazards highlighted with hints, then unassisted play; scenario clips set in Phoenix and San Francisco worlds with simulated AV-perspective overlays (bounding boxes, lidar-style points, sensor confidence indicators) for data realism.
+- [ ] **ZONE-04**: Tutorial mode on first run: opening hazards highlighted with hints, then unassisted play; a single scenario video with simulated AV-perspective overlays (bounding boxes, lidar-style points, sensor confidence indicators) for data realism.
 - [ ] **ZONE-05**: Recognition-based challenges only — spot / identify / decide; no annotation or labeling tasks.
-- [ ] **ZONE-06**: Clips, hazard timelines (`{t, category, hitRegion, window, points, explanation, avHandling}`), tiers, and overlays are data-driven from the typed JSON content pipeline; dashcam-style POV footage = placeholder slots (stock or simulated renders), RFP-neutral.
+- [ ] **ZONE-06**: Single video clip, hazard timelines (`{t, category, hitRegion, window, points, explanation, avHandling}`), tiers, and overlays are data-driven from the typed JSON content pipeline; dashcam-style POV footage uses the single provided video.
 
 ### ASSESS — Assessment, Scorecard, Gamification
 - [ ] **ASSESS-01**: Hazard-sim performance scores and maps to technical scorecard categories: 3D spatial rotation, telemetry interpretation, occlusion reasoning, complex decision-making (tier + hazard attributes drive the mapping).

@@ -1,0 +1,12 @@
+{
+  "name": "AV Context Trainer",
+  "tagline": "Training for the Autonomous Vehicle industry",
+  "wordmark": { "mode": "text" },
+  "logoSlot": null,
+  "colorOverrides": {
+    "accentPrimary": null,
+    "accentSecondary": null,
+    "surface": null,
+    "ink": null
+  }
+}
