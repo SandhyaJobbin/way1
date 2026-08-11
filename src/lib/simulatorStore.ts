@@ -1,15 +1,14 @@
 import { create } from 'zustand';
 import { HazardResult } from './scoring';
 
-export type TierLevel = 'foundation' | 'proficient' | 'advanced';
-
 interface SimulatorState {
   isPlaying: boolean;
   currentTime: number;
-  selectedTier: TierLevel;
+  duration: number;
   hasSeenTutorial: boolean;
   activeRun: {
     hazards: HazardResult[];
+    misses: string[];
     falseClicks: number;
     completed: boolean;
   };
@@ -17,11 +16,12 @@ interface SimulatorState {
   // Actions
   setPlaying: (playing: boolean) => void;
   setCurrentTime: (time: number) => void;
-  setTier: (tier: TierLevel) => void;
+  setDuration: (duration: number) => void;
   setTutorialSeen: (seen: boolean) => void;
   
   // Interaction Actions
   recordHazardClick: (hazardId: string, category: HazardResult['category'], points: number, reactionMs: number) => void;
+  recordMiss: (hazardId: string) => void;
   recordFalseClick: () => void;
   finishRun: () => void;
   resetRun: () => void;
@@ -30,18 +30,19 @@ interface SimulatorState {
 export const useSimulatorStore = create<SimulatorState>((set) => ({
   isPlaying: false,
   currentTime: 0,
-  selectedTier: 'foundation',
+  duration: 1,
   hasSeenTutorial: false,
   
   activeRun: {
     hazards: [],
+    misses: [],
     falseClicks: 0,
     completed: false,
   },
   
   setPlaying: (playing) => set({ isPlaying: playing }),
   setCurrentTime: (time) => set({ currentTime: time }),
-  setTier: (tier) => set({ selectedTier: tier }),
+  setDuration: (duration) => set({ duration }),
   setTutorialSeen: (seen) => set({ hasSeenTutorial: seen }),
   
   recordHazardClick: (hazardId, category, points, reactionMs) => set((state) => {
@@ -60,6 +61,16 @@ export const useSimulatorStore = create<SimulatorState>((set) => ({
     };
   }),
   
+  recordMiss: (hazardId) => set((state) => {
+    if (state.activeRun.misses.includes(hazardId)) return state;
+    return {
+      activeRun: {
+        ...state.activeRun,
+        misses: [...state.activeRun.misses, hazardId]
+      }
+    };
+  }),
+
   recordFalseClick: () => set((state) => ({
     activeRun: {
       ...state.activeRun,
@@ -78,6 +89,7 @@ export const useSimulatorStore = create<SimulatorState>((set) => ({
   resetRun: () => set(() => ({
     activeRun: {
       hazards: [],
+      misses: [],
       falseClicks: 0,
       completed: false
     },

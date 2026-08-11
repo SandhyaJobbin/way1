@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ChevronRight, AlertTriangle, ShieldCheck } from 'lucide-react';
+import { X, ChevronRight, AlertTriangle, ShieldCheck, FileText } from 'lucide-react';
 import { useNavigate } from 'react-router';
 import { z } from 'zod';
 import { StateSchema } from '../content/schemas';
@@ -88,9 +88,20 @@ export function StatePolicyModal({ stateData, onClose }: StatePolicyModalProps) 
                     <ShieldCheck className="w-5 h-5" />
                     AV Context
                   </h3>
-                  <p className="text-ink/90 text-sm leading-relaxed">
+                  <p className="text-ink/90 text-sm leading-relaxed mb-4">
                     {stateData.avContext}
                   </p>
+                  {stateData.handbookUrl && (
+                    <a
+                      href={stateData.handbookUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-primary/20 text-primary font-medium hover:bg-primary/5 transition-colors"
+                    >
+                      <FileText className="w-4 h-4" />
+                      Read Official State Handbook
+                    </a>
+                  )}
                 </div>
               </div>
             ) : (

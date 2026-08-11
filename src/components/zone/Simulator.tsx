@@ -1,4 +1,6 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { CheckCircle } from 'lucide-react';
 import { useSimulatorStore } from '../../lib/simulatorStore';
 import { scenarios } from '../../content';
 
@@ -11,9 +13,24 @@ export const Simulator: React.FC = () => {
   
   const { 
     isPlaying, setPlaying, setCurrentTime, currentTime,
-    hasSeenTutorial, setTutorialSeen,
-    recordHazardClick, recordFalseClick, finishRun
+    hasSeenTutorial, setTutorialSeen, setDuration,
+    recordHazardClick, recordMiss, recordFalseClick, finishRun, activeRun
   } = useSimulatorStore();
+
+  const [clicks, setClicks] = useState<{ id: number, x: number, y: number, hit: boolean }[]>([]);
+  const [missedHazard, setMissedHazard] = useState<{ id: string, category: string, explanation: string, hitRegion: {x: number, y: number, w: number, h: number} } | null>(null);
+  const [missTimer, setMissTimer] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (missTimer !== null && missTimer > 0) {
+      const timer = setTimeout(() => setMissTimer(prev => prev! - 1), 1000);
+      return () => clearTimeout(timer);
+    } else if (missTimer === 0) {
+      setMissedHazard(null);
+      setPlaying(true);
+      setMissTimer(null);
+    }
+  }, [missTimer]);
 
   // Sync video play/pause with store
   useEffect(() => {
@@ -41,6 +58,22 @@ export const Simulator: React.FC = () => {
         // Dispatch some tutorial UI event or rely on Zone to render a tooltip
       }
     }
+
+    // Missed hazard logic
+    if (scenario && isPlaying) {
+      scenario.hazards.forEach((hazard) => {
+        const hazardId = hazard.hazardId;
+        if (time > hazard.window[1]) {
+          const isClicked = activeRun.hazards.some(h => h.hazardId === hazardId);
+          if (!isClicked && !activeRun.misses.includes(hazardId)) {
+            setPlaying(false);
+            recordMiss(hazardId);
+            setMissedHazard({ id: hazardId, category: hazard.category, explanation: hazard.explanation, hitRegion: hazard.hitRegion });
+            setMissTimer(10);
+          }
+        }
+      });
+    }
   };
 
   const handleEnded = () => {
@@ -55,9 +88,12 @@ export const Simulator: React.FC = () => {
     const x = ((e.clientX - rect.left) / rect.width) * 100; // % x
     const y = ((e.clientY - rect.top) / rect.height) * 100; // % y
 
+    // Add click feedback ID
+    const clickId = Date.now();
+
     // Check if click is inside any active hazard hit-region
     let hit = false;
-    scenario.hazards.forEach((hazard, idx) => {
+    scenario.hazards.forEach((hazard) => {
       // Check window
       if (currentTime >= hazard.window[0] && currentTime <= hazard.window[1]) {
         // Check region
@@ -66,7 +102,7 @@ export const Simulator: React.FC = () => {
           hit = true;
           // Calculate reaction ms based on hazard start time (t)
           const reactionMs = Math.max(0, (currentTime - hazard.t) * 1000);
-          recordHazardClick(idx.toString(), hazard.category, hazard.points, reactionMs);
+          recordHazardClick(hazard.hazardId, hazard.category, hazard.points, reactionMs);
         }
       }
     });
@@ -74,6 +110,11 @@ export const Simulator: React.FC = () => {
     if (!hit) {
       recordFalseClick();
     }
+
+    setClicks(prev => [...prev, { id: clickId, x, y, hit }]);
+    setTimeout(() => {
+      setClicks(prev => prev.filter(c => c.id !== clickId));
+    }, 1000);
   };
 
   if (!scenario) {
@@ -84,7 +125,6 @@ export const Simulator: React.FC = () => {
     <div 
       ref={containerRef}
       className="relative w-full aspect-video bg-black overflow-hidden cursor-crosshair group"
-      onClick={handleVideoClick}
     >
       <video
         ref={videoRef}
@@ -92,22 +132,127 @@ export const Simulator: React.FC = () => {
         poster={scenario.clip.poster}
         className="w-full h-full object-cover"
         onTimeUpdate={handleTimeUpdate}
+        onDurationChange={(e) => setDuration(e.currentTarget.duration)}
         onEnded={handleEnded}
         playsInline
-        controls
+        /* Removed controls to prevent native click-to-pause behavior */
       />
       
+      {/* HUD (Heads Up Display) for Scores */}
+      <div className="absolute top-4 right-4 z-20 flex gap-4 pointer-events-none">
+        <div className="bg-black/50 backdrop-blur-sm text-white px-4 py-2 rounded-lg border border-white/10 flex flex-col items-center">
+          <span className="text-xs text-white/70 font-semibold uppercase tracking-wider">Score</span>
+          <span className="text-xl font-bold">{Math.max(0, activeRun.hazards.reduce((sum, h) => sum + h.points, 0) - (activeRun.falseClicks * 5))}</span>
+        </div>
+        <div className="bg-black/50 backdrop-blur-sm text-white px-4 py-2 rounded-lg border border-white/10 flex flex-col items-center">
+          <span className="text-xs text-white/70 font-semibold uppercase tracking-wider">Spotted</span>
+          <span className="text-xl font-bold">{activeRun.hazards.length}</span>
+        </div>
+        <div className="bg-black/50 backdrop-blur-sm text-white px-4 py-2 rounded-lg border border-white/10 flex flex-col items-center">
+          <span className="text-xs text-white/70 font-semibold uppercase tracking-wider">False Clicks</span>
+          <span className="text-xl font-bold text-red-400">{activeRun.falseClicks}</span>
+        </div>
+      </div>
+
+      {/* Invisible overlay to capture clicks safely */}
+      <div 
+        className="absolute inset-0 z-10 cursor-crosshair" 
+        onClick={handleVideoClick} 
+      />
+
+      {/* Click Animations */}
+      <AnimatePresence>
+        {clicks.map(click => (
+          <motion.div
+            key={click.id}
+            initial={{ scale: 0.2, opacity: 0.8 }}
+            animate={{ scale: 2.5, opacity: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className={`absolute w-12 h-12 -ml-6 -mt-6 rounded-full border-4 pointer-events-none z-20 flex items-center justify-center ${click.hit ? 'border-accent bg-accent/20' : 'border-red-500 bg-red-500/20'}`}
+            style={{ left: `${click.x}%`, top: `${click.y}%` }}
+          >
+            {click.hit && (
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                className="w-full h-full text-accent flex items-center justify-center"
+              >
+                <CheckCircle className="w-1/2 h-1/2" strokeWidth={3} />
+              </motion.div>
+            )}
+          </motion.div>
+        ))}
+      </AnimatePresence>
+
+      {/* Missed Hazard Highlight Box */}
+      <AnimatePresence>
+        {missedHazard && (
+          <motion.div
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            className="absolute border-4 border-red-500 bg-red-500/30 z-10 pointer-events-none shadow-[0_0_20px_rgba(239,68,68,0.8)]"
+            style={{
+              left: `${missedHazard.hitRegion.x}%`,
+              top: `${missedHazard.hitRegion.y}%`,
+              width: `${missedHazard.hitRegion.w}%`,
+              height: `${missedHazard.hitRegion.h}%`
+            }}
+          />
+        )}
+      </AnimatePresence>
+      
       {/* Dev UI for playback, assuming custom controls in the demo */}
-      <div className="absolute bottom-4 left-4 z-10">
+      <div className="absolute bottom-4 left-4 z-20">
         <button 
           onClick={(e) => { e.stopPropagation(); setPlaying(!isPlaying); }}
-          className="bg-white text-navy-900 px-4 py-2 rounded-full font-medium border border-gray-300"
+          className="bg-white text-ink px-4 py-2 rounded-full font-medium border border-line"
         >
           {isPlaying ? 'Pause' : 'Play'}
         </button>
       </div>
-      
-      {/* Crosshair element following mouse could be added here */}
+
+      {/* Missed Hazard Modal */}
+      <AnimatePresence>
+        {missedHazard && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="absolute inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm"
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              className="bg-white rounded-xl shadow-2xl p-8 max-w-md w-full text-center"
+            >
+              <div className="w-16 h-16 bg-red-500/10 text-red-500 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">
+                ⚠️
+              </div>
+              <h3 className="text-2xl font-display font-semibold text-ink mb-2">
+                Missed Hazard
+              </h3>
+              <p className="text-ink/80 mb-6">
+                You missed a hazard: <strong className="capitalize">{missedHazard.category}</strong>. <br/><br/>
+                {missedHazard.explanation}
+              </p>
+              <button
+                onClick={() => {
+                  setMissedHazard(null);
+                  setPlaying(true);
+                  setMissTimer(null);
+                }}
+                className="w-full bg-accent hover:bg-accent/90 text-white font-semibold py-3 px-6 rounded-pill transition-colors flex items-center justify-center gap-2"
+              >
+                <span>Resume</span>
+                {missTimer !== null && <span className="opacity-75">({missTimer}s)</span>}
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

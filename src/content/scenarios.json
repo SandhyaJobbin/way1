@@ -1,131 +1,138 @@
 [
   {
-    "id": "scenario-1",
-    "worldId": "phoenix",
+    "id": "scenario-2",
+    "worldId": "san-francisco",
     "clip": {
-      "slot": "pov-dashcam-1",
-      "src": "/zone/render.mp4",
+      "slot": "pov-dashcam-2",
+      "src": "/untitled-design.mp4",
       "poster": ""
     },
     "hazards": [
       {
-        "t": 57,
+        "hazardId": "hazard_0",
+        "t": 25,
         "category": "vehicles",
         "hitRegion": {
-          "x": 60,
-          "y": 30,
-          "w": 40,
-          "h": 40
+          "x": 39.06,
+          "y": 9.26,
+          "w": 26.04,
+          "h": 69.44
         },
         "window": [
-          52,
-          65
+          24,
+          76
         ],
         "points": 100,
-        "explanation": "Scans ahead down the travel lane to notice hazard flashers; checks rear/side mirrors early to evaluate passing room.",
-        "avHandling": "LiDAR/Camera perception detects stationary obstacle in travel path, recalculates free-space vector, generates lane-change trajectory, and verifies clear clearance zone via 360-degree radar."
+        "explanation": "The red light mandates a stop, and the vehicle occupying the space ahead requires the driver to brake to avoid a collision. Brake smoothly and come to a complete stop at a safe distance behind the white SUV.",
+        "avHandling": "Brake smoothly and come to a complete stop at a safe distance behind the white SUV."
       },
       {
-        "t": 88,
+        "hazardId": "hazard_1",
+        "t": 80,
         "category": "pedestrians",
         "hitRegion": {
-          "x": 0,
-          "y": 60,
-          "w": 40,
-          "h": 40
+          "x": 45.83,
+          "y": 48.15,
+          "w": 5.21,
+          "h": 14.81
         },
         "window": [
-          85,
-          94
+          78,
+          84
         ],
         "points": 100,
-        "explanation": "Monitors curb lines and movement intent; looks for head orientation and gait indicating crossing behavior.",
-        "avHandling": "Pedestrian classification pipeline assigns bounding box, tracks velocity vector, and predicts cross-path probability; triggers smooth automatic deceleration until path clears."
+        "explanation": "The pedestrian is in the roadway ahead while the vehicle is approaching the intersection, creating a potential conflict if they do not clear the lane. Maintain a slow speed, monitor the pedestrian's progress, and be prepared to brake if they stop or slow down in the vehicle's path.",
+        "avHandling": "Maintain a slow speed, monitor the pedestrian's progress, and be prepared to brake if they stop or slow down in the vehicle's path."
       },
       {
-        "t": 166,
-        "category": "vehicles",
-        "hitRegion": {
-          "x": 10,
-          "y": 30,
-          "w": 40,
-          "h": 40
-        },
-        "window": [
-          160,
-          170
-        ],
-        "points": 100,
-        "explanation": "Scans incoming vehicles at all-way stop; identifies non-slowing wheel rotation on cross-street driver indicating intent to run the stop sign.",
-        "avHandling": "Multi-agent behavioral forecasting tracks cross-street vehicle deceleration rates; detects stop-line roll-through and suppresses ego-vehicle movement command until intersection conflicts clear."
-      },
-      {
-        "t": 198,
-        "category": "road-marks",
-        "hitRegion": {
-          "x": 30,
-          "y": 60,
-          "w": 40,
-          "h": 40
-        },
-        "window": [
-          193,
-          207
-        ],
-        "points": 100,
-        "explanation": "Reads roadside warning signs and identifies pavement surface elevation changes well ahead.",
-        "avHandling": "HD Map overlays provide micro-geometry data for speed bumps; cameras/LiDAR detect vertical profile changes and adjust suspension/target velocity automatically."
-      },
-      {
-        "t": 251,
-        "category": "vehicles",
-        "hitRegion": {
-          "x": 30,
-          "y": 30,
-          "w": 40,
-          "h": 40
-        },
-        "window": [
-          218,
-          265
-        ],
-        "points": 100,
-        "explanation": "Leans forward in seat to peek past A-pillars and parked vehicles to evaluate oncoming cross-street traffic gaps.",
-        "avHandling": "Executes virtual 'creep motion'; uses forward fender/side-mounted wide-angle cameras and long-range radar to see past occlusion zones before issuing go-command."
-      },
-      {
-        "t": 497,
+        "hazardId": "hazard_2",
+        "t": 80,
         "category": "pedestrians",
         "hitRegion": {
-          "x": 0,
-          "y": 60,
-          "w": 40,
-          "h": 40
+          "x": 70.31,
+          "y": 46.3,
+          "w": 5.21,
+          "h": 23.15
         },
         "window": [
-          495,
-          514
+          78,
+          88
         ],
         "points": 100,
-        "explanation": "Maintains continuous visual lock on pedestrian; waits for step off travel lane onto sidewalk before accelerating.",
-        "avHandling": "Perception system maintains active tracking anchor on dynamic pedestrian bounding box; vehicle motion planner holds stop point until safe buffer distance is restored."
+        "explanation": "Pedestrians walking near the roadway edge or crosswalks can unexpectedly step into the path of travel. Monitor her movement closely, maintain a safe distance from the side of the road, and be prepared to slow down if she steps toward the lane.",
+        "avHandling": "Monitor her movement closely, maintain a safe distance from the side of the road, and be prepared to slow down if she steps toward the lane."
       },
       {
-        "t": 624,
+        "hazardId": "hazard_3",
+        "t": 92,
         "category": "vehicles",
         "hitRegion": {
-          "x": 30,
-          "y": 30,
-          "w": 40,
-          "h": 40
+          "x": 62.5,
+          "y": 50.93,
+          "w": 20.83,
+          "h": 23.15
         },
         "window": [
-          588,
-          648
+          90,
+          98
         ],
         "points": 100,
-        "explanation": "Performs head checks across shoulders and checks side/rear mirrors repeatedly to avoid curb or bumper contact.",
-        "avHandling": "Surround-view cameras and ultrasonic proximity sensors map curb boundary and nearby bumpers; automated parking planner executes exact steering and gear shifts."
+        "explanation": "A vehicle actively parking may swing its front end into the travel lane or stop unexpectedly, posing a collision risk or forcing the driver to swerve. Reduce speed, give the parking vehicle a wide berth by safely moving slightly to the left if oncoming traffic permits, and watch for sudden stops or opening doors.",
+        "avHandling": "Reduce speed, give the parking vehicle a wide berth by safely moving slightly to the left if oncoming traffic permits, and watch for sudden stops or opening doors."
+      },
+      {
+        "hazardId": "hazard_4",
+        "t": 132,
+        "category": "vehicles",
+        "hitRegion": {
+          "x": 20.83,
+          "y": 37.04,
+          "w": 46.88,
+          "h": 37.04
+        },
+        "window": [
+          128,
+          157
+        ],
+        "points": 100,
+        "explanation": "The turning vehicles temporarily block the forward lane, and the crossing pedestrian occupies the crosswalk right in front of the vehicle. Come to a complete stop before the intersection/crosswalk, yield to the turning vehicles, and wait for the pedestrian to fully reach the sidewalk before proceeding.",
+        "avHandling": "Come to a complete stop before the intersection/crosswalk, yield to the turning vehicles, and wait for the pedestrian to fully reach the sidewalk before proceeding."
+      },
+      {
+        "hazardId": "hazard_5",
+        "t": 210,
+        "category": "signs",
+        "hitRegion": {
+          "x": 31.25,
+          "y": 23.15,
+          "w": 59.9,
+          "h": 69.44
+        },
+        "window": [
+          206,
+          221
+        ],
+        "points": 100,
+        "explanation": "Regulatory sign requiring the driver to completely halt the vehicle and check for right-of-way conflicts before entering the intersection. Brake smoothly, stop completely behind the stop line, observe cross traffic and pedestrians, and proceed only when clear.",
+        "avHandling": "Brake smoothly, stop completely behind the stop line, observe cross traffic and pedestrians, and proceed only when clear."
+      },
+      {
+        "hazardId": "hazard_6",
+        "t": 269,
+        "category": "vehicles",
+        "hitRegion": {
+          "x": 26.04,
+          "y": 23.15,
+          "w": 65.1,
+          "h": 55.56
+        },
+        "window": [
+          265,
+          282
+        ],
+        "points": 100,
+        "explanation": "The stop sign dictates a mandatory halt, and the active cross traffic poses a direct collision risk if the driver fails to yield. Stop completely at the intersection line. Wait for the black SUV and white sedan to clear the intersection completely before accelerating.",
+        "avHandling": "Stop completely at the intersection line. Wait for the black SUV and white sedan to clear the intersection completely before accelerating."
       }
     ]
   }

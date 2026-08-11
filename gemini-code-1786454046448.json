@@ -1,0 +1,199 @@
+[
+  {
+    "timestamp_first_appears": "00:24",
+    "timestamp_developing_hazard": "00:25",
+    "timestamp_immediate_hazard": "00:28",
+    "timestamp_hazard_ends": "01:16",
+    "what_is_visible": "Red traffic light and a white Mercedes SUV stopped in the lane ahead.",
+    "type_of_object": "Traffic Light and Vehicle",
+    "hazard_classification": "Immediate Hazard",
+    "why_it_is_a_hazard": "The red light mandates a stop, and the vehicle occupying the space ahead requires the driver to brake to avoid a collision.",
+    "recommended_defensive_driving_response": "Brake smoothly and come to a complete stop at a safe distance behind the white SUV.",
+    "approximate_location_in_frame": "Top center (traffic light) and direct center (SUV)",
+    "clickable_areas": [
+      {
+        "object": "Red Traffic Light",
+        "bounding_box_pixels_1920x1080": {
+          "x_min": 850,
+          "y_min": 100,
+          "x_max": 1050,
+          "y_max": 300
+        }
+      },
+      {
+        "object": "White SUV",
+        "bounding_box_pixels_1920x1080": {
+          "x_min": 750,
+          "y_min": 450,
+          "x_max": 1250,
+          "y_max": 850
+        }
+      }
+    ]
+  },
+  {
+    "timestamp_first_appears": "01:18",
+    "timestamp_developing_hazard": "01:20",
+    "timestamp_immediate_hazard": "01:21",
+    "timestamp_hazard_ends": "01:24",
+    "what_is_visible": "Pedestrian walking across the intersection crosswalk from right to left.",
+    "type_of_object": "Pedestrian",
+    "hazard_classification": "Developing Hazard",
+    "why_it_is_a_hazard": "The pedestrian is in the roadway ahead while the vehicle is approaching the intersection, creating a potential conflict if they do not clear the lane.",
+    "recommended_defensive_driving_response": "Maintain a slow speed, monitor the pedestrian's progress, and be prepared to brake if they stop or slow down in the vehicle's path.",
+    "approximate_location_in_frame": "Center, far distance",
+    "clickable_areas": [
+      {
+        "object": "Pedestrian",
+        "bounding_box_pixels_1920x1080": {
+          "x_min": 880,
+          "y_min": 520,
+          "x_max": 980,
+          "y_max": 680
+        }
+      }
+    ]
+  },
+  {
+    "timestamp_first_appears": "01:18",
+    "timestamp_developing_hazard": "01:20",
+    "timestamp_immediate_hazard": "01:22",
+    "timestamp_hazard_ends": "01:28",
+    "what_is_visible": "A lady walking from the opposite end of the road near the sidewalk.",
+    "type_of_object": "Pedestrian",
+    "hazard_classification": "Developing Hazard",
+    "why_it_is_a_hazard": "Pedestrians walking near the roadway edge or crosswalks can unexpectedly step into the path of travel.",
+    "recommended_defensive_driving_response": "Monitor her movement closely, maintain a safe distance from the side of the road, and be prepared to slow down if she steps toward the lane.",
+    "approximate_location_in_frame": "Right side, near the sidewalk/crosswalk boundary",
+    "clickable_areas": [
+      {
+        "object": "Lady Walking",
+        "bounding_box_pixels_1920x1080": {
+          "x_min": 1350,
+          "y_min": 500,
+          "x_max": 1450,
+          "y_max": 750
+        }
+      }
+    ]
+  },
+  {
+    "timestamp_first_appears": "01:30",
+    "timestamp_developing_hazard": "01:32",
+    "timestamp_immediate_hazard": "01:33",
+    "timestamp_hazard_ends": "01:38",
+    "what_is_visible": "A white car actively maneuvering to park on the right side of the street.",
+    "type_of_object": "Parking Vehicle",
+    "hazard_classification": "Developing Hazard",
+    "why_it_is_a_hazard": "A vehicle actively parking may swing its front end into the travel lane or stop unexpectedly, posing a collision risk or forcing the driver to swerve.",
+    "recommended_defensive_driving_response": "Reduce speed, give the parking vehicle a wide berth by safely moving slightly to the left if oncoming traffic permits, and watch for sudden stops or opening doors.",
+    "approximate_location_in_frame": "Right side of the road, near parked cars",
+    "clickable_areas": [
+      {
+        "object": "White Parking Car",
+        "bounding_box_pixels_1920x1080": {
+          "x_min": 1200,
+          "y_min": 550,
+          "x_max": 1600,
+          "y_max": 800
+        }
+      }
+    ]
+  },
+  {
+    "timestamp_first_appears": "02:08",
+    "timestamp_developing_hazard": "02:12",
+    "timestamp_immediate_hazard": "02:18",
+    "timestamp_hazard_ends": "02:37",
+    "what_is_visible": "An oncoming MTA bus and a black SUV turning left across the driver's path, followed by a pedestrian crossing from left to right.",
+    "type_of_object": "Vehicles and Pedestrian",
+    "hazard_classification": "Immediate Hazard",
+    "why_it_is_a_hazard": "The turning vehicles temporarily block the forward lane, and the crossing pedestrian occupies the crosswalk right in front of the vehicle.",
+    "recommended_defensive_driving_response": "Come to a complete stop before the intersection/crosswalk, yield to the turning vehicles, and wait for the pedestrian to fully reach the sidewalk before proceeding.",
+    "approximate_location_in_frame": "Left, center, and right (objects moving across the frame)",
+    "clickable_areas": [
+      {
+        "object": "Turning MTA Bus & SUV",
+        "bounding_box_pixels_1920x1080": {
+          "x_min": 400,
+          "y_min": 400,
+          "x_max": 1000,
+          "y_max": 750
+        }
+      },
+      {
+        "object": "Crossing Pedestrian",
+        "bounding_box_pixels_1920x1080": {
+          "x_min": 1100,
+          "y_min": 500,
+          "x_max": 1300,
+          "y_max": 800
+        }
+      }
+    ]
+  },
+  {
+    "timestamp_first_appears": "03:26",
+    "timestamp_developing_hazard": "03:30",
+    "timestamp_immediate_hazard": "03:36",
+    "timestamp_hazard_ends": "03:41",
+    "what_is_visible": "Red ALL WAY STOP sign on the right and painted 'STOP' text on the road surface.",
+    "type_of_object": "Traffic Sign",
+    "hazard_classification": "Immediate Hazard",
+    "why_it_is_a_hazard": "Regulatory sign requiring the driver to completely halt the vehicle and check for right-of-way conflicts before entering the intersection.",
+    "recommended_defensive_driving_response": "Brake smoothly, stop completely behind the stop line, observe cross traffic and pedestrians, and proceed only when clear.",
+    "approximate_location_in_frame": "Right side (sign) and bottom center (road paint)",
+    "clickable_areas": [
+      {
+        "object": "Stop Sign",
+        "bounding_box_pixels_1920x1080": {
+          "x_min": 1550,
+          "y_min": 250,
+          "x_max": 1750,
+          "y_max": 450
+        }
+      },
+      {
+        "object": "Road 'STOP' Paint",
+        "bounding_box_pixels_1920x1080": {
+          "x_min": 600,
+          "y_min": 850,
+          "x_max": 1300,
+          "y_max": 1000
+        }
+      }
+    ]
+  },
+  {
+    "timestamp_first_appears": "04:25",
+    "timestamp_developing_hazard": "04:29",
+    "timestamp_immediate_hazard": "04:36",
+    "timestamp_hazard_ends": "04:42",
+    "what_is_visible": "An ALL WAY STOP sign at an intersection, with a black SUV crossing from left to right, followed by a white sedan crossing from right to left.",
+    "type_of_object": "Traffic Sign and Crossing Vehicles",
+    "hazard_classification": "Immediate Hazard",
+    "why_it_is_a_hazard": "The stop sign dictates a mandatory halt, and the active cross traffic poses a direct collision risk if the driver fails to yield.",
+    "recommended_defensive_driving_response": "Stop completely at the intersection line. Wait for the black SUV and white sedan to clear the intersection completely before accelerating.",
+    "approximate_location_in_frame": "Right side (sign) and center (vehicles crossing horizontally)",
+    "clickable_areas": [
+      {
+        "object": "Stop Sign",
+        "bounding_box_pixels_1920x1080": {
+          "x_min": 1550,
+          "y_min": 250,
+          "x_max": 1750,
+          "y_max": 450
+        }
+      },
+      {
+        "object": "Crossing Vehicles",
+        "bounding_box_pixels_1920x1080": {
+          "x_min": 500,
+          "y_min": 550,
+          "x_max": 1400,
+          "y_max": 850
+        }
+      }
+    ]
+  }
+]

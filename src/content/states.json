@@ -10,7 +10,8 @@
       "Must yield to pedestrians in marked or unmarked crosswalks."
     ],
     "avContext": "The AV platform utilizes extensive map priors and high-visibility sensor sweeps to handle wide suburban intersections commonly found in the Phoenix metropolitan area.",
-    "nextScenarioId": "phoenix-1"
+    "nextScenarioId": "phoenix-1",
+    "handbookUrl": "/arizona-handbook.pdf"
   },
   {
     "id": "CA",
@@ -23,7 +24,8 @@
       "U-turns permitted at intersections with green lights unless prohibited by a sign."
     ],
     "avContext": "The platform employs specialized prediction models to anticipate dense urban traffic patterns, unpredictable pedestrian movements, and steep inclines characteristic of San Francisco.",
-    "nextScenarioId": "sf-1"
+    "nextScenarioId": "sf-1",
+    "handbookUrl": "/california-handbook.pdf"
   },
   {
     "id": "TX",

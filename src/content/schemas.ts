@@ -11,6 +11,7 @@ export const ScenarioSchema = z.object({
   worldId: z.enum(['phoenix', 'san-francisco', 'stub']),
   clip: z.object({ slot: z.string(), src: z.string().nullable(), poster: z.string() }),
   hazards: z.array(z.object({
+    hazardId: z.string(),
     t: z.number(),
     category: z.enum(['vehicles', 'pedestrians', 'signs', 'road-marks']),
     hitRegion: z.object({ x: z.number(), y: z.number(), w: z.number(), h: z.number() }),
@@ -53,4 +54,5 @@ export const StateSchema = z.object({
   rules: z.array(z.string()).optional(),
   avContext: z.string().optional(),
   nextScenarioId: z.string().optional(),
+  handbookUrl: z.string().optional(),
 });

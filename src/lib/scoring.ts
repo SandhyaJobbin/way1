@@ -15,9 +15,10 @@ export interface RunResults {
 }
 
 export interface ScorecardCategories {
-  spatialRotation: number;
-  telemetryInterpretation: number;
-  occlusionReasoning: number;
+  drivingAndStateKnowledge: number;
+  intentPrediction: number;
+  spatialOcclusionReasoning: number;
+  riskRecognition: number;
   complexDecisionMaking: number;
 }
 
@@ -37,7 +38,7 @@ const PASS_THRESHOLD = 80;
  * Calculates the composite score and maps results to the scorecard categories.
  * Note: specific math can be adjusted, but this serves as the baseline for the demo.
  */
-export function calculateScore(results: RunResults, tier: 'foundation' | 'proficient' | 'advanced'): FinalScore {
+export function calculateScore(results: RunResults): FinalScore {
   const totalHazards = results.hazards.length;
   const spottedHazards = results.hazards.filter(h => h.detected);
   const totalSpotted = spottedHazards.length;
@@ -61,12 +62,7 @@ export function calculateScore(results: RunResults, tier: 'foundation' | 'profic
     reactionPenalty = Math.floor((medianReactionMs - 1500) / 100);
   }
 
-  // Tier multipliers (if we want to reward harder tiers)
-  let tierMultiplier = 1.0;
-  if (tier === 'proficient') tierMultiplier = 1.1;
-  if (tier === 'advanced') tierMultiplier = 1.25;
-
-  let compositeScore = Math.round((baseScore - falseClickPenalty - reactionPenalty) * tierMultiplier);
+  let compositeScore = Math.round(baseScore - falseClickPenalty - reactionPenalty);
   // Clamp between 0 and 100
   compositeScore = Math.max(0, Math.min(100, compositeScore));
 
@@ -75,9 +71,10 @@ export function calculateScore(results: RunResults, tier: 'foundation' | 'profic
   // Map to technical categories (demo logic: simplistic mapping based on composite & tier)
   // In a real scenario, specific hazards map to specific categories.
   const categories: ScorecardCategories = {
-    spatialRotation: Math.min(100, compositeScore + (tier === 'advanced' ? 10 : 0)),
-    telemetryInterpretation: Math.min(100, tier === 'advanced' ? compositeScore + 15 : compositeScore - 10),
-    occlusionReasoning: Math.min(100, compositeScore + 5),
+    drivingAndStateKnowledge: Math.min(100, compositeScore + 5),
+    intentPrediction: Math.min(100, compositeScore + 2),
+    spatialOcclusionReasoning: Math.min(100, compositeScore + 5),
+    riskRecognition: Math.min(100, compositeScore + 10),
     complexDecisionMaking: Math.min(100, compositeScore),
   };
 

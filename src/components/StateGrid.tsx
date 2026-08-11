@@ -17,20 +17,30 @@ export function StateGrid() {
 
   return (
     <div className="w-full">
-      <div className="mb-8">
-        <h2 className="text-2xl font-display font-semibold text-ink mb-2">State Driving Handbook</h2>
-        <p className="text-ink/70 mb-6">Select a state to view specific AV regulations and driving context.</p>
-        
-        <div className="relative max-w-md">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-ink/40" />
-          <input
-            type="text"
-            placeholder="Search by state name or code..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-12 pr-4 py-3 rounded-pill border border-line bg-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all text-ink"
-          />
+      <div className="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div>
+          <h2 className="text-2xl font-display font-semibold text-ink mb-2">State Driving Handbook</h2>
+          <p className="text-ink/70 mb-6">Select a state to view specific AV regulations and driving context.</p>
+          
+          <div className="relative max-w-md">
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-ink/40" />
+            <input
+              type="text"
+              placeholder="Search by state name or code..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-full pl-12 pr-4 py-3 rounded-pill border border-line bg-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all text-ink"
+            />
+          </div>
         </div>
+        <a
+          href="/handbook.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="px-6 py-3 rounded-pill bg-primary text-white font-semibold hover:bg-primary/90 transition-colors inline-flex items-center gap-2 whitespace-nowrap self-start md:self-auto"
+        >
+          Review Full PDF
+        </a>
       </div>
 
       <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4">

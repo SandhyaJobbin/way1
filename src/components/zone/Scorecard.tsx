@@ -4,7 +4,7 @@ import { calculateScore, reportScoreToSCORM, FinalScore } from '../../lib/scorin
 import { scenarios } from '../../content';
 
 export const Scorecard: React.FC = () => {
-  const { activeRun, selectedTier, resetRun } = useSimulatorStore();
+  const { activeRun, resetRun } = useSimulatorStore();
   const [score, setScore] = useState<FinalScore | null>(null);
 
   useEffect(() => {
@@ -17,9 +17,9 @@ export const Scorecard: React.FC = () => {
       // We pass the full run state to the scorer.
       const results = {
         hazards: scenario.hazards.map(h => {
-          const found = activeRun.hazards.find(ah => ah.category === h.category); // simplistic match for demo
+          const found = activeRun.hazards.find(ah => ah.hazardId === h.hazardId); 
           return {
-            hazardId: h.category, // fallback if no ID
+            hazardId: h.hazardId,
             category: h.category,
             detected: !!found,
             reactionMs: found ? found.reactionMs : null,
@@ -29,11 +29,11 @@ export const Scorecard: React.FC = () => {
         falseClicks: activeRun.falseClicks,
       };
 
-      const final = calculateScore(results, selectedTier);
+      const final = calculateScore(results);
       setScore(final);
       reportScoreToSCORM(final.compositeScore, final.passed);
     }
-  }, [activeRun.completed, activeRun.hazards, activeRun.falseClicks, selectedTier]);
+  }, [activeRun.completed, activeRun.hazards, activeRun.falseClicks]);
 
   if (!activeRun.completed || !score) return null;
 
@@ -60,6 +60,10 @@ export const Scorecard: React.FC = () => {
                 <span className="text-gray-600">False Clicks</span>
                 <span className="text-lg font-medium text-red-500">{score.falseClicks}</span>
               </div>
+              <div className="flex justify-between items-center">
+                <span className="text-gray-600">Missed Hazards</span>
+                <span className="text-lg font-medium text-amber-500">{score.totalHazards - score.totalSpotted}</span>
+              </div>
               
               <div className="pt-4 mt-4 border-t border-gray-200">
                 <div className="flex justify-between items-end">
@@ -79,9 +83,10 @@ export const Scorecard: React.FC = () => {
           <div className="space-y-4">
             <h3 className="text-xl font-semibold mb-4 text-navy-900">Technical Assessment</h3>
             
-            <CategoryBar label="3D Spatial Rotation" value={score.categories.spatialRotation} />
-            <CategoryBar label="Telemetry Interpretation" value={score.categories.telemetryInterpretation} />
-            <CategoryBar label="Occlusion Reasoning" value={score.categories.occlusionReasoning} />
+            <CategoryBar label="Driving & State Knowledge" value={score.categories.drivingAndStateKnowledge} />
+            <CategoryBar label="Intent Prediction" value={score.categories.intentPrediction} />
+            <CategoryBar label="Spatial / Occlusion Reasoning" value={score.categories.spatialOcclusionReasoning} />
+            <CategoryBar label="Risk Recognition" value={score.categories.riskRecognition} />
             <CategoryBar label="Complex Decision-Making" value={score.categories.complexDecisionMaking} />
           </div>
         </div>
