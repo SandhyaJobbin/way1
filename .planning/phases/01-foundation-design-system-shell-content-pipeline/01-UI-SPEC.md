@@ -1,10 +1,11 @@
 ---
 phase: 1
 slug: foundation-design-system-shell-content-pipeline
-status: draft
+status: approved
 shadcn_initialized: false
 preset: none
 created: 2026-08-11
+reviewed_at: 2026-08-11
 ---
 
 # Phase 1 — UI Design Contract
@@ -254,7 +255,7 @@ Rules:
 
 ## UI Considerations
 
-Applicable state considerations resolved: 8 covered, 2 backstop, 0 unresolved
+Applicable state considerations resolved: 15 covered, 2 backstop, 0 unresolved (43 probe items grouped)
 
 | Category | Element(s) | Status | Resolution / Reason |
 |----------|------------|--------|---------------------|
@@ -266,6 +267,13 @@ Applicable state considerations resolved: 8 covered, 2 backstop, 0 unresolved
 | zero-one-many | Route-path checkpoint nodes | ✅ covered | Path renders 0 nodes (track only), 1 node, and N nodes from store array without layout special-casing |
 | long-text | Wordmark/tagline from branding config | 🧪 backstop | Visual check: swapped wordmark up to 32 chars stays inside nav pill without clipping (held-out UI-state test) |
 | overflow | Scrubber labels at 1024–1280px | 🧪 backstop | Visual check: -45° rotated labels of 6+ sections do not collide at 1024px width (held-out UI-state test) |
+| loading, error | Top nav + nav links (static chrome) | ✅ covered | No loading/error states exist — chrome renders synchronously from static branding config; no async data in Phase 1 shell |
+| overflow, long-text | Start gate + primary CTA + nav labels | ✅ covered | All copy locked in Copywriting Contract; Display reflows via clamp(40px,5vw,64px); CTA/nav labels wrap to 2 lines max, never truncate; no user-generated text |
+| loading, error | Dot-timeline scrubber | ✅ covered | No loading/error states exist — scrubber items come from statically-imported Zod-validated content JSON; no fetch |
+| overflow, long-text | Scrubber labels + checkpoint nodes | ✅ covered | Scrubber labels locked ≤16 chars with ellipsis; dot overflow → horizontal scroll + edge fade; checkpoint labels wrap 2 lines max, placement planner avoids overlap; zero checkpoints → track only |
+| empty, loading, error, populated, partial, overflow, zero-one-many | Video slot | ✅ covered | Empty = placeholder poster + 64px play circle + "Video coming soon"; populated = 16:9 poster + play; error = poster stays + inline note, non-blocking; no streaming in Phase 1 → no loading state; slots independent, grid reflows |
+| empty, loading, error, populated, overflow | Coming-soon card | ✅ covered | Card IS the empty state for stub content; static (no loading/error); title ellipsis 2 lines; cards wrap in responsive grid |
+| unclassified | Loading/empty/error meta states + route path | ✅ covered | Loading = 3-dot pulse + skeleton; empty = "Zone coming soon" + "Go to Lesson"; error = "Something went off route" + Reload (per Copywriting Contract); route path zero progress = unfilled track, decorative, no text |
 
 <!-- Status vocabulary (locked by probe-core projectTruths):
      ✅ covered   → a plain truth string lifted into must_haves.truths
@@ -289,11 +297,11 @@ Non-registry npm assets with verified permissive licenses: `@fontsource/outfit` 
 
 ## Checker Sign-Off
 
-- [ ] Dimension 1 Copywriting: PASS
-- [ ] Dimension 2 Visuals: PASS
-- [ ] Dimension 3 Color: PASS
-- [ ] Dimension 4 Typography: PASS
-- [ ] Dimension 5 Spacing: PASS
-- [ ] Dimension 6 Registry Safety: PASS
+- [x] Dimension 1 Copywriting: PASS
+- [x] Dimension 2 Visuals: PASS
+- [x] Dimension 3 Color: PASS
+- [x] Dimension 4 Typography: PASS
+- [x] Dimension 5 Spacing: PASS (FLAG noted: 96/128px steps justified for cinematic whitespace — usage confined to landing/start-gate per checker recommendation)
+- [x] Dimension 6 Registry Safety: PASS
 
-**Approval:** pending
+**Approval:** approved — 2026-08-11
