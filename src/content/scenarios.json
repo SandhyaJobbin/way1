@@ -10,7 +10,7 @@
     "hazards": [
       {
         "t": 57,
-        "category": "Parked Vehicle",
+        "category": "vehicles",
         "hitRegion": {
           "x": 60,
           "y": 30,
@@ -27,7 +27,7 @@
       },
       {
         "t": 88,
-        "category": "Pedestrian / Jaywalker",
+        "category": "pedestrians",
         "hitRegion": {
           "x": 0,
           "y": 60,
@@ -44,7 +44,7 @@
       },
       {
         "t": 166,
-        "category": "Vehicle entering from side road / intersection",
+        "category": "vehicles",
         "hitRegion": {
           "x": 10,
           "y": 30,
@@ -61,7 +61,7 @@
       },
       {
         "t": 198,
-        "category": "Road Feature / Obstacle",
+        "category": "road-marks",
         "hitRegion": {
           "x": 30,
           "y": 60,
@@ -78,7 +78,7 @@
       },
       {
         "t": 251,
-        "category": "Blind Intersection / Priority Cross Traffic",
+        "category": "vehicles",
         "hitRegion": {
           "x": 30,
           "y": 30,
@@ -95,7 +95,7 @@
       },
       {
         "t": 497,
-        "category": "Pedestrian / Jaywalker",
+        "category": "pedestrians",
         "hitRegion": {
           "x": 0,
           "y": 60,
@@ -112,7 +112,7 @@
       },
       {
         "t": 624,
-        "category": "Parked Vehicles / Low-Speed Spatial Constraints",
+        "category": "vehicles",
         "hitRegion": {
           "x": 30,
           "y": 30,
