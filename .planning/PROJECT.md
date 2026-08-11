@@ -1,10 +1,10 @@
 # Waymo US Driving Context & AV Rules Training Module
 
 ## What This Is
-A gamified, Waymo-branded interactive training module that teaches offshore AV operators native US driving context and AV rules — how real US road behavior (right-turn-on-red, four-way stops, school buses, jaywalking, aggressive lane changes) is read and handled by the Waymo Driver. Structured as exactly **1 Lesson + 1 Zone**, delivered as a standalone HTML experience with an optional SCORM 1.2 package for LMS (Reach 360).
+A gamified interactive training module (RFP demo, neutral branding) that teaches offshore AV operators native US driving context and AV rules — how real US road behavior (right-turn-on-red, four-way stops, school buses, jaywalking, aggressive lane changes) is read and handled by an autonomous vehicle platform. Structured as exactly **1 Lesson + 1 Zone**, delivered as a standalone HTML experience with an optional SCORM 1.2 package for LMS (Reach 360). Target client branding is applied only post-award via a swap-ready branding config.
 
 ## Core Value
-Close the US driving-context gap for offshore operators through recognition-based training (not annotation/labeling) that looks and feels like waymo.com — a professional audit-grade tool, not a generic e-learning course. Learners finish able to recognize US road nuances from an AV perspective and pass a scored mixed-scenario challenge.
+Close the US driving-context gap for offshore operators through recognition-based training (not annotation/labeling) with the design language of a top-tier AV company's public site — a professional audit-grade tool, not a generic e-learning course. Learners finish able to recognize US road nuances from an AV perspective and pass a scored mixed-scenario challenge.
 
 ## Business Context
 - Client recruits US-Returned talent (expats/US-educated) as Team Leads, QA, and Senior MPCI cultural translators; this module is their onboarding instrument.
@@ -23,7 +23,7 @@ Close the US driving-context gap for offshore operators through recognition-base
 - Gamification mechanics + pass threshold delegated to us with justification (~80% accuracy gate suggested).
 - Scenarios include simulated AV-perspective overlays: bounding boxes, lidar-style point representations, sensor confidence indicators.
 - Mixed scenario challenges (nuances woven together), not 5 separate modules.
-- Look/feel of waymo.com with Waymo branding.
+- Look/feel of the client's public site design language — but RFP demo ships with neutral branding (client identity post-award).
 - Standalone HTML/interactive + SCORM package option for LMS.
 
 ### Active
@@ -45,8 +45,8 @@ Close the US driving-context gap for offshore operators through recognition-base
 ## Constraints
 - Tech stack unchanged: React 19, Vite, TypeScript, Tailwind v4, Framer Motion, Zustand; R3F where needed.
 - SCORM 1.2 via simple-scorm-packager + pipwerks (Reach 360, new-window launch); Vite base './' for static hosting.
-- Video = YouTube embeds (Waymo channel) + blog-style media; no self-hosted video pipeline.
-- Waymo branding must be consistent with waymo.com tokens; must say "training for the Autonomous Vehicle industry".
+- Video = placeholder slots wired to config; actual footage only if licensed/client-approved. No self-hosted video pipeline.
+- **RFP neutrality**: module UI, content, and code must not reference the target client or use any client trademarks/logos/footage. Neutral working brand + swap-ready branding config; client identity applied only post-award. Design tokens may be inspired by reference sites without copying protected assets.
 
 ## Key Decisions
 
@@ -60,6 +60,7 @@ Close the US driving-context gap for offshore operators through recognition-base
 | Retired elements | Wayo, jog dial, 3-role console | Replaced by waymo.com patterns (dot scrubber, clean brand voice) |
 | Edge-case section | v2 | Typed-JSON pipeline keeps it a content change, not code |
 | Delivery | Standalone HTML + SCORM 1.2 | Client requirement; Reach 360 |
+| Branding | Neutral working brand, swap-ready config | RFP demo — client trademarks only post-award |
 
 ## Evolution
 - v0 (prior): 25-min diegetic 3-role ecosystem module (MCPI/Triage/Annotators, Wayo narrator, jog dial, lidar hero).

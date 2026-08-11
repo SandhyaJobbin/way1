@@ -1,67 +1,73 @@
-# Requirements: MVP Release
+# Requirements: v1 — US Driving Context & AV Rules Training
 
-## 1. Shell & Navigation
-- Single-page React app with HashRouter for SCORM compatibility.
-- 3D Hub screen mapping the ecosystem concentric rings (Live, Response, Learning).
-- Smooth, cinematic camera transitions between zones (no hard page loads).
-- Start Gate screen (to satisfy browser autoplay media policies).
+## v1 Requirements
 
-## 2. Shared Interactive Components
-- **Console Layout**: Themed UI wrapping all zones (Live: Amber/Red, Response: F1 White/Red, Learning: Blue/Violet).
-- **Incident Scrubber (Jog Dial)**: A tactile drag control with inertia and detents, bound to a canvas image-sequence or sensor-data replay.
-- **Wayo Character**: Rigged SVG character (idle parallax, emotion states, lip sync ready via Framer Motion). Wayo is the guide/narrator for ALL zones and lesson transitions.
+### SHELL — Brand Shell & Navigation
+- [ ] **SHELL-01**: App shell matches waymo.com design language — off-white #F5F7FA background, navy #1E2340 rounded geometric sans display type, Waymo blue #0080FF + teal #00E59B accents, circular motifs, dotted radial patterns, thin circular outline buttons.
+- [ ] **SHELL-02**: Landing/start screen explicitly states this is training for the Autonomous Vehicle industry; includes start gate for browser autoplay policy.
+- [ ] **SHELL-03**: HashRouter SPA navigation between Lesson and Zone with dot-timeline scrubber pattern and cinematic transitions (no hard page loads), SCORM-compatible.
+- [ ] **SHELL-04**: Global route-path progress visualization (waymo.com green/blue dot-timeline metaphor) with checkpoint badge slots.
+- [ ] **SHELL-05**: Audit-grade visual polish, desktop-first responsive — must not look like a generic e-learning template.
+- [ ] **SHELL-06**: RFP-neutral branding: module UI, content, and code must not reference Waymo or use any Waymo trademarks/logos/footage. Neutral working brand with swap-ready branding layer (client branding applied only post-award). Design language may be inspired by reference sites without copying protected assets.
 
-## 3. Zones & Content (The Demo Slice)
-- **Act 1 (Intro)**: Wayo explains the autonomy loop and the trigger for human intervention (low confidence).
-- **Zone 2 (Triage Ops hub)**: Learner scrubs the construction flagger incident, classifies it, and routes it.
-- **Seam 1**: The routing decision from Zone 2 visibly generates the work item/queue for Zone 3.
+### LESSON — The Lesson: US Driving Context + AV Rules
+- [ ] **LESN-01**: One video-driven lesson teaching US driving norms: right-turn-on-red, four-way-stop etiquette, school-bus mandates, jaywalking norms, aggressive lane-change dynamics, plus at least 3 additional US nuances (e.g., zipper merge, emergency vehicle yielding, unprotected left turns, highway on/off-ramp merging, railroad crossings).
+- [ ] **LESN-02**: Each nuance pairs human driving behavior with how an AV platform perceives and handles it (AV rules perspective) — vendor-neutral phrasing.
+- [ ] **LESN-03**: Media is video-led: placeholder video slots styled after official AV scenario videos; actual embeds/footage must be licensed or client-approved (no vendor-branded footage in the RFP demo). Blog-style media sections modeled on reference-site layouts.
+- [ ] **LESN-04**: Two world contexts — Phoenix and San Francisco — each presenting relevant nuances, recreating the reference-site "how an AV navigates real world scenarios" video style with neutral branding.
+- [ ] **LESN-05**: Interactive media inside the lesson (tap-to-reveal, step-through diagrams, dot-scrubber media timelines) — no passive video walls.
+- [ ] **LESN-06**: Lesson completion tracked; Zone access gated or guided by lesson progress (final gate behavior decided in plan phase).
 
-## 4. Educational Lesson Zones (NEW — 3 Lessons)
+### ZONE — The Zone: Mixed Scenario Challenges
+- [ ] **ZONE-01**: One Zone of mixed scenario challenges weaving multiple US nuances per scenario (not one module per nuance).
+- [ ] **ZONE-02**: Dark audit-console UI: deep-navy canvas, BEV top-down view with magenta bounding boxes, camera strips, lidar-style point representations, sensor confidence indicators.
+- [ ] **ZONE-03**: Three difficulty tiers inside the Zone — Foundation, Proficient, Advanced — all open to the learner.
+- [ ] **ZONE-04**: Scenarios include video clips and AV-perspective overlays (bounding boxes, lidar-style points, sensor confidence indicators) for data realism.
+- [ ] **ZONE-05**: Recognition-based challenges only — identify / predict / decide what happens and what the AV does; no annotation or labeling tasks.
+- [ ] **ZONE-06**: Scenarios, tiers, and overlays are data-driven from the typed JSON content pipeline.
 
-Three didactic zones taught by Wayo before the scenario-based interactive zones. Each is a self-contained "lesson" with light interaction (tap-to-reveal, scroll-through, animated diagram).
+### ASSESS — Assessment, Scorecard, Gamification
+- [ ] **ASSESS-01**: Every challenge scores and maps to technical scorecard categories: 3D spatial rotation, telemetry interpretation, occlusion reasoning, complex decision-making.
+- [ ] **ASSESS-02**: Scorecard SNAPSHOT screen toward the end — per-category breakdown plus overall result.
+- [ ] **ASSESS-03**: Pass threshold at ~80% accuracy with documented justification delivered alongside implementation.
+- [ ] **ASSESS-04**: Gamification via route-path progress + checkpoint badges (Waymo route metaphor, not arcade) and retry-with-feedback loops.
+- [ ] **ASSESS-05**: SCORM completion/status/score reporting hooks (cmi.core.score, lesson_status) for Reach 360.
 
-### Lesson A — "What the Car Has" (Sensors)
-- Learning objective: Name the sensor types on a Waymo vehicle and what each one does.
-- Content: Lidar, cameras, radar, GPS/IMU — rendered over an interactive 3D top-down car silhouette.
-- Interaction: Tap each sensor ring → zooms label card + animated coverage radius.
-- Wayo delivers: "This is how I see the world."
+### CONT — Content Pipeline
+- [ ] **CONT-01**: Typed JSON content architecture with Zod schemas: lesson content, scenarios, worlds, difficulty tiers, scorecard mappings.
+- [ ] **CONT-02**: New scenarios/worlds/nuances shippable as content-only changes (no code changes).
+- [ ] **CONT-03**: Retire or migrate the old content model (ecosystem.json, zones.json, incidents/TRI-2291.json, lessons/lesson-a|b|c.json).
+- [ ] **CONT-04**: Scrub all vendor references (Waymo names, logos, branded footage) from code identifiers, content files, and UI copy; keep a branding config so client identity can be applied post-award.
 
-### Lesson B — "How the Model Works" (Perception → Prediction → Planning)
-- Source: Waymo CEO video (https://www.youtube.com/watch?v=Gp4zrV3-6N8&t=1109s)
-- Learning objective: Understand the perception stack — sense, classify, predict, plan, act — and where confidence scoring enters.
-- Content: Animated pipeline diagram. Each stage has a short description, an example from the construction-flagger incident, and a confidence score indicator.
-- Interaction: Step-through (Next button each stage). The same incident (construction flagger) reappears at each stage so the learner tracks one event through the whole model.
-- Wayo delivers the pipeline narration.
+### DLVR — Delivery
+- [ ] **DLVR-01**: Standalone HTML/interactive build, static hosting, Vite `base: './'`.
+- [ ] **DLVR-02**: SCORM 1.2 package option via simple-scorm-packager + pipwerks for Reach 360 (new-window launch).
+- [ ] **DLVR-03**: Build scripts for both standalone and SCORM targets.
 
-### Lesson C — "Why All Three Rings Matter" (Ecosystem Interdependence)
-- Learning objective: Understand why removing any one of the three human roles breaks the improvement loop.
-- Content: The concentric-ring orbital map with animated "what-if" — remove MCPI → car never unblocks → no incident record → no improvement. Remove Triage Ops → no routing → annotators get wrong clips. Remove Annotators → model never updates → Wayo never improves.
-- Interaction: Three toggle buttons ("Remove a role") each trigger an animated break in the chain with a consequence callout.
-- Wayo delivers: "Here's why you're part of the loop."
+### ASST — Asset Procurement
+- [ ] **ASST-01**: Asset procurement manifest maintained at `.planning/ASSETS.md` — lists every icon, image, video, 3D asset, and audio needed, with source, license note, and status (in-repo / to-procure / code-generated / YouTube embed).
 
-## 5. Scenario-Based Interactive Zones (NEW — Audit Interface)
+## v2 (Deferred)
+- Recurring edge-case resurfacing section fed by root-cause analysis.
+- Metro worlds beyond Phoenix + San Francisco.
+- Additional lessons/zones expansion.
 
-Three zones that simulate the real operator console. Learner receives sensor data, video/lidar replay, and must interpret/decide. Interface looks and feels like a professional audit dashboard.
+## Out of Scope
 
-### Zone 1 — MCPI Live Intervention (Audit Console)
-- **Interface elements**: Live feed panel (camera view), alert queue sidebar, radio communication log, intervention timer.
-- **Decision**: Choose the correct intervention action (hold, remote assist, escalate to safety driver) given the sensor state.
-- **Consequence propagation**: Decision choice writes an event-reason code that visibly appears in Zone 2's incident header.
-- Theme: Hot amber/red, urgency aesthetic.
+| Item | Reason |
+|---|---|
+| Annotation/labeling workflow training | Client: recognition only |
+| Wayo SVG narrator, jog dial, 3-role diegetic console | Retired by pivot |
+| Self-hosted video pipeline | YouTube embeds sufficient |
+| Multi-lesson / multi-zone structure | Client: 1 Lesson + 1 Zone |
 
-### Zone 2 — Triage Ops (Incident Review Console) ← Demo priority
-- **Interface elements**: Jog Dial scrubber, lidar point-cloud viewport, camera feeds (3 angles), incident metadata panel, routing menu.
-- **Decision**: Classify the incident (severity + root cause) and route it (Annotation queue / Safety review / Archive).
-- **Consequence propagation**: Routing decision determines which queue opens in Zone 3 (wrong routing = wrong queue in Zone 3).
-- Theme: F1 white/red console.
+## Traceability
 
-### Zone 3 — Annotation (Labeling Workbench)
-- **Interface elements**: Frame-scrubber timeline, bounding-box draw overlay on camera frame, label taxonomy panel, confidence score readout, submit queue.
-- **Decision**: Draw/confirm bounding boxes on the construction-flagger and the handheld stop sign; assign correct labels.
-- **Consequence propagation**: Correct labels → Wayo's Act 4 corrected drive. Wrong labels → subtle difference in Act 4 narration ("…this is what I learned, though it wasn't perfect").
-- Theme: Cool blue/violet.
+| Requirement | Phase |
+|---|---|
+| (filled during roadmap) | |
 
-## 6. Delivery & Infrastructure
-- Complete content architecture (ecosystem.json, zones.json, incidents/TRI-2291.json, lessons/lesson-a.json, lessons/lesson-b.json, lessons/lesson-c.json) validated with Zod.
-- Vite build configured for relative paths (`base: './'`).
-- SCORM 1.2 packaging wrapper (pipwerks) that sends completion status back to Reach 360 LMS.
+## Coverage
+- SHELL: 6 · LESSON: 6 · ZONE: 6 · ASSESS: 5 · CONT: 4 · DLVR: 3 · ASST: 1 — total 31 requirements.
+
+*Last updated: 2026-08-11 after client pivot ("New requirements.docx")*
