@@ -41,6 +41,7 @@
     "@types/three": "^0.185.4",
     "@vitejs/plugin-react": "^4.5.2",
     "@vitest/coverage-v8": "^4.1.10",
+    "gh-pages": "^6.3.0",
     "jsdom": "^26",
     "simple-scorm-packager": "^0.2.7",
     "tailwindcss": "^4.1.8",

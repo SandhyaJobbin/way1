@@ -25,7 +25,7 @@ describe('scoring logic', () => {
       falseClicks: 0
     };
 
-    const final = calculateScore(results, 'foundation');
+    const final = calculateScore(results);
     
     expect(final.totalSpotted).toBe(2);
     expect(final.medianReactionMs).toBe(600);
@@ -41,7 +41,7 @@ describe('scoring logic', () => {
       falseClicks: 3 // 3 * 5 = 15 penalty
     };
 
-    const final = calculateScore(results, 'foundation');
+    const final = calculateScore(results);
     
     expect(final.compositeScore).toBe(85); // 100 - 15
     expect(final.passed).toBe(true); // 85 >= 80
@@ -55,7 +55,7 @@ describe('scoring logic', () => {
       falseClicks: 0
     };
 
-    const final = calculateScore(results, 'foundation');
+    const final = calculateScore(results);
     
     // 1800ms > 1500ms by 300ms. 300 / 100 = 3 point penalty
     expect(final.compositeScore).toBe(97);
@@ -70,7 +70,7 @@ describe('scoring logic', () => {
       falseClicks: 5 // 25 penalty
     };
 
-    const final = calculateScore(results, 'foundation');
+    const final = calculateScore(results);
     
     // 0% spotted - 25 penalty = 0 (clamped to 0)
     expect(final.compositeScore).toBe(0);

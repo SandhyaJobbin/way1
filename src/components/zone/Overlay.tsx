@@ -3,10 +3,10 @@ import { useSimulatorStore } from '../../lib/simulatorStore';
 import { scenarios } from '../../content';
 
 export const Overlay: React.FC = () => {
-  const { currentTime, selectedTier } = useSimulatorStore();
+  const { activeRun, currentTime, duration, isPlaying, setPlaying } = useSimulatorStore();
   const scenario = scenarios.length > 0 ? scenarios[0] : null;
 
-  if (!scenario || selectedTier === 'foundation') {
+  if (!scenario) {
     return null; // Clean POV, no overlay
   }
 
