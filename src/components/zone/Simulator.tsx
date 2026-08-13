@@ -13,13 +13,14 @@ export const Simulator: React.FC = () => {
   
   const { 
     isPlaying, setPlaying, setCurrentTime, currentTime,
-    hasSeenTutorial, setTutorialSeen, setDuration,
+    setDuration,
     recordHazardClick, recordMiss, recordFalseClick, finishRun, activeRun
   } = useSimulatorStore();
 
   const [clicks, setClicks] = useState<{ id: number, x: number, y: number, hit: boolean }[]>([]);
   const [missedHazard, setMissedHazard] = useState<{ id: string, category: string, explanation: string, hitRegion: {x: number, y: number, w: number, h: number} } | null>(null);
   const [missTimer, setMissTimer] = useState<number | null>(null);
+  const [mousePos, setMousePos] = useState<{ x: number; y: number } | null>(null);
 
   useEffect(() => {
     if (missTimer !== null && missTimer > 0) {
@@ -48,16 +49,6 @@ export const Simulator: React.FC = () => {
     if (!videoRef.current) return;
     const time = videoRef.current.currentTime;
     setCurrentTime(time);
-    
-    // Tutorial logic: pause at first hazard if not seen
-    if (!hasSeenTutorial && scenario && scenario.hazards.length > 0) {
-      const firstHazard = scenario.hazards[0];
-      if (time >= firstHazard.t && time < firstHazard.t + 0.1) {
-        setPlaying(false);
-        setTutorialSeen(true);
-        // Dispatch some tutorial UI event or rely on Zone to render a tooltip
-      }
-    }
 
     // Missed hazard logic
     if (scenario && isPlaying) {
@@ -117,6 +108,16 @@ export const Simulator: React.FC = () => {
     }, 1000);
   };
 
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    setMousePos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+  };
+
+  const handleMouseLeave = () => {
+    setMousePos(null);
+  };
+
   if (!scenario) {
     return <div className="p-8 text-center bg-gray-100 rounded-lg">No scenario data available.</div>;
   }
@@ -124,13 +125,16 @@ export const Simulator: React.FC = () => {
   return (
     <div 
       ref={containerRef}
-      className="relative w-full aspect-video bg-black overflow-hidden cursor-crosshair group"
+      className="relative w-full aspect-video bg-black overflow-hidden"
+      style={{ cursor: 'none' }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
     >
       <video
         ref={videoRef}
         src={scenario.clip.src || ''}
         poster={scenario.clip.poster}
-        className="w-full h-full object-cover"
+        className="w-full h-full object-cover pointer-events-none"
         onTimeUpdate={handleTimeUpdate}
         onDurationChange={(e) => setDuration(e.currentTarget.duration)}
         onEnded={handleEnded}
@@ -154,9 +158,32 @@ export const Simulator: React.FC = () => {
         </div>
       </div>
 
-      {/* Invisible overlay to capture clicks safely */}
+      {/* Mouse-following crosshair cursor */}
+      {mousePos && (
+        <div 
+          className="absolute pointer-events-none"
+          style={{ 
+            left: mousePos.x, 
+            top: mousePos.y, 
+            zIndex: 25,
+            transform: 'translate(-50%, -50%)'
+          }}
+        >
+          <svg width="36" height="36" viewBox="0 0 48 48" fill="none">
+            <line x1="24" y1="0" x2="24" y2="18" stroke="white" strokeWidth="2" strokeOpacity="0.9" />
+            <line x1="24" y1="30" x2="24" y2="48" stroke="white" strokeWidth="2" strokeOpacity="0.9" />
+            <line x1="0" y1="24" x2="18" y2="24" stroke="white" strokeWidth="2" strokeOpacity="0.9" />
+            <line x1="30" y1="24" x2="48" y2="24" stroke="white" strokeWidth="2" strokeOpacity="0.9" />
+            <circle cx="24" cy="24" r="6" stroke="white" strokeWidth="1.5" strokeOpacity="0.9" fill="none" />
+            <circle cx="24" cy="24" r="1.5" fill="white" fillOpacity="0.9" />
+          </svg>
+        </div>
+      )}
+
+      {/* Invisible overlay to capture clicks safely - highest z-index to catch clicks */}
       <div 
-        className="absolute inset-0 z-10 cursor-crosshair" 
+        className="absolute inset-0 z-30" 
+        style={{ cursor: 'none' }}
         onClick={handleVideoClick} 
       />
 
@@ -169,14 +196,14 @@ export const Simulator: React.FC = () => {
             animate={{ scale: 2.5, opacity: 0 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
-            className={`absolute w-12 h-12 -ml-6 -mt-6 rounded-full border-4 pointer-events-none z-20 flex items-center justify-center ${click.hit ? 'border-accent bg-accent/20' : 'border-red-500 bg-red-500/20'}`}
+            className={`absolute w-12 h-12 -ml-6 -mt-6 rounded-full border-4 pointer-events-none z-20 flex items-center justify-center ${click.hit ? 'border-emerald-400 bg-emerald-400/30' : 'border-red-500 bg-red-500/20'}`}
             style={{ left: `${click.x}%`, top: `${click.y}%` }}
           >
             {click.hit && (
               <motion.div
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
-                className="w-full h-full text-accent flex items-center justify-center"
+                className="w-full h-full text-emerald-400 flex items-center justify-center"
               >
                 <CheckCircle className="w-1/2 h-1/2" strokeWidth={3} />
               </motion.div>
