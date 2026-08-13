@@ -68,7 +68,7 @@ export function StateGrid() {
             <div className="hidden md:block w-64 h-64 relative">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent-2/5 rounded-xl" />
               <img
-                src="/wayo-idle.png"
+                src={`${import.meta.env.BASE_URL}wayo-idle.png`}
                 alt="Wayo reviewing StateBook"
                 className="relative w-full h-full object-contain opacity-80"
               />

@@ -9,13 +9,14 @@ interface WayoAvatarProps {
   animate?: boolean;
 }
 
+const base = import.meta.env.BASE_URL;
 const EMOTION_ASSETS: Record<WayoEmotion, { static: string; animated?: string }> = {
-  idle:      { static: '/wayo-idle.png' },
-  curious:   { static: '/wayo-curious.png' },
-  thinking:  { static: '/wayo-thinking.png', animated: '/wayo-thinking.gif' },
-  alert:     { static: '/wayo-alert.png',    animated: '/wayo-alert.gif' },
-  happy:     { static: '/wayo-happy.png',    animated: '/wayo-happy.gif' },
-  concerned: { static: '/wayo-concerned.png' },
+  idle:      { static: `${base}wayo-idle.png` },
+  curious:   { static: `${base}wayo-curious.png` },
+  thinking:  { static: `${base}wayo-thinking.png`, animated: `${base}wayo-thinking.gif` },
+  alert:     { static: `${base}wayo-alert.png`,    animated: `${base}wayo-alert.gif` },
+  happy:     { static: `${base}wayo-happy.png`,    animated: `${base}wayo-happy.gif` },
+  concerned: { static: `${base}wayo-concerned.png` },
 };
 
 export function WayoAvatar({ emotion, size = 96, className, animate = false }: WayoAvatarProps) {

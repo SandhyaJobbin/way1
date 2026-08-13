@@ -35,7 +35,7 @@ export function StartGate({ children }: { children: ReactNode }) {
             {/* Background Video */}
             <video 
               ref={videoRef}
-              src="/map.mp4" 
+              src={`${import.meta.env.BASE_URL}map.mp4`} 
               autoPlay 
               muted 
               loop 

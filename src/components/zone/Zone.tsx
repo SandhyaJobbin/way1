@@ -34,7 +34,7 @@ export const Zone: React.FC = () => {
             className="relative z-10 w-full max-w-2xl bg-white rounded-2xl shadow-xl border border-slate-200 p-12 flex flex-col items-center text-center mx-auto my-auto"
           >
             <img
-              src="/wayo-idle.png"
+              src={`${import.meta.env.BASE_URL}wayo-idle.png`}
               alt="Wayo"
               className="w-40 h-40 object-contain mb-8"
             />
@@ -116,7 +116,7 @@ export const Zone: React.FC = () => {
               </button>
               <div className="flex items-start gap-3">
                 <img
-                  src="/wayo-avatar.png"
+                  src={`${import.meta.env.BASE_URL}wayo-avatar.png`}
                   alt="Wayo"
                   className="w-10 h-10 rounded-full flex-shrink-0"
                 />

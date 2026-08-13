@@ -4,19 +4,19 @@ const videos = [
   {
     title: 'Urban Crosswalk & Pedestrian Yield',
     duration: '1:45',
-    file: '/assets/san-francisco-crosswalk.mp4',
+    file: `${import.meta.env.BASE_URL}assets/san-francisco-crosswalk.mp4`,
     tag: 'City Driving',
   },
   {
     title: 'School Zone & Reduced Speed Rules',
     duration: '2:10',
-    file: '/assets/school-zone-sign.mp4',
+    file: `${import.meta.env.BASE_URL}assets/school-zone-sign.mp4`,
     tag: 'Special Zones',
   },
   {
     title: 'Suburban Intersection Hazards',
     duration: '1:30',
-    file: '/assets/suburban-street-sunset.mp4',
+    file: `${import.meta.env.BASE_URL}assets/suburban-street-sunset.mp4`,
     tag: 'Suburban',
   },
 ];
