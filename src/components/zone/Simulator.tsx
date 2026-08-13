@@ -183,7 +183,7 @@ export const Simulator: React.FC = () => {
       {/* Invisible overlay to capture clicks safely - highest z-index to catch clicks */}
       <div 
         className="absolute inset-0 z-30" 
-        style={{ cursor: 'none' }}
+      style={{ cursor: missedHazard ? 'auto' : 'none' }}
         onClick={handleVideoClick} 
       />
 

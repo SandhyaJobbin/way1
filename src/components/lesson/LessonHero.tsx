@@ -33,7 +33,7 @@ export function LessonHero() {
         <div className="h-8 w-px bg-slate-200" />
         <div>
           <div className="text-xs text-slate-500 font-medium">Modules</div>
-          <div className="text-lg font-bold text-accent">3 / 3</div>
+          <div className="text-lg font-bold text-accent">2 / 2</div>
         </div>
       </div>
     </motion.div>
