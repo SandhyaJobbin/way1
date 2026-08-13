@@ -17,6 +17,7 @@ import {
   Trophy,
   RotateCcw,
 } from 'lucide-react';
+import { WayoAvatar } from '../WayoAvatar';
 
 /* ─── Circular Score Gauge ─── */
 const ScoreGauge: React.FC<{ score: number; size?: number }> = ({
@@ -162,7 +163,20 @@ export const Scorecard: React.FC = () => {
         transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
       >
         {/* ─── Header: Gauge + Badge ─── */}
-        <div className="p-8 md:p-10 flex flex-col items-center border-b border-slate-100">
+        <div className="p-8 md:p-10 flex flex-col items-center gap-4 border-b border-slate-100">
+          {/* Wayo reacts to pass/fail */}
+          <motion.div
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.2 }}
+          >
+            {score.passed ? (
+              <WayoAvatar emotion="happy" size={80} animate={true} />
+            ) : (
+              <WayoAvatar emotion="concerned" size={80} />
+            )}
+          </motion.div>
+
           <ScoreGauge score={score.compositeScore} />
 
           {/* Pass/Fail Badge */}

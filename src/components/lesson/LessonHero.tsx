@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { WayoAvatar } from '../../components/WayoAvatar';
 
 export function LessonHero() {
   return (
@@ -8,11 +9,7 @@ export function LessonHero() {
       className="bg-white rounded-3xl p-8 border border-slate-100 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6"
     >
       <div className="flex items-center gap-6">
-        <img
-          src="/wayo-idle.png"
-          alt="Wayo Avatar"
-          className="w-24 h-24 object-contain"
-        />
+        <WayoAvatar emotion="curious" size={96} />
         <div>
           <span className="text-xs font-bold uppercase tracking-wider text-accent bg-accent/10 px-3 py-1 rounded-full">
             Autonomous Vehicle Foundations
